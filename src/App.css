@@ -63,3 +63,12 @@ p{
   width: 500px;
 }
 
+#Row{
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-around !important;
+}
+
+#parra, #projects{
+  margin-left: 20px;
+}

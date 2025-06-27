@@ -146,21 +146,21 @@ const App = () => {
   const proyectos = [
     {
       titulo: "MiMusico",
-      descripcion: "Una aplicación para buscar y publicar anuncios de instrumentos de segunda mano y grupos de música.",
+      descripcion: "An application to search for and post second-hand instrument ads and music groups.",
       foto: "/captura1.png",
       liveUrl: "https://mimusico.netlify.app",
       githubUrl: "https://github.com/pablojvm/MiMusico-client"
     },
     {
       titulo: "GoGurl!",
-      descripcion: "Una wiki App de información del mundo Drag Race España.",
+      descripcion: "A wiki app with information about the world of Drag Race España.",
       foto: "/captura2.png",
       liveUrl: "https://go-gurl.netlify.app/",
       githubUrl: "https://github.com/pablojvm/Go-Gurl-Client"
     },
     {
       titulo: "Drag for the Crown",
-      descripcion: "Minijuego de temática drag con manipulación de DOM.",
+      descripcion: "A drag-themed mini-game with DOM manipulation.",
       foto: "/captura3.png",
       liveUrl: "https://pablojvm.github.io/drag-for-the-crown/",
       githubUrl: "https://github.com/pablojvm/drag-for-the-crown"

@@ -244,7 +244,7 @@ const App = () => {
             className="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 font-medium"
             aria-label="Ver proyectos"
           >
-            Proyectos
+            Proyects
           </button>
 
           <button 
@@ -259,9 +259,9 @@ const App = () => {
             onClick={handleDownloadCV}
             disabled={isDownloading}
             className="bg-white text-black px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-white/25 font-medium disabled:opacity-50 disabled:cursor-not-allowed"
-            aria-label="Descargar CV"
+            aria-label="Download CV"
           >
-            {isDownloading ? 'Descargando...' : 'Descargar CV'}
+            {isDownloading ? 'Downloading...' : 'Download CV'}
           </button>
         </div>
       </header>
@@ -326,7 +326,7 @@ const App = () => {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                {['JavaScript', 'React', 'Node.js', 'MongoDB', 'HTML/CSS', 'Git', 'Bootstrap', 'Tailwindcss'].map((skill) => (
+                {['JavaScript', 'TypeScript', 'HTML/CSS', 'React', 'Bootstrap', 'Tailwindcss', 'Node.js', 'Express', 'RestApis', 'MongoDB', 'MySQL', 'Git'].map((skill) => (
                   <span
                     key={skill}
                     className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-300/30 rounded-full text-white/90 text-sm font-medium hover:scale-105 transition-transform"
@@ -342,7 +342,7 @@ const App = () => {
 
       <section id="proyectos" className="px-4 sm:px-6 lg:px-10 pb-20">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          Mis Proyectos
+          Proyects
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -439,7 +439,7 @@ const App = () => {
       </section>
 
       <footer className="text-center py-8 text-white/60 border-t border-white/10">
-        <p>&copy; 2025 Pablo Villar. Hecho con React y ❤️</p>
+        <p>&copy; 2025 Pablo Villar. Done with React y ❤️</p>
       </footer>
     </div>
   );

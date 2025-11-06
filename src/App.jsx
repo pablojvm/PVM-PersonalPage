@@ -145,6 +145,13 @@ const App = () => {
 
   const proyectos = [
     {
+      titulo: "AirB2B",
+      descripcion: "AirB2B is a full-stack application inspired by Airbnb, focused on corporate accommodation.",
+      foto: "/captura4.png",
+      liveUrl: "https://airb2b.netlify.app/",
+      githubUrl: "https://github.com/pablojvm/AirB2B-Client"
+    },
+    {
       titulo: "MiMusico",
       descripcion: "An application to search for and post second-hand instrument ads and music groups.",
       foto: "/captura1.png",

@@ -145,6 +145,13 @@ const App = () => {
 
   const proyectos = [
     {
+      titulo: "Galileo Psicólogos",
+      descripcion: "Galileo Psicólogos is a full-stack web application designed to provide an accessible and seamless digital experience for patients, focused on mental health services..",
+      foto: "/captura5.png",
+      liveUrl: "https://galileopsicologos.netlify.app/",
+      githubUrl: "https://github.com/pablojvm/GalileoPsicologos-Client"
+    },
+    {
       titulo: "AirB2B",
       descripcion: "AirB2B is a full-stack application inspired by Airbnb, focused on corporate accommodation.",
       foto: "/captura4.png",
@@ -333,7 +340,7 @@ const App = () => {
               </div>
 
               <div className="flex flex-wrap gap-3">
-                {['JavaScript', 'TypeScript', 'HTML/CSS', 'React', 'Bootstrap', 'Tailwindcss', 'Node.js', 'Express', 'RestApis', 'MongoDB', 'MySQL', 'Git'].map((skill) => (
+                {['JavaScript', 'HTML/CSS', 'React', 'Bootstrap', 'Tailwindcss', 'Node.js', 'Express', 'RestApis', 'MongoDB', 'Libraries', 'Git'].map((skill) => (
                   <span
                     key={skill}
                     className="px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-300/30 rounded-full text-white/90 text-sm font-medium hover:scale-105 transition-transform"

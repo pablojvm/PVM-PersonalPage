@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "language": "Language",
+    "theme": "Theme",
+    "themeLight": "Light mode",
+    "themeDark": "Dark mode"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Pablo",
+    "role": "FullStack & Automation Developer",
+    "ctaAbout": "About Me",
+    "ctaAutomation": "Automation",
+    "ctaProjects": "Projects",
+    "ctaContact": "Contact",
+    "ctaDownloadCV": "Download CV",
+    "ctaDownloading": "Downloading...",
+    "ariaAbout": "Learn more about me",
+    "ariaAutomation": "View automation experience",
+    "ariaProjects": "View projects",
+    "ariaContact": "Contact",
+    "ariaDownloadCV": "Download CV"
+  },
+  "about": {
+    "title": "About Me",
+    "imageAlt": "Pablo Villar - Full Stack Developer",
+    "placeholder": "Your photo here",
+    "p1": {
+      "intro": "I'm a ",
+      "role": "Full Stack & Automation Developer",
+      "middle": " with a strong foundation in ",
+      "js": "JavaScript",
+      "comma1": ", ",
+      "react": "React",
+      "comma2": ", ",
+      "node": "Node.js",
+      "and1": " and ",
+      "mongo": "MongoDB",
+      "tail1": ", now focused on building workflows with ",
+      "n8n": "n8n",
+      "comma3": ", ",
+      "docker": "Docker",
+      "and2": " and ",
+      "ai": "AI integrations",
+      "tail2": "."
+    },
+    "p2": {
+      "intro": "After several years working in the hospitality and retail industries—where I developed key soft skills like ",
+      "communication": "communication",
+      "comma1": ", ",
+      "adaptability": "adaptability",
+      "and": " and ",
+      "teamwork": "teamwork",
+      "middle": "—I made a career shift into tech, driven by a passion for problem-solving and turning manual processes into ",
+      "scalable": "scalable digital solutions",
+      "tail": "."
+    },
+    "p3": {
+      "intro": "Today I split my time between shipping ",
+      "fullstack": "full-stack web apps",
+      "middle1": " and designing automations that connect ",
+      "apis": "APIs",
+      "comma1": ", ",
+      "crms": "CRMs",
+      "and": " and ",
+      "llms": "LLMs",
+      "tail": " to save teams hundreds of hours — always eager to keep learning and growing."
+    },
+    "tags": ["Full Stack", "Automation", "AI Integrations", "API Design", "Self-hosting"]
+  },
+  "tech": {
+    "title": "Tech Stack",
+    "subtitle": "Tools and technologies I use to build full-stack apps and automations."
+  },
+  "automation": {
+    "badge": "What I'm doing now",
+    "title": "Automation Developer",
+    "description": "I design and build automated workflows that eliminate manual work — connecting CRMs, payment systems, AI models and internal tools to keep businesses running 24/7.",
+    "metrics": [
+      { "valor": "20+", "label": "Workflows deployed" },
+      { "valor": "500+ h", "label": "Saved per quarter" },
+      { "valor": "15+", "label": "APIs integrated" },
+      { "valor": "24/7", "label": "Running pipelines" }
+    ],
+    "capabilities": [
+      {
+        "titulo": "Workflow Automation",
+        "items": [
+          "n8n workflows (self-hosted on Docker)",
+          "REST API integrations",
+          "Webhooks & event-driven flows",
+          "Web scraping & bots"
+        ]
+      },
+      {
+        "titulo": "Business Use Cases",
+        "items": [
+          "CRM sync & lead management",
+          "Email marketing automation",
+          "Automated reporting & dashboards",
+          "AI-powered classification & triage"
+        ]
+      },
+      {
+        "titulo": "Tech Stack",
+        "items": [
+          "n8n, Docker, Linux",
+          "REST APIs & Webhooks",
+          "OpenAI API & LLM tooling",
+          "MongoDB / Postgres"
+        ]
+      },
+      {
+        "titulo": "Business Impact",
+        "items": [
+          "Eliminated manual repetitive tasks",
+          "Reduced response times drastically",
+          "Real-time reporting for decisions",
+          "Scalable, monitored pipelines"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Featured Projects",
+    "liveDemo": "Live Demo",
+    "github": "GitHub",
+    "items": [
+      {
+        "titulo": "Galileo Psicólogos",
+        "descripcion": "Galileo Psicólogos is a full-stack web application designed to provide an accessible and seamless digital experience for patients, focused on mental health services.."
+      },
+      {
+        "titulo": "AirB2B",
+        "descripcion": "AirB2B is a full-stack application inspired by Airbnb, focused on corporate accommodation."
+      },
+      {
+        "titulo": "MiMusico",
+        "descripcion": "An application to search for and post second-hand instrument ads and music groups."
+      },
+      {
+        "titulo": "GoGurl!",
+        "descripcion": "A wiki app with information about the world of Drag Race España."
+      },
+      {
+        "titulo": "Drag for the Crown",
+        "descripcion": "A drag-themed mini-game with DOM manipulation."
+      }
+    ]
+  },
+  "caseStudies": {
+    "title": "Professional Case Studies",
+    "subtitle": "A selection of automation projects delivered under NDA. Client names and screenshots are omitted; the technical and business outcomes are real.",
+    "labels": {
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "confidential": "Confidential client · details anonymized"
+    },
+    "items": [
+      {
+        "sector": "Healthcare",
+        "titulo": "Patient Appointment Automation",
+        "problema": "The clinic was managing 100+ daily appointments by phone and email, with a high no-show rate and frequent scheduling errors.",
+        "solucion": "n8n workflow syncing calendar, WhatsApp Business, email and CRM. Automatic confirmation 24h in advance, self-service rescheduling and AI-powered triage.",
+        "impacto": ["−70% admin time", "+40% appointment attendance", "24/7 automated response"]
+      },
+      {
+        "sector": "E-commerce",
+        "titulo": "Inventory & Order Sync Pipeline",
+        "problema": "Stock mismatches between WordPress/WooCommerce, the supplier's ERP and the physical store caused overselling and weekly manual reports.",
+        "solucion": "Automated pipeline that syncs stock in real time between WooCommerce and the ERP, generates daily reports and alerts on anomalies via Slack.",
+        "impacto": ["0 overselling incidents", "−85% reporting time", "Sync in < 30 seconds"]
+      },
+      {
+        "sector": "Marketing Agency",
+        "titulo": "AI-Powered Lead Qualification",
+        "problema": "The sales team manually qualified hundreds of leads from web, ads and events, with response times of 24–48 hours.",
+        "solucion": "Workflow that captures leads, enriches them with public data, scores them with AI and triggers personalized email sequences in Brevo.",
+        "impacto": ["Initial response in < 2 min", "+3× qualified leads/day", "+25% conversion rate"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Let's Connect",
+    "subtitle": "I'm always open to discussing new opportunities, collaborations, or just having a chat about tech. Feel free to reach out!",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "ctaTitle": "Ready to work together?",
+    "ctaSubtitle": "Let's discuss your next project and see how I can help bring your ideas to life.",
+    "ctaButton": "Get In Touch"
+  },
+  "footer": {
+    "rights": "Pablo Villar. Made with React & ❤️"
+  },
+  "errors": {
+    "cvDownload": "Error downloading the file. Please try again."
+  }
+}

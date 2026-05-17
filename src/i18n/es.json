@@ -1,0 +1,198 @@
+{
+  "nav": {
+    "language": "Idioma",
+    "theme": "Tema",
+    "themeLight": "Modo claro",
+    "themeDark": "Modo oscuro"
+  },
+  "hero": {
+    "greeting": "Hola, soy Pablo",
+    "role": "Desarrollador FullStack y de Automatizaciones",
+    "ctaAbout": "Sobre mí",
+    "ctaAutomation": "Automatización",
+    "ctaProjects": "Proyectos",
+    "ctaContact": "Contacto",
+    "ctaDownloadCV": "Descargar CV",
+    "ctaDownloading": "Descargando...",
+    "ariaAbout": "Conoce más sobre mí",
+    "ariaAutomation": "Ver experiencia en automatización",
+    "ariaProjects": "Ver proyectos",
+    "ariaContact": "Contacto",
+    "ariaDownloadCV": "Descargar CV"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "imageAlt": "Pablo Villar - Desarrollador Full Stack",
+    "placeholder": "Tu foto aquí",
+    "p1": {
+      "intro": "Soy ",
+      "role": "Desarrollador Full Stack y de Automatizaciones",
+      "middle": " con una base sólida en ",
+      "js": "JavaScript",
+      "comma1": ", ",
+      "react": "React",
+      "comma2": ", ",
+      "node": "Node.js",
+      "and1": " y ",
+      "mongo": "MongoDB",
+      "tail1": ", actualmente enfocado en construir flujos de trabajo con ",
+      "n8n": "n8n",
+      "comma3": ", ",
+      "docker": "Docker",
+      "and2": " e ",
+      "ai": "integraciones de IA",
+      "tail2": "."
+    },
+    "p2": {
+      "intro": "Tras varios años trabajando en los sectores de hostelería y retail —donde desarrollé habilidades blandas clave como ",
+      "communication": "comunicación",
+      "comma1": ", ",
+      "adaptability": "adaptabilidad",
+      "and": " y ",
+      "teamwork": "trabajo en equipo",
+      "middle": "—, di un giro profesional hacia la tecnología, impulsado por la pasión por resolver problemas y convertir procesos manuales en ",
+      "scalable": "soluciones digitales escalables",
+      "tail": "."
+    },
+    "p3": {
+      "intro": "Hoy reparto mi tiempo entre desplegar ",
+      "fullstack": "aplicaciones web full-stack",
+      "middle1": " y diseñar automatizaciones que conectan ",
+      "apis": "APIs",
+      "comma1": ", ",
+      "crms": "CRMs",
+      "and": " y ",
+      "llms": "LLMs",
+      "tail": " para ahorrar a los equipos cientos de horas, siempre con ganas de seguir aprendiendo y creciendo."
+    },
+    "tags": ["Full Stack", "Automatización", "Integraciones de IA", "Diseño de APIs", "Self-hosting"]
+  },
+  "tech": {
+    "title": "Stack Tecnológico",
+    "subtitle": "Herramientas y tecnologías que utilizo para construir aplicaciones full-stack y automatizaciones."
+  },
+  "automation": {
+    "badge": "En lo que estoy ahora",
+    "title": "Desarrollador de Automatizaciones",
+    "description": "Diseño y construyo flujos de trabajo automatizados que eliminan el trabajo manual, conectando CRMs, sistemas de pago, modelos de IA y herramientas internas para que los negocios funcionen 24/7.",
+    "metrics": [
+      { "valor": "20+", "label": "Workflows desplegados" },
+      { "valor": "500+ h", "label": "Ahorradas por trimestre" },
+      { "valor": "15+", "label": "APIs integradas" },
+      { "valor": "24/7", "label": "Pipelines en marcha" }
+    ],
+    "capabilities": [
+      {
+        "titulo": "Automatización de Workflows",
+        "items": [
+          "Workflows de n8n (self-hosted en Docker)",
+          "Integraciones con APIs REST",
+          "Webhooks y flujos orientados a eventos",
+          "Web scraping y bots"
+        ]
+      },
+      {
+        "titulo": "Casos de Uso de Negocio",
+        "items": [
+          "Sincronización de CRM y gestión de leads",
+          "Automatización de email marketing",
+          "Reportes y dashboards automatizados",
+          "Clasificación y triaje con IA"
+        ]
+      },
+      {
+        "titulo": "Stack Tecnológico",
+        "items": [
+          "n8n, Docker, Linux",
+          "APIs REST y Webhooks",
+          "API de OpenAI y herramientas LLM",
+          "MongoDB / Postgres"
+        ]
+      },
+      {
+        "titulo": "Impacto en el Negocio",
+        "items": [
+          "Eliminación de tareas manuales repetitivas",
+          "Reducción drástica de tiempos de respuesta",
+          "Reportes en tiempo real para decisiones",
+          "Pipelines escalables y monitorizados"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos Destacados",
+    "liveDemo": "Demo en vivo",
+    "github": "GitHub",
+    "items": [
+      {
+        "titulo": "Galileo Psicólogos",
+        "descripcion": "Galileo Psicólogos es una aplicación web full-stack diseñada para ofrecer a los pacientes una experiencia digital accesible y fluida, enfocada en servicios de salud mental."
+      },
+      {
+        "titulo": "AirB2B",
+        "descripcion": "AirB2B es una aplicación full-stack inspirada en Airbnb, enfocada en alojamiento corporativo."
+      },
+      {
+        "titulo": "MiMusico",
+        "descripcion": "Una aplicación para buscar y publicar anuncios de instrumentos de segunda mano y grupos de música."
+      },
+      {
+        "titulo": "GoGurl!",
+        "descripcion": "Una wiki con información sobre el mundo de Drag Race España."
+      },
+      {
+        "titulo": "Drag for the Crown",
+        "descripcion": "Un mini-juego con temática drag con manipulación del DOM."
+      }
+    ]
+  },
+  "caseStudies": {
+    "title": "Casos de Estudio Profesionales",
+    "subtitle": "Una selección de proyectos de automatización entregados bajo NDA. Se omiten nombres de clientes y capturas; los resultados técnicos y de negocio son reales.",
+    "labels": {
+      "challenge": "Desafío",
+      "solution": "Solución",
+      "confidential": "Cliente confidencial · detalles anonimizados"
+    },
+    "items": [
+      {
+        "sector": "Salud",
+        "titulo": "Automatización de Citas Médicas",
+        "problema": "La clínica gestionaba más de 100 citas diarias por teléfono y email, con una alta tasa de ausencias y frecuentes errores de agendamiento.",
+        "solucion": "Workflow en n8n que sincroniza calendario, WhatsApp Business, email y CRM. Confirmación automática 24 h antes, reagendamiento self-service y triaje con IA.",
+        "impacto": ["−70% de tiempo administrativo", "+40% de asistencia a citas", "Respuesta automatizada 24/7"]
+      },
+      {
+        "sector": "E-commerce",
+        "titulo": "Pipeline de Sincronización de Inventario y Pedidos",
+        "problema": "Las inconsistencias de stock entre WordPress/WooCommerce, el ERP del proveedor y la tienda física provocaban sobreventas y reportes manuales semanales.",
+        "solucion": "Pipeline automatizado que sincroniza el stock en tiempo real entre WooCommerce y el ERP, genera reportes diarios y alerta de anomalías por Slack.",
+        "impacto": ["0 incidencias de sobreventa", "−85% de tiempo en reportes", "Sincronización en < 30 segundos"]
+      },
+      {
+        "sector": "Agencia de Marketing",
+        "titulo": "Calificación de Leads con IA",
+        "problema": "El equipo comercial calificaba manualmente cientos de leads procedentes de web, ads y eventos, con tiempos de respuesta de 24–48 horas.",
+        "solucion": "Workflow que captura leads, los enriquece con datos públicos, los puntúa con IA y dispara secuencias de email personalizadas en Brevo.",
+        "impacto": ["Respuesta inicial en < 2 min", "+3× leads cualificados/día", "+25% de tasa de conversión"]
+      }
+    ]
+  },
+  "contact": {
+    "title": "Hablemos",
+    "subtitle": "Siempre estoy abierto a hablar sobre nuevas oportunidades, colaboraciones o simplemente charlar de tecnología. ¡No dudes en escribirme!",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "ctaTitle": "¿Listos para trabajar juntos?",
+    "ctaSubtitle": "Hablemos de tu próximo proyecto y veamos cómo puedo ayudarte a hacer realidad tus ideas.",
+    "ctaButton": "Ponte en contacto"
+  },
+  "footer": {
+    "rights": "Pablo Villar. Hecho con React & ❤️"
+  },
+  "errors": {
+    "cvDownload": "Error al descargar el archivo. Por favor, inténtalo de nuevo."
+  }
+}

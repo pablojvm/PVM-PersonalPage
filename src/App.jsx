@@ -3,6 +3,7 @@ import { useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import TopBar from "./components/TopBar";
 
+/* ------------------------- Canvas animation hook ------------------------- */
 const useCanvasAnimation = (canvasRef, isDark) => {
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -39,13 +40,13 @@ const useCanvasAnimation = (canvasRef, isDark) => {
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      particles.forEach(particle => {
+
+      particles.forEach((particle) => {
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.r, 0, 2 * Math.PI);
         ctx.fillStyle = fillStyle;
         ctx.fill();
-        
+
         ctx.strokeStyle = strokeStyle;
         ctx.lineWidth = 1;
         ctx.stroke();
@@ -70,52 +71,67 @@ const useCanvasAnimation = (canvasRef, isDark) => {
       resizeCanvas();
     };
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       if (animationId) {
         cancelAnimationFrame(animationId);
       }
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [canvasRef, isDark]);
 };
 
-const ProjectCard = ({ titulo, descripcion, foto, liveUrl, githubUrl, liveLabel, githubLabel }) => {
+/* --------------------------- Project card --------------------------- */
+const ProjectCard = ({
+  titulo,
+  descripcion,
+  foto,
+  liveUrl,
+  githubUrl,
+  liveLabel,
+  githubLabel,
+}) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
   return (
-    <div className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 transform
-                    theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md">
+    <div
+      className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 transform
+                    theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
+    >
       <div className="relative h-48 overflow-hidden">
         {!hasError ? (
           <img
             src={foto}
             alt={titulo}
             className={`w-full h-full object-cover transition-opacity duration-300 ${
-              imageLoaded ? 'opacity-100' : 'opacity-0'
+              imageLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setImageLoaded(true)}
             onError={() => setHasError(true)}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-            <span className="text-white/60 text-lg theme-light:text-slate-500">📷</span>
+            <span className="text-white/60 text-lg theme-light:text-slate-500">
+              📷
+            </span>
           </div>
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent theme-light:from-black/20" />
       </div>
-      
+
       <div className="p-6">
-        <h2 className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors
-                       theme-light:text-slate-900 theme-light:group-hover:text-purple-600">
+        <h2
+          className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors
+                       theme-light:text-slate-900 theme-light:group-hover:text-purple-600"
+        >
           {titulo}
         </h2>
         <p className="text-white/80 text-sm leading-relaxed mb-4 theme-light:text-slate-700">
           {descripcion}
         </p>
-        
+
         <div className="flex gap-3 mt-4">
           {liveUrl && (
             <a
@@ -125,13 +141,23 @@ const ProjectCard = ({ titulo, descripcion, foto, liveUrl, githubUrl, liveLabel,
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30 rounded-lg hover:scale-105 transition-all duration-200 text-green-300 hover:text-green-200 text-sm font-medium
                          theme-light:from-green-500/15 theme-light:to-emerald-500/15 theme-light:text-green-700 theme-light:hover:text-green-800"
             >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                />
               </svg>
               {liveLabel}
             </a>
           )}
-          
+
           {githubUrl && (
             <a
               href={githubUrl}
@@ -140,8 +166,12 @@ const ProjectCard = ({ titulo, descripcion, foto, liveUrl, githubUrl, liveLabel,
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-600/20 to-gray-800/20 border border-gray-400/30 rounded-lg hover:scale-105 transition-all duration-200 text-gray-300 hover:text-gray-200 text-sm font-medium
                          theme-light:from-slate-500/10 theme-light:to-slate-700/10 theme-light:text-slate-700 theme-light:hover:text-slate-900"
             >
-              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+              <svg
+                className="w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
               {githubLabel}
             </a>
@@ -152,6 +182,7 @@ const ProjectCard = ({ titulo, descripcion, foto, liveUrl, githubUrl, liveLabel,
   );
 };
 
+/* --------------------------- Tech data --------------------------- */
 const tecnologias = [
   { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
   { name: "React", slug: "react", color: "61DAFB" },
@@ -186,6 +217,120 @@ const tecnologias = [
   },
 ];
 
+/* --------------------------- Icon helpers & component --------------------------- */
+
+const normalizeHex = (c) => {
+  if (!c) return null;
+  return c.startsWith("#") ? c.toUpperCase() : `#${c.toUpperCase()}`;
+};
+
+const hexForUrl = (c) => (c ? c.replace(/^#/, "").toUpperCase() : undefined);
+
+/**
+ * TechIcon: muestra iconUrl -> slug(SimpleIcons) -> inline path -> fallback.
+ * Usa internal state para gestionar error de carga de imagen.
+ */
+const TechIcon = ({ tech, size = 56, className = "" }) => {
+  const [imgError, setImgError] = useState(false);
+
+  // Prepare color usage
+  const fillColor = normalizeHex(tech.color) || "currentColor";
+  const colorForUrl = hexForUrl(tech.color);
+
+  // 1) iconUrl
+  if (tech.iconUrl && !imgError) {
+    const styleWhiteBg =
+      tech.color &&
+      tech.color.replace?.(/^#?/, "")?.toUpperCase() === "FFFFFF"
+        ? { background: "rgba(255,255,255,0.08)", padding: 8, borderRadius: 8 }
+        : undefined;
+
+    return (
+      <>
+        <img
+          src={tech.iconUrl}
+          alt={`${tech.name} logo`}
+          width={size}
+          height={size}
+          className={`object-contain ${className}`}
+          style={{ width: size, height: size, ...styleWhiteBg }}
+          onError={() => setImgError(true)}
+          loading="lazy"
+        />
+        {imgError ? (
+          <div
+            style={{
+              width: size,
+              height: size,
+              borderRadius: size / 4,
+            }}
+            aria-hidden
+          />
+        ) : null}
+      </>
+    );
+  }
+
+  // 2) slug -> Simple Icons CDN
+  if (tech.slug && !imgError) {
+    const cdnUrl = colorForUrl
+      ? `https://cdn.simpleicons.org/${tech.slug}/${colorForUrl}`
+      : `https://cdn.simpleicons.org/${tech.slug}`;
+
+    const styleWhiteBg =
+      tech.color && tech.color.replace?.(/^#?/, "")?.toUpperCase() === "FFFFFF"
+        ? { background: "rgba(255,255,255,0.08)", padding: 8, borderRadius: 8 }
+        : undefined;
+
+    return (
+      <img
+        src={cdnUrl}
+        alt={`${tech.name} logo`}
+        width={size}
+        height={size}
+        className={`object-contain ${className}`}
+        style={{ width: size, height: size, ...styleWhiteBg }}
+        onError={(e) => {
+          // Hide broken img and fall back to inline or placeholder
+          e.currentTarget.style.display = "none";
+          setImgError(true);
+        }}
+        loading="lazy"
+      />
+    );
+  }
+
+  // 3) inline SVG path (OpenAI, Anthropic, etc.)
+  if (tech.path) {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        width={size}
+        height={size}
+        className={className}
+        role="img"
+        aria-label={`${tech.name} logo`}
+      >
+        <path d={tech.path} fill={fillColor} />
+      </svg>
+    );
+  }
+
+  // 4) fallback: initials circle
+  const initial = (tech.name || "?").slice(0, 1).toUpperCase();
+  return (
+    <div
+      className={`flex items-center justify-center rounded-full bg-slate-200 text-slate-700 ${className}`}
+      style={{ width: size, height: size }}
+      title={tech.name}
+      aria-hidden="false"
+    >
+      <span className="font-semibold">{initial}</span>
+    </div>
+  );
+};
+
+/* --------------------------- Tech carousel (integrated) --------------------------- */
 const TechCarousel = () => {
   const { t } = useLanguage();
   const { isDark } = useTheme();
@@ -196,7 +341,8 @@ const TechCarousel = () => {
     ? lista
     : lista.map((tech) => {
         if (!tech.color) return tech;
-        if (tech.color === "FFFFFF") return { ...tech, color: "111827" };
+        if (tech.color.toUpperCase() === "FFFFFF" || tech.color === "#FFFFFF")
+          return { ...tech, color: "111827" };
         return tech;
       });
 
@@ -216,40 +362,33 @@ const TechCarousel = () => {
               className="flex flex-col items-center gap-3 min-w-[80px] group"
               title={tech.name}
             >
-              {tech.path ? (
-                <svg
-                  viewBox="0 0 24 24"
-                  fill={`#${tech.color}`}
-                  className="w-14 h-14 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                  aria-label={`${tech.name} logo`}
-                  role="img"
-                >
-                  <path d={tech.path} />
-                </svg>
-              ) : (
-                <img
-                  src={tech.iconUrl || `https://logos-world.net/wp-content/uploads/2023/09/Tech-logos-The-most-famous-technology-company-logos-and-names.png`}
-                  alt={`${tech.name} logo`}
-                  className="w-14 h-14 object-contain opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
-                  loading="lazy"
-                />
-              )}
-              <span className="text-xs text-white/70 group-hover:text-white transition-colors whitespace-nowrap
-                               theme-light:text-slate-600 theme-light:group-hover:text-slate-900">
+              <div className="flex items-center justify-center">
+                <TechIcon tech={tech} size={56} className="w-14 h-14 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+              </div>
+              <span
+                className="text-xs text-white/70 group-hover:text-white transition-colors whitespace-nowrap
+                               theme-light:text-slate-600 theme-light:group-hover:text-slate-900"
+              >
                 {tech.name}
               </span>
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-800 to-transparent z-10
-                        theme-light:from-slate-50" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-indigo-900 to-transparent z-10
-                        theme-light:from-slate-100" />
+
+        <div
+          className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-800 to-transparent z-10
+                        theme-light:from-slate-50"
+        />
+        <div
+          className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-indigo-900 to-transparent z-10
+                        theme-light:from-slate-100"
+        />
       </div>
     </section>
   );
 };
 
+/* --------------------------- Automation section --------------------------- */
 const AutomationSection = () => {
   const { t } = useLanguage();
   const metrics = t("automation.metrics");
@@ -321,6 +460,7 @@ const AutomationSection = () => {
   );
 };
 
+/* --------------------------- Case study card & assets --------------------------- */
 const CaseStudyCard = ({ sector, titulo, problema, solucion, tech, impacto, gradient, icon, labels }) => (
   <div className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-[1.02] hover:border-white/30 transition-all duration-300 flex flex-col
                   theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md theme-light:hover:border-slate-300">
@@ -380,7 +520,6 @@ const CaseStudyCard = ({ sector, titulo, problema, solucion, tech, impacto, grad
   </div>
 );
 
-// Static, non-translatable assets per case study (tech list + decorative icon)
 const caseStudyAssets = [
   {
     tech: ["n8n", "WhatsApp API", "OpenAI", "REST APIs", "MongoDB"],
@@ -411,7 +550,7 @@ const caseStudyAssets = [
   },
 ];
 
-// Static project assets (images + urls) — text fields come from translations.
+/* --------------------------- Project assets --------------------------- */
 const projectAssets = [
   {
     foto: "/captura5.png",
@@ -440,6 +579,7 @@ const projectAssets = [
   },
 ];
 
+/* --------------------------- Main App --------------------------- */
 const App = () => {
   const canvasRef = useRef(null);
   const [isDownloading, setIsDownloading] = useState(false);
@@ -497,8 +637,8 @@ const App = () => {
     >
       <TopBar />
 
-      <canvas 
-        ref={canvasRef} 
+      <canvas
+        ref={canvasRef}
         className="fixed inset-0 w-full h-full pointer-events-none"
         style={{ zIndex: 1 }}
         aria-hidden="true"
@@ -512,9 +652,9 @@ const App = () => {
         <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto theme-light:text-slate-700">
           {t("hero.role")}
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button 
+          <button
             onClick={() => scrollTo("#about")}
             className="bg-gradient-to-r from-indigo-500 to-purple-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 font-medium text-white"
             aria-label={t("hero.ariaAbout")}
@@ -545,7 +685,7 @@ const App = () => {
           >
             {t("hero.ctaContact")}
           </button>
-          
+
           <button
             onClick={handleDownloadCV}
             disabled={isDownloading}
@@ -563,9 +703,8 @@ const App = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white theme-light:text-slate-900">
             {t("about.title")}
           </h2>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            
             <div className="flex justify-center lg:justify-start">
               <div className="relative group">
                 <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
@@ -575,8 +714,8 @@ const App = () => {
                     alt={t("about.imageAlt")}
                     className="w-80 h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/20"
                     onError={(e) => {
-                      e.target.style.display = 'none';
-                      e.target.nextSibling.style.display = 'flex';
+                      e.target.style.display = "none";
+                      e.target.nextSibling.style.display = "flex";
                     }}
                   />
                   <div className="hidden w-80 h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl shadow-2xl border-4 border-white/20 items-center justify-center">
@@ -593,31 +732,79 @@ const App = () => {
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-8 shadow-lg
                               theme-light:bg-white theme-light:border-slate-200">
                 <p className="text-lg leading-relaxed text-white/90 mb-6 theme-light:text-slate-700">
-                  {aboutP1.intro}<span className="text-purple-300 font-semibold theme-light:text-purple-700">{aboutP1.role}</span>
+                  {aboutP1.intro}
+                  <span className="text-purple-300 font-semibold theme-light:text-purple-700">
+                    {aboutP1.role}
+                  </span>
                   {aboutP1.middle}
-                  <span className="text-yellow-300 font-medium theme-light:text-yellow-700">{aboutP1.js}</span>{aboutP1.comma1}
-                  <span className="text-blue-300 font-medium theme-light:text-blue-700">{aboutP1.react}</span>{aboutP1.comma2}
-                  <span className="text-green-300 font-medium theme-light:text-green-700">{aboutP1.node}</span>{aboutP1.and1}
-                  <span className="text-green-400 font-medium theme-light:text-green-700">{aboutP1.mongo}</span>{aboutP1.tail1}
-                  <span className="text-pink-300 font-medium theme-light:text-pink-700">{aboutP1.n8n}</span>{aboutP1.comma3}
-                  <span className="text-cyan-300 font-medium theme-light:text-cyan-700">{aboutP1.docker}</span>{aboutP1.and2}
-                  <span className="text-purple-300 font-medium theme-light:text-purple-700">{aboutP1.ai}</span>{aboutP1.tail2}
+                  <span className="text-yellow-300 font-medium theme-light:text-yellow-700">
+                    {aboutP1.js}
+                  </span>
+                  {aboutP1.comma1}
+                  <span className="text-blue-300 font-medium theme-light:text-blue-700">
+                    {aboutP1.react}
+                  </span>
+                  {aboutP1.comma2}
+                  <span className="text-green-300 font-medium theme-light:text-green-700">
+                    {aboutP1.node}
+                  </span>
+                  {aboutP1.and1}
+                  <span className="text-green-400 font-medium theme-light:text-green-700">
+                    {aboutP1.mongo}
+                  </span>
+                  {aboutP1.tail1}
+                  <span className="text-pink-300 font-medium theme-light:text-pink-700">
+                    {aboutP1.n8n}
+                  </span>
+                  {aboutP1.comma3}
+                  <span className="text-cyan-300 font-medium theme-light:text-cyan-700">
+                    {aboutP1.docker}
+                  </span>
+                  {aboutP1.and2}
+                  <span className="text-purple-300 font-medium theme-light:text-purple-700">
+                    {aboutP1.ai}
+                  </span>
+                  {aboutP1.tail2}
                 </p>
 
                 <p className="text-lg leading-relaxed text-white/90 mb-6 theme-light:text-slate-700">
                   {aboutP2.intro}
-                  <span className="text-pink-300 font-medium theme-light:text-pink-700">{aboutP2.communication}</span>{aboutP2.comma1}
-                  <span className="text-pink-300 font-medium theme-light:text-pink-700">{aboutP2.adaptability}</span>{aboutP2.and}
-                  <span className="text-pink-300 font-medium theme-light:text-pink-700">{aboutP2.teamwork}</span>{aboutP2.middle}
-                  <span className="text-purple-300 font-medium theme-light:text-purple-700">{aboutP2.scalable}</span>{aboutP2.tail}
+                  <span className="text-pink-300 font-medium theme-light:text-pink-700">
+                    {aboutP2.communication}
+                  </span>
+                  {aboutP2.comma1}
+                  <span className="text-pink-300 font-medium theme-light:text-pink-700">
+                    {aboutP2.adaptability}
+                  </span>
+                  {aboutP2.and}
+                  <span className="text-pink-300 font-medium theme-light:text-pink-700">
+                    {aboutP2.teamwork}
+                  </span>
+                  {aboutP2.middle}
+                  <span className="text-purple-300 font-medium theme-light:text-purple-700">
+                    {aboutP2.scalable}
+                  </span>
+                  {aboutP2.tail}
                 </p>
 
                 <p className="text-lg leading-relaxed text-white/90 theme-light:text-slate-700">
                   {aboutP3.intro}
-                  <span className="text-purple-300 font-medium theme-light:text-purple-700">{aboutP3.fullstack}</span>{aboutP3.middle1}
-                  <span className="text-blue-300 font-medium theme-light:text-blue-700">{aboutP3.apis}</span>{aboutP3.comma1}
-                  <span className="text-blue-300 font-medium theme-light:text-blue-700">{aboutP3.crms}</span>{aboutP3.and}
-                  <span className="text-blue-300 font-medium theme-light:text-blue-700">{aboutP3.llms}</span>{aboutP3.tail}
+                  <span className="text-purple-300 font-medium theme-light:text-purple-700">
+                    {aboutP3.fullstack}
+                  </span>
+                  {aboutP3.middle1}
+                  <span className="text-blue-300 font-medium theme-light:text-blue-700">
+                    {aboutP3.apis}
+                  </span>
+                  {aboutP3.comma1}
+                  <span className="text-blue-300 font-medium theme-light:text-blue-700">
+                    {aboutP3.crms}
+                  </span>
+                  {aboutP3.and}
+                  <span className="text-blue-300 font-medium theme-light:text-blue-700">
+                    {aboutP3.llms}
+                  </span>
+                  {aboutP3.tail}
                 </p>
               </div>
 
@@ -645,7 +832,7 @@ const App = () => {
         <h2 className="text-3xl font-bold text-center mb-12 text-white theme-light:text-slate-900">
           {t("projects.title")}
         </h2>
-        
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {proyectos.map((proyecto, index) => (
             <ProjectCard
@@ -691,7 +878,6 @@ const App = () => {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300 group
                             theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md">
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">

@@ -6,9 +6,11 @@ import ThemeToggle from "./ThemeToggle";
  * animated particle background doesn't intercept clicks.
  */
 const TopBar = () => (
-  <div className="fixed top-4 right-4 z-50 flex items-center gap-2">
-    <ThemeToggle />
-    <LanguageSelector />
+  <div className="w-full flex justify-end px-4 py-4 z-50">
+    <div className="flex items-center gap-2">
+      <ThemeToggle />
+      <LanguageSelector />
+    </div>
   </div>
 );
 

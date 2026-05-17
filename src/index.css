@@ -1,5 +1,36 @@
 @import "tailwindcss";
 
+/* -------------------------------------------------------------------------
+   Custom theme variant
+   -------------------------------------------------------------------------
+   Tailwind v4 lets us register variants in CSS. We add `theme-light:` so any
+   utility can react to the global light theme set on <html data-theme="light">.
+   The default (no attribute / dark) keeps the existing dark gradient look.
+   ------------------------------------------------------------------------- */
+@custom-variant theme-light (&:where([data-theme="light"], [data-theme="light"] *));
+@custom-variant theme-dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* -------------------------------------------------------------------------
+   Global theme tokens
+   -------------------------------------------------------------------------
+   The hero/page background is rendered with utility classes for the dark
+   theme (default). For the light theme we override the background gradient
+   on the root container so the rest of the site (which already uses
+   white/10 + backdrop-blur) reads correctly on a light surface.
+   ------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+}
+
+/* Subtle scrollbar polish so the page feels consistent across themes. */
+[data-theme="light"] body {
+  background-color: #f8fafc;
+}
+
 @keyframes marquee {
   from {
     transform: translateX(0);

@@ -1,12 +1,39 @@
-# React + Vite
+# PVM Personal Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio of **Pablo Villar** — Full Stack & Automation Developer.
 
-Currently, two official plugins are available:
+Built with **React 19**, **Vite 6** and **Tailwind CSS v4**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Animated canvas background with floating particles.
+- Marquee tech‑stack carousel.
+- Project gallery + anonymised automation case studies.
+- **Internationalisation (EN · ES · IT)** with a minimal top‑right selector
+  and `localStorage` persistence.
+- **Light / dark theme toggle** matching the site's glassmorphism style,
+  honouring the OS preference on the first visit.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+See [`CHANGES.md`](./CHANGES.md) for the full architecture of the i18n and
+theme systems and instructions on how to add a new language.
+
+## 🛠️ Scripts
+
+```bash
+npm install      # install dependencies
+npm run dev      # start the Vite dev server on http://localhost:5173 (or 3000)
+npm run build    # production build into dist/
+npm run preview  # preview the production build locally
+npm run lint     # run ESLint
+```
+
+## 🌍 Adding a language
+
+1. Add `src/i18n/<code>.json` mirroring `en.json`.
+2. Register it in `src/i18n/index.js` (`translations` + `supportedLanguages`).
+
+The selector will pick it up automatically.
+
+---
+
+Original template: [`@vitejs/plugin-react`](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react).

@@ -67,10 +67,10 @@ const useCanvasAnimation = (canvasRef) => {
       }
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [canvasRef]);
 };
 
-const ProjectCard = ({ titulo, descripcion, foto, liveUrl, githubUrl, index }) => {
+const ProjectCard = ({ titulo, descripcion, foto, liveUrl, githubUrl }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [hasError, setHasError] = useState(false);
 
@@ -181,16 +181,18 @@ const App = () => {
     },
   ];
 
-  const handleDownloadCV = async () => {
+  const handleDownloadCV = () => {
     setIsDownloading(true);
     try {
       const link = document.createElement("a");
       link.href = "/PVM-CV.pdf";
       link.download = "Pablo-Villar-CV.pdf";
+      document.body.appendChild(link);
       link.click();
+      document.body.removeChild(link);
     } catch (error) {
-      console.error("Error al descargar el CV:", error);
-      alert("Error al descargar el archivo. Por favor, intenta de nuevo.");
+      console.error("Error downloading the CV:", error);
+      alert("Error downloading the file. Please try again.");
     } finally {
       setTimeout(() => setIsDownloading(false), 1000);
     }
@@ -248,23 +250,23 @@ const App = () => {
           <button 
             onClick={scrollToAbout}
             className="bg-gradient-to-r from-indigo-500 to-purple-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 font-medium"
-            aria-label="Conocer más sobre mí"
+            aria-label="Learn more about me"
           >
             About Me
           </button>
-          
-          <button 
+
+          <button
             onClick={scrollToProjects}
             className="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 font-medium"
-            aria-label="Ver proyectos"
+            aria-label="View projects"
           >
-            Proyects
+            Projects
           </button>
 
-          <button 
+          <button
             onClick={scrollToContact}
             className="bg-gradient-to-r from-green-500 to-teal-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25 font-medium"
-            aria-label="Contactar"
+            aria-label="Contact"
           >
             Contact
           </button>
@@ -304,7 +306,7 @@ const App = () => {
                   <div className="hidden w-80 h-80 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl shadow-2xl border-4 border-white/20 items-center justify-center">
                     <div className="text-center text-white/80">
                       <div className="text-6xl mb-4">👨🏼‍💻</div>
-                      <p className="text-lg">Tu foto aquí</p>
+                      <p className="text-lg">Your photo here</p>
                     </div>
                   </div>
                 </div>
@@ -356,7 +358,7 @@ const App = () => {
 
       <section id="proyectos" className="px-4 sm:px-6 lg:px-10 pb-20">
         <h2 className="text-3xl font-bold text-center mb-12 text-white">
-          Proyects
+          Projects
         </h2>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -368,7 +370,6 @@ const App = () => {
               foto={proyecto.foto}
               liveUrl={proyecto.liveUrl}
               githubUrl={proyecto.githubUrl}
-              index={index}
             />
           ))}
         </div>
@@ -394,8 +395,8 @@ const App = () => {
                 </svg>
               </div>
               <h3 className="text-xl font-semibold text-white mb-2">Email</h3>
-              <a 
-                href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCHrjmsqlCzjRzZvKgdWXhXKvZwXrsLPzqwKNNKmxtsCrZdxQXqZPWcjKlLnrFBmfKFwDTLV" 
+              <a
+                href="mailto:pablo.villar.moron@gmail.com"
                 className="text-blue-300 hover:text-blue-200 transition-colors"
               >
                 pablo.villar.moron@gmail.com
@@ -442,8 +443,8 @@ const App = () => {
             <p className="text-white/80 mb-6">
               Let's discuss your next project and see how I can help bring your ideas to life.
             </p>
-            <a 
-              href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=CllgCHrjmsqlCzjRzZvKgdWXhXKvZwXrsLPzqwKNNKmxtsCrZdxQXqZPWcjKlLnrFBmfKFwDTLV"
+            <a
+              href="mailto:pablo.villar.moron@gmail.com"
               className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 font-medium text-white"
             >
               Get In Touch
@@ -453,7 +454,7 @@ const App = () => {
       </section>
 
       <footer className="text-center py-8 text-white/60 border-t border-white/10">
-        <p>&copy; 2025 Pablo Villar. Done with React y ❤️</p>
+        <p>&copy; {new Date().getFullYear()} Pablo Villar. Made with React &amp; ❤️</p>
       </footer>
     </div>
   );

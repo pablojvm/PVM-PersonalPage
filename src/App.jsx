@@ -551,7 +551,7 @@ const App = () => {
           Hi, I'm Pablo
         </h1>
         <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto">
-          FullStack Developer & UI Lover
+          FullStack & Automation Developer
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

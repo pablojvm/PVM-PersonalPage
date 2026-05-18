@@ -661,7 +661,7 @@ const App = () => {
           </button>
 
           <button
-            onClick={() => scrollTo("#automation")}
+            onClick={() => scrollTo("#case-studies")}
             className="bg-gradient-to-r from-pink-500 to-rose-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-pink-500/25 font-medium text-white"
             aria-label={t("hero.ariaAutomation")}
           >

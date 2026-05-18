@@ -824,6 +824,25 @@ const App = () => {
 
       <TechCarousel />
 
+      <section id="case-studies" className="px-4 sm:px-6 lg:px-10 py-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
+              {t("caseStudies.title")}
+            </h2>
+            <p className="text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
+              {t("caseStudies.subtitle")}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {caseStudies.map((cs, i) => (
+              <CaseStudyCard key={i} {...cs} labels={caseLabels} />
+            ))}
+          </div>
+        </div>
+      </section>
+
       <AutomationSection />
 
       <section id="proyectos" className="px-4 sm:px-6 lg:px-10 pb-20">
@@ -844,25 +863,6 @@ const App = () => {
               githubLabel={t("projects.github")}
             />
           ))}
-        </div>
-      </section>
-
-      <section id="case-studies" className="px-4 sm:px-6 lg:px-10 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
-              {t("caseStudies.title")}
-            </h2>
-            <p className="text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
-              {t("caseStudies.subtitle")}
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.map((cs, i) => (
-              <CaseStudyCard key={i} {...cs} labels={caseLabels} />
-            ))}
-          </div>
         </div>
       </section>
 

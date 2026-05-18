@@ -144,36 +144,36 @@
     ]
   },
   "caseStudies": {
-    "title": "Professional Case Studies",
-    "subtitle": "A selection of automation projects delivered under NDA. Client names and screenshots are omitted; the technical and business outcomes are real.",
-    "labels": {
-      "challenge": "Challenge",
-      "solution": "Solution",
-      "confidential": "Confidential client · details anonymized"
-    },
-    "items": [
-      {
-        "sector": "Healthcare",
-        "titulo": "Patient Appointment Automation",
-        "problema": "The clinic was managing 100+ daily appointments by phone and email, with a high no-show rate and frequent scheduling errors.",
-        "solucion": "n8n workflow syncing calendar, WhatsApp Business, email and CRM. Automatic confirmation 24h in advance, self-service rescheduling and AI-powered triage.",
-        "impacto": ["−70% admin time", "+40% appointment attendance", "24/7 automated response"]
+      "title": "Professional Projects",
+      "subtitle": "A selection of automation projects delivered under NDA. Client names and screenshots are omitted; technical and business outcomes are real.",
+      "labels": {
+        "challenge": "Challenge",
+        "solution": "Solution",
+        "confidential": "Confidential client · details anonymized"
       },
-      {
-        "sector": "E-commerce",
-        "titulo": "Inventory & Order Sync Pipeline",
-        "problema": "Stock mismatches between WordPress/WooCommerce, the supplier's ERP and the physical store caused overselling and weekly manual reports.",
-        "solucion": "Automated pipeline that syncs stock in real time between WooCommerce and the ERP, generates daily reports and alerts on anomalies via Slack.",
-        "impacto": ["0 overselling incidents", "−85% reporting time", "Sync in < 30 seconds"]
-      },
-      {
-        "sector": "Marketing Agency",
-        "titulo": "AI-Powered Lead Qualification",
-        "problema": "The sales team manually qualified hundreds of leads from web, ads and events, with response times of 24–48 hours.",
-        "solucion": "Workflow that captures leads, enriches them with public data, scores them with AI and triggers personalized email sequences in Brevo.",
-        "impacto": ["Initial response in < 2 min", "+3× qualified leads/day", "+25% conversion rate"]
-      }
-    ]
+      "items": [
+        {
+          "sector": "Operations",
+          "titulo": "Operational Scheduling Automation",
+          "problema": "Fragmented manual schedule management consuming hours of labor, relying on scattered data from PowerBI reports.",
+          "solucion": "n8n-based scheduler pulling data via PowerBI webhooks into a centralized web app for real-time management.",
+          "impacto": ["Process reduced from hours to minutes", "100% data centralization", "Elimination of manual errors"]
+        },
+        {
+          "sector": "Automotive",
+          "titulo": "AI-Powered File & Document Manager",
+          "problema": "Manual processing of buy/sell files and tedious filling of official forms and legal documentation.",
+          "solucion": "AI management system for profile processing, intelligent storage, and automated filling of official government models.",
+          "impacto": ["Legal document automation", "Optimized profile management", "80% reduction in processing time"]
+        },
+        {
+          "sector": "Customer Service",
+          "titulo": "Live AI Voice Agent Call Center",
+          "problema": "High call volume saturation and slow manual ticket creation and departmental redirection.",
+          "solucion": "Live AI agent for telephone support, automatic incident ticket generation, and intelligent call routing.",
+          "impacto": ["24/7 instant response", "Precise department redirection", "Automated ticketing without human intervention"]
+        }
+      ]
   },
   "contact": {
     "title": "Let's Connect",

@@ -144,36 +144,36 @@
     ]
   },
   "caseStudies": {
-    "title": "Case Study Professionali",
-    "subtitle": "Una selezione di progetti di automazione realizzati sotto NDA. Nomi dei clienti e screenshot sono omessi; i risultati tecnici e di business sono reali.",
-    "labels": {
-      "challenge": "Sfida",
-      "solution": "Soluzione",
-      "confidential": "Cliente confidenziale · dettagli anonimizzati"
-    },
-    "items": [
-      {
-        "sector": "Sanità",
-        "titulo": "Automazione degli Appuntamenti dei Pazienti",
-        "problema": "La clinica gestiva oltre 100 appuntamenti al giorno via telefono ed email, con un alto tasso di assenze e frequenti errori di pianificazione.",
-        "solucion": "Workflow n8n che sincronizza calendario, WhatsApp Business, email e CRM. Conferma automatica 24h prima, riprogrammazione self-service e triage con IA.",
-        "impacto": ["−70% di tempo amministrativo", "+40% di presenze agli appuntamenti", "Risposta automatizzata 24/7"]
+      "title": "Progetti Professionali",
+      "subtitle": "Una selezione di progetti di automazione realizzati sotto NDA. Nomi dei clienti e screenshot sono omessi; i risultati sono reali.",
+      "labels": {
+        "challenge": "Sfida",
+        "solution": "Soluzione",
+        "confidential": "Cliente riservato · dettagli anonimizzati"
       },
-      {
-        "sector": "E-commerce",
-        "titulo": "Pipeline di Sincronizzazione Inventario e Ordini",
-        "problema": "Le incongruenze di stock tra WordPress/WooCommerce, l'ERP del fornitore e il negozio fisico causavano vendite in eccesso e report manuali settimanali.",
-        "solucion": "Pipeline automatizzata che sincronizza lo stock in tempo reale tra WooCommerce ed ERP, genera report giornalieri e segnala anomalie via Slack.",
-        "impacto": ["0 episodi di overselling", "−85% di tempo nei report", "Sincronizzazione in < 30 secondi"]
-      },
-      {
-        "sector": "Agenzia di Marketing",
-        "titulo": "Qualificazione dei Lead con IA",
-        "problema": "Il team commerciale qualificava manualmente centinaia di lead provenienti da web, ads ed eventi, con tempi di risposta di 24–48 ore.",
-        "solucion": "Workflow che cattura i lead, li arricchisce con dati pubblici, li valuta con IA e attiva sequenze email personalizzate su Brevo.",
-        "impacto": ["Prima risposta in < 2 min", "+3× lead qualificati/giorno", "+25% di tasso di conversione"]
-      }
-    ]
+      "items": [
+        {
+          "sector": "Operazioni",
+          "titulo": "Automazione della Pianificazione Operativa",
+          "problema": "Gestione manuale degli orari frammentata che richiedeva ore di lavoro, basata su dati sparsi in report PowerBI.",
+          "solucion": "Scheduler in n8n che estrae dati via Webhook da PowerBI e li collega a una Web App centralizzata per la gestione in tempo reale.",
+          "impacto": ["Processo ridotto da ore a minuti", "Centralizzazione dei dati al 100%", "Eliminazione degli errori manuali"]
+        },
+        {
+          "sector": "Automobilistico",
+          "titulo": "Gestore di Pratiche con IA Documentale",
+          "problema": "Caricamento manuale delle pratiche di compravendita e compilazione noiosa di moduli ufficiali e documentazione legale.",
+          "solucion": "Sistema di gestione con IA per l'elaborazione dei profili, archiviazione intelligente e compilazione automatica di modelli ufficiali.",
+          "impacto": ["Automazione documenti legali", "Gestione profili ottimizzata", "Riduzione dell'80% dei tempi di carico"]
+        },
+        {
+          "sector": "Servizio Clienti",
+          "titulo": "Call Center con Agente Vocale IA",
+          "problema": "Saturazione delle chiamate in entrata e lentezza nella creazione di ticket e reindirizzamento ai dipartimenti.",
+          "solucion": "Agente IA live per l'assistenza telefonica, generazione automatica di ticket di assistenza e smistamento intelligente delle chiamate.",
+          "impacto": ["Risposta istantanea 24/7", "Reindirizzamento preciso ai reparti", "Ticketing automatizzato senza intervento"]
+        }
+      ]
   },
   "contact": {
     "title": "Restiamo in contatto",

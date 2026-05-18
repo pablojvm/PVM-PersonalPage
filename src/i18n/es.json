@@ -144,36 +144,36 @@
     ]
   },
   "caseStudies": {
-    "title": "Casos de Estudio Profesionales",
-    "subtitle": "Una selección de proyectos de automatización entregados bajo NDA. Se omiten nombres de clientes y capturas; los resultados técnicos y de negocio son reales.",
-    "labels": {
-      "challenge": "Desafío",
-      "solution": "Solución",
-      "confidential": "Cliente confidencial · detalles anonimizados"
-    },
-    "items": [
-      {
-        "sector": "Salud",
-        "titulo": "Automatización de Citas Médicas",
-        "problema": "La clínica gestionaba más de 100 citas diarias por teléfono y email, con una alta tasa de ausencias y frecuentes errores de agendamiento.",
-        "solucion": "Workflow en n8n que sincroniza calendario, WhatsApp Business, email y CRM. Confirmación automática 24 h antes, reagendamiento self-service y triaje con IA.",
-        "impacto": ["−70% de tiempo administrativo", "+40% de asistencia a citas", "Respuesta automatizada 24/7"]
+      "title": "Proyectos Laborales",
+      "subtitle": "Una selección de proyectos de automatización entregados bajo NDA. Se omiten nombres de clientes y capturas; los resultados técnicos y de negocio son reales.",
+      "labels": {
+        "challenge": "Desafío",
+        "solution": "Solución",
+        "confidential": "Cliente confidencial · detalles anonimizados"
       },
-      {
-        "sector": "E-commerce",
-        "titulo": "Pipeline de Sincronización de Inventario y Pedidos",
-        "problema": "Las inconsistencias de stock entre WordPress/WooCommerce, el ERP del proveedor y la tienda física provocaban sobreventas y reportes manuales semanales.",
-        "solucion": "Pipeline automatizado que sincroniza el stock en tiempo real entre WooCommerce y el ERP, genera reportes diarios y alerta de anomalías por Slack.",
-        "impacto": ["0 incidencias de sobreventa", "−85% de tiempo en reportes", "Sincronización en < 30 segundos"]
-      },
-      {
-        "sector": "Agencia de Marketing",
-        "titulo": "Calificación de Leads con IA",
-        "problema": "El equipo comercial calificaba manualmente cientos de leads procedentes de web, ads y eventos, con tiempos de respuesta de 24–48 horas.",
-        "solucion": "Workflow que captura leads, los enriquece con datos públicos, los puntúa con IA y dispara secuencias de email personalizadas en Brevo.",
-        "impacto": ["Respuesta inicial en < 2 min", "+3× leads cualificados/día", "+25% de tasa de conversión"]
-      }
-    ]
+      "items": [
+        {
+          "sector": "Operaciones",
+          "titulo": "Automatización de Horarios y Operaciones",
+          "problema": "Gestión manual de horarios fragmentada que consumía horas de trabajo, dependiendo de datos dispersos en reportes de PowerBI.",
+          "solucion": "Scheduler en n8n que extrae datos vía Webhook de PowerBI y los conecta a una Web App centralizada para la gestión en tiempo real.",
+          "impacto": ["Proceso reducido de horas a minutos", "Centralización de datos 100%", "Eliminación de errores manuales"]
+        },
+        {
+          "sector": "Automotriz",
+          "titulo": "Gestor de Expedientes e IA Documental",
+          "problema": "Carga manual de expedientes de compra/venta y relleno tedioso de modelos oficiales y documentación legal.",
+          "solucion": "Sistema de gestión con IA para el procesamiento de perfiles, almacenamiento inteligente y relleno automático de modelos oficiales.",
+          "impacto": ["Automatización de documentos legales", "Gestión de perfiles optimizada", "Reducción del 80% en tiempo de carga"]
+        },
+        {
+          "sector": "Atención al Cliente",
+          "titulo": "Call Center con Agente de Voz IA",
+          "problema": "Alta saturación en la recepción de llamadas y lentitud en la creación de tickets y redirección a departamentos.",
+          "solucion": "Agente de IA en directo para atención telefónica, generación automática de tickets de incidencia y triaje inteligente de llamadas.",
+          "impacto": ["Respuesta instantánea 24/7", "Redirección precisa al departamento", "Ticketing automatizado sin intervención"]
+        }
+      ]
   },
   "contact": {
     "title": "Hablemos",

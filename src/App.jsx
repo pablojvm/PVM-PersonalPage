@@ -558,6 +558,11 @@ const projectAssets = [
     githubUrl: "https://github.com/pablojvm/GalileoPsicologos-Client",
   },
   {
+    foto: "/captura6.png",
+    liveUrl: "https://casero.pablo-villar-moron.workers.dev/",
+    githubUrl: "https://github.com/pablojvm/Casero",
+  },
+  {
     foto: "/captura4.png",
     liveUrl: "https://airb2b.netlify.app/",
     githubUrl: "https://github.com/pablojvm/AirB2B-Client",
@@ -566,17 +571,7 @@ const projectAssets = [
     foto: "/captura1.png",
     liveUrl: "https://mimusico.netlify.app",
     githubUrl: "https://github.com/pablojvm/MiMusico-client",
-  },
-  {
-    foto: "/captura2.png",
-    liveUrl: "https://go-gurl.netlify.app/",
-    githubUrl: "https://github.com/pablojvm/Go-Gurl-Client",
-  },
-  {
-    foto: "/captura3.png",
-    liveUrl: "https://pablojvm.github.io/drag-for-the-crown/",
-    githubUrl: "https://github.com/pablojvm/drag-for-the-crown",
-  },
+  }
 ];
 
 /* --------------------------- Main App --------------------------- */

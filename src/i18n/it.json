@@ -130,20 +130,16 @@
         "descripcion": "Galileo Psicólogos è un'applicazione web full-stack progettata per offrire ai pazienti un'esperienza digitale accessibile e fluida, focalizzata sui servizi di salute mentale."
       },
       {
+        "titulo": "Casero",
+        "descripcion": "È una piattaforma di gestione immobiliare con IA integrata per proprietari privati che gestisce e risolve diversi ambiti di preoccupazione del proprietario."
+      },
+      {
         "titulo": "AirB2B",
         "descripcion": "AirB2B è un'applicazione full-stack ispirata ad Airbnb, focalizzata sugli alloggi aziendali."
       },
       {
         "titulo": "MiMusico",
         "descripcion": "Un'app per cercare e pubblicare annunci di strumenti di seconda mano e gruppi musicali."
-      },
-      {
-        "titulo": "GoGurl!",
-        "descripcion": "Un'app wiki con informazioni sul mondo di Drag Race España."
-      },
-      {
-        "titulo": "Drag for the Crown",
-        "descripcion": "Un mini-gioco a tema drag con manipolazione del DOM."
       }
     ]
   },

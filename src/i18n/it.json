@@ -136,10 +136,6 @@
       {
         "titulo": "AirB2B",
         "descripcion": "AirB2B è un'applicazione full-stack ispirata ad Airbnb, focalizzata sugli alloggi aziendali."
-      },
-      {
-        "titulo": "MiMusico",
-        "descripcion": "Un'app per cercare e pubblicare annunci di strumenti di seconda mano e gruppi musicali."
       }
     ]
   },

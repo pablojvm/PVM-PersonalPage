@@ -569,11 +569,6 @@ const projectAssets = [
     foto: "/captura4.png",
     liveUrl: "https://airb2b.netlify.app/",
     githubUrl: "https://github.com/pablojvm/AirB2B-Client",
-  },
-  {
-    foto: "/captura1.png",
-    liveUrl: "https://mimusico.netlify.app",
-    githubUrl: "https://github.com/pablojvm/MiMusico-client",
   }
 ];
 

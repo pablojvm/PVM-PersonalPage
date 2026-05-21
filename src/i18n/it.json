@@ -76,9 +76,9 @@
     "title": "Sviluppatore di Automazioni",
     "description": "Progetto e realizzo workflow automatizzati che eliminano il lavoro manuale, collegando CRM, sistemi di pagamento, modelli di IA e strumenti interni per far funzionare i business 24/7.",
     "metrics": [
-      { "valor": "20+", "label": "Workflow rilasciati" },
-      { "valor": "500+ h", "label": "Risparmiate a trimestre" },
-      { "valor": "15+", "label": "API integrate" },
+      { "valor": "End-to-end", "label": "Pipeline in produzione" },
+      { "valor": "+500 h", "label": "Risparmiate a trimestre" },
+      { "valor": "+15", "label": "API integrate" },
       { "valor": "24/7", "label": "Pipeline attive" }
     ],
     "capabilities": [

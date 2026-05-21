@@ -76,9 +76,9 @@
     "title": "Automation Developer",
     "description": "I design and build automated workflows that eliminate manual work — connecting CRMs, payment systems, AI models and internal tools to keep businesses running 24/7.",
     "metrics": [
-      { "valor": "20+", "label": "Workflows deployed" },
-      { "valor": "500+ h", "label": "Saved per quarter" },
-      { "valor": "15+", "label": "APIs integrated" },
+      { "valor": "End-to-end", "label": "Production pipelines" },
+      { "valor": "+500 h", "label": "Saved per quarter" },
+      { "valor": "+15", "label": "APIs integrated" },
       { "valor": "24/7", "label": "Running pipelines" }
     ],
     "capabilities": [

@@ -76,9 +76,9 @@
     "title": "Desarrollador de Automatizaciones",
     "description": "Diseño y construyo flujos de trabajo automatizados que eliminan el trabajo manual, conectando CRMs, sistemas de pago, modelos de IA y herramientas internas para que los negocios funcionen 24/7.",
     "metrics": [
-      { "valor": "20+", "label": "Workflows desplegados" },
-      { "valor": "500+ h", "label": "Ahorradas por trimestre" },
-      { "valor": "15+", "label": "APIs integradas" },
+      { "valor": "End-to-end", "label": "Pipelines en producción" },
+      { "valor": "+500 h", "label": "Ahorradas por trimestre" },
+      { "valor": "+15", "label": "APIs integradas" },
       { "valor": "24/7", "label": "Pipelines en marcha" }
     ],
     "capabilities": [

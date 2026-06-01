@@ -101,12 +101,12 @@
         ]
       },
       {
-        "titulo": "Tech Stack",
+        "titulo": "Work Methodology",
         "items": [
-          "n8n, Docker, Linux",
-          "REST APIs & Webhooks",
-          "OpenAI API & LLM tooling",
-          "MongoDB / Postgres"
+          "Process discovery and assesment",
+          "Idea prototyping",
+          "implementation",
+          "Ongoing support and optimization"
         ]
       },
       {

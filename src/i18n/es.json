@@ -101,12 +101,12 @@
         ]
       },
       {
-        "titulo": "Stack Tecnológico",
+        "titulo": "Metodología de Trabajo",
         "items": [
-          "n8n, Docker, Linux",
-          "APIs REST y Webhooks",
-          "API de OpenAI y herramientas LLM",
-          "MongoDB / Postgres"
+          "Descubrimiento de procesos susceptibles",
+          "Prototipado de idea",
+          "Implementación",
+          "Soporte y optimización continua"
         ]
       },
       {

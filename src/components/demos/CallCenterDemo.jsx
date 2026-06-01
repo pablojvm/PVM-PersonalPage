@@ -1,5 +1,6 @@
 import { motion as Motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
+import TechOrchestration from "./TechOrchestration";
 
 /**
  * CallCenterDemo
@@ -26,6 +27,7 @@ const CallCenterDemo = () => {
   const {
     heading,
     subtitle,
+    orchestration,
     callLabel,
     callerLabel,
     agentLabel,
@@ -45,6 +47,12 @@ const CallCenterDemo = () => {
         <h4 className="text-base md:text-lg font-semibold text-white mb-2 theme-light:text-slate-900">{heading}</h4>
         <p className="text-sm text-white/75 leading-relaxed theme-light:text-slate-700">{subtitle}</p>
       </div>
+
+      <TechOrchestration
+        title={orchestration.title}
+        steps={orchestration.steps}
+        accent="from-emerald-400 to-green-500"
+      />
 
       {/* Phone + Transcript */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

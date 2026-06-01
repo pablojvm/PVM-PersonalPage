@@ -160,8 +160,18 @@
         "scheduler": {
           "heading": "Ottimizzazione dei turni in tempo reale",
           "subtitle": "n8n collega gli export di Power BI con una web app custom, generando turni ottimizzati in pochi minuti con tracciabilità totale.",
+          "orchestration": {
+            "title": "Orchestrazione tecnologica",
+            "steps": [
+              { "icon": "powerbi", "label": "PowerBI", "role": "Sorgente dati" },
+              { "icon": "webhook", "label": "Webhook", "role": "Trigger" },
+              { "icon": "n8n", "label": "n8n", "role": "Orchestratore" },
+              { "icon": "sparkles", "label": "Optimizer", "role": "Bilanciamento turni" },
+              { "icon": "webapp", "label": "Web App", "role": "Dashboard live" }
+            ]
+          },
           "kpis": [
-            { "value": "98%", "label": "Copertura" },
+            { "value": "100%", "label": "Copertura" },
             { "value": "0", "label": "Conflitti" },
             { "value": "−22%", "label": "Costo del lavoro" }
           ],
@@ -177,6 +187,17 @@
         "docmanager": {
           "heading": "Automazione documentale end-to-end",
           "subtitle": "Dal caricamento al Modello 620 archiviato: una cascata di modelli IA specializzati legge, valida e auto-compila ogni modulo.",
+          "orchestration": {
+            "title": "Orchestrazione tecnologica",
+            "steps": [
+              { "icon": "upload", "label": "Upload", "role": "Acquisizione documenti" },
+              { "icon": "ocr", "label": "OCR", "role": "Estrazione testo" },
+              { "icon": "openai", "label": "OpenAI", "role": "Analisi dei campi" },
+              { "icon": "check", "label": "Validazione", "role": "Verifica incrociata" },
+              { "icon": "postgresql", "label": "PostgreSQL", "role": "DB su Railway" },
+              { "icon": "pdf", "label": "PDF Fill", "role": "Output Modello 620" }
+            ]
+          },
           "inputTitle": "Documenti in entrata",
           "inputItems": [
             { "name": "Carta d'identità", "tag": "OCR" },
@@ -199,6 +220,17 @@
         "callCenter": {
           "heading": "Agente vocale IA in diretta",
           "subtitle": "Twilio instrada la chiamata a un orchestratore Node.js che interpreta l'intento con OpenAI, interroga il DB e crea un ticket classificato — tutto in pochi secondi.",
+          "orchestration": {
+            "title": "Orchestrazione tecnologica",
+            "steps": [
+              { "icon": "twilio", "label": "Twilio", "role": "Ingresso vocale" },
+              { "icon": "microphone", "label": "Deepgram", "role": "Da voce a testo" },
+              { "icon": "openai", "label": "OpenAI", "role": "Analisi dell'intento" },
+              { "icon": "n8n", "label": "n8n", "role": "Logica workflow" },
+              { "icon": "powerbi", "label": "PowerBI", "role": "Lookup dipendente" },
+              { "icon": "ticket", "label": "Ticket", "role": "Auto-classificazione" }
+            ]
+          },
           "callLabel": "Chiamata in arrivo",
           "callerLabel": "Cliente",
           "agentLabel": "Agente IA",

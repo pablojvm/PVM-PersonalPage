@@ -572,7 +572,7 @@ const CaseStudyCard = ({
 const caseStudyAssets = [
   {
     // Proyecto 1: Scheduler + PowerBI
-    tech: ["n8n", "PowerBI", "Webhooks", "Custom Web App", "REST APIs"],
+    tech: ["n8n", "PowerBI", "Webhooks", "Custom Web App"],
     gradient: "from-blue-500 to-cyan-500",
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -583,7 +583,7 @@ const caseStudyAssets = [
   },
   {
     // Proyecto 2: Coches + IA Documental
-    tech: ["OpenAI", "n8n", "AI Document Analysis", "PDF Automation", "MongoDB"],
+    tech: ["OpenAI", "n8n", "AI Document Analysis", "PDF Automation", "PostgreSQL", "Railway"],
     gradient: "from-purple-500 to-pink-500",
     icon: (
       <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -682,16 +682,20 @@ const App = () => {
     <div
       className="relative min-h-screen overflow-hidden bg-gradient-to-r from-slate-800 to-indigo-900 text-white
                  theme-light:bg-none theme-light:bg-slate-50 theme-light:text-slate-900"
-      style={{ zIndex: 2 }}
+      style={{ zIndex: 0 }}
     >
-      <TopBar />
-
+      {/* Canvas particles — fixed at the back (z 0). All foreground content
+          lives inside the wrapper below at z 10 so the bubbles stay in the
+          background. */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full pointer-events-none"
-        style={{ zIndex: 1 }}
+        style={{ zIndex: 0 }}
         aria-hidden="true"
       />
+
+      <div className="relative" style={{ zIndex: 10 }}>
+      <TopBar />
 
       <header className="text-center py-20 px-4">
         <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent
@@ -1067,6 +1071,7 @@ const App = () => {
                          theme-light:text-slate-500 theme-light:border-slate-200">
         <p>&copy; {new Date().getFullYear()} {t("footer.rights")}</p>
       </footer>
+      </div>
     </div>
   );
 };

@@ -1,20 +1,9 @@
 import { Fragment } from "react";
 import { motion as Motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
+import TechOrchestration from "./TechOrchestration";
 
-/**
- * SchedulerDemo
- *
- * Visual identity: an operations dashboard.
- *  - top: three KPI cards in brand blue/cyan
- *  - middle: a 7×3 weekly calendar grid where cells light up in sequence
- *    using a deterministic pattern (Mon–Fri solid, weekends thinner) to
- *    simulate an optimized roster
- *  - bottom: a 3-step pipeline strip PowerBI → n8n → Web App with pulsing
- *    arrows
- *
- * All strings come from i18n (caseStudies.demos.scheduler).
- */
+
 const cellState = (dayIdx, shiftIdx) => {
   // Mon-Fri (0-4) full coverage on morning/afternoon, partial on night.
   // Weekend (5-6) only morning/afternoon, half intensity.
@@ -35,7 +24,7 @@ const stateClasses = {
 const SchedulerDemo = () => {
   const { t } = useLanguage();
   const demo = t("caseStudies.demos.scheduler");
-  const { heading, subtitle, kpis, calendarTitle, days, shifts, pipeline } = demo;
+  const { heading, subtitle, orchestration, kpis, calendarTitle, days, shifts, pipeline } = demo;
 
   return (
     <div className="space-y-6">
@@ -50,6 +39,12 @@ const SchedulerDemo = () => {
           {subtitle}
         </p>
       </div>
+
+      <TechOrchestration
+        title={orchestration.title}
+        steps={orchestration.steps}
+        accent="from-cyan-400 to-blue-500"
+      />
 
       {/* KPI strip */}
       <div className="grid grid-cols-3 gap-3">

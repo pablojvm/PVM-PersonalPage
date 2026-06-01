@@ -160,8 +160,18 @@
         "scheduler": {
           "heading": "Optimización de cuadrantes en tiempo real",
           "subtitle": "n8n conecta los exports de Power BI con una web app a medida, generando turnos optimizados en minutos con trazabilidad total.",
+          "orchestration": {
+            "title": "Orquestación tecnológica",
+            "steps": [
+              { "icon": "powerbi", "label": "PowerBI", "role": "Fuente de datos" },
+              { "icon": "webhook", "label": "Webhook", "role": "Disparador" },
+              { "icon": "n8n", "label": "n8n", "role": "Orquestador" },
+              { "icon": "sparkles", "label": "Optimizador", "role": "Equilibrio de turnos" },
+              { "icon": "webapp", "label": "Web App", "role": "Dashboard en vivo" }
+            ]
+          },
           "kpis": [
-            { "value": "98%", "label": "Cobertura" },
+            { "value": "100%", "label": "Cobertura" },
             { "value": "0", "label": "Conflictos" },
             { "value": "−22%", "label": "Coste laboral" }
           ],
@@ -177,6 +187,17 @@
         "docmanager": {
           "heading": "Automatización documental de principio a fin",
           "subtitle": "Desde la subida hasta el Modelo 620 presentado: una cascada de modelos de IA especializados lee, valida y autorrellena cada formulario.",
+          "orchestration": {
+            "title": "Orquestación tecnológica",
+            "steps": [
+              { "icon": "upload", "label": "Subida", "role": "Recepción documental" },
+              { "icon": "ocr", "label": "OCR", "role": "Extracción de texto" },
+              { "icon": "openai", "label": "OpenAI", "role": "Razonamiento de campos" },
+              { "icon": "check", "label": "Validación", "role": "Verificación cruzada" },
+              { "icon": "postgresql", "label": "PostgreSQL", "role": "BD en Railway" },
+              { "icon": "pdf", "label": "PDF Fill", "role": "Generación Modelo 620" }
+            ]
+          },
           "inputTitle": "Documentos entrantes",
           "inputItems": [
             { "name": "DNI", "tag": "OCR" },
@@ -199,6 +220,17 @@
         "callCenter": {
           "heading": "Agente de voz IA en directo",
           "subtitle": "Twilio enruta la llamada a un orquestador en Node.js que interpreta la intención con OpenAI, consulta la BD y crea un ticket clasificado — todo en segundos.",
+          "orchestration": {
+            "title": "Orquestación tecnológica",
+            "steps": [
+              { "icon": "twilio", "label": "Twilio", "role": "Entrada de voz" },
+              { "icon": "microphone", "label": "Deepgram", "role": "Voz a texto" },
+              { "icon": "openai", "label": "OpenAI", "role": "Análisis de intención" },
+              { "icon": "n8n", "label": "n8n", "role": "Lógica del workflow" },
+              { "icon": "powerbi", "label": "PowerBI", "role": "Consulta de empleado" },
+              { "icon": "ticket", "label": "Ticket", "role": "Auto-clasificación" }
+            ]
+          },
           "callLabel": "Llamada entrante",
           "callerLabel": "Cliente",
           "agentLabel": "Agente IA",

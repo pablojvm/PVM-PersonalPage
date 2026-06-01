@@ -1,5 +1,6 @@
 import { motion as Motion } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
+import TechOrchestration from "./TechOrchestration";
 
 /**
  * DocManagerDemo
@@ -28,6 +29,7 @@ const DocManagerDemo = () => {
   const {
     heading,
     subtitle,
+    orchestration,
     inputTitle,
     inputItems,
     processingTitle,
@@ -45,6 +47,12 @@ const DocManagerDemo = () => {
         <h4 className="text-base md:text-lg font-semibold text-white mb-2 theme-light:text-slate-900">{heading}</h4>
         <p className="text-sm text-white/75 leading-relaxed theme-light:text-slate-700">{subtitle}</p>
       </div>
+
+      <TechOrchestration
+        title={orchestration.title}
+        steps={orchestration.steps}
+        accent="from-purple-400 to-pink-400"
+      />
 
       <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-4 items-stretch">
         {/* INPUT */}

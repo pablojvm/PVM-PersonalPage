@@ -160,8 +160,18 @@
         "scheduler": {
           "heading": "Real-time schedule optimization",
           "subtitle": "n8n connects PowerBI exports with a custom web app, generating optimized shifts in minutes with full traceability.",
+          "orchestration": {
+            "title": "Tech orchestration",
+            "steps": [
+              { "icon": "powerbi", "label": "PowerBI", "role": "Data source" },
+              { "icon": "webhook", "label": "Webhook", "role": "Trigger" },
+              { "icon": "n8n", "label": "n8n", "role": "Orchestrator" },
+              { "icon": "sparkles", "label": "Optimizer", "role": "Shift balancing" },
+              { "icon": "webapp", "label": "Web App", "role": "Live dashboard" }
+            ]
+          },
           "kpis": [
-            { "value": "98%", "label": "Coverage" },
+            { "value": "100%", "label": "Coverage" },
             { "value": "0", "label": "Conflicts" },
             { "value": "−22%", "label": "Labor cost" }
           ],
@@ -177,6 +187,17 @@
         "docmanager": {
           "heading": "End-to-end document automation",
           "subtitle": "From upload to filed Modelo 620: a cascade of specialized AI models reads, validates and auto-fills every form.",
+          "orchestration": {
+            "title": "Tech orchestration",
+            "steps": [
+              { "icon": "upload", "label": "Upload", "role": "Document intake" },
+              { "icon": "ocr", "label": "OCR", "role": "Text extraction" },
+              { "icon": "openai", "label": "OpenAI", "role": "Field reasoning" },
+              { "icon": "check", "label": "Validation", "role": "Cross-check" },
+              { "icon": "postgresql", "label": "PostgreSQL", "role": "DB on Railway" },
+              { "icon": "pdf", "label": "PDF Fill", "role": "Modelo 620 output" }
+            ]
+          },
           "inputTitle": "Incoming documents",
           "inputItems": [
             { "name": "ID Card", "tag": "OCR" },
@@ -199,6 +220,17 @@
         "callCenter": {
           "heading": "Live AI voice agent",
           "subtitle": "Twilio routes the call to a Node.js orchestrator that interprets intent with OpenAI, queries the DB and creates a classified ticket — all in seconds.",
+          "orchestration": {
+            "title": "Tech orchestration",
+            "steps": [
+              { "icon": "twilio", "label": "Twilio", "role": "Voice ingress" },
+              { "icon": "microphone", "label": "Deepgram", "role": "Speech-to-text" },
+              { "icon": "openai", "label": "OpenAI", "role": "Intent analysis" },
+              { "icon": "n8n", "label": "n8n", "role": "Workflow logic" },
+              { "icon": "powerbi", "label": "PowerBI", "role": "Employee lookup" },
+              { "icon": "ticket", "label": "Ticket", "role": "Auto-classify" }
+            ]
+          },
           "callLabel": "Incoming call",
           "callerLabel": "Customer",
           "agentLabel": "AI agent",

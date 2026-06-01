@@ -193,6 +193,7 @@ const tecnologias = [
   { name: "Node.js", slug: "nodedotjs", color: "5FA04E" },
   { name: "Express", slug: "express", color: "FFFFFF" },
   { name: "MongoDB", slug: "mongodb", color: "47A248" },
+  { name: "PostgreSQL", slug: "postgresql", color: "4169E1" },
   { name: "HTML5", slug: "html5", color: "E34F26" },
   { name: "CSS", slug: "css", color: "1572B6" },
   { name: "Tailwind CSS", slug: "tailwindcss", color: "06B6D4" },
@@ -205,10 +206,24 @@ const tecnologias = [
     name: "Azure",
     iconUrl: "https://api.iconify.design/logos:microsoft-azure.svg",
   },
+  {
+    name: "PowerBI",
+    iconUrl: "https://api.iconify.design/logos:microsoft-power-bi.svg",
+  },
+  {
+    name: "Microsoft Teams",
+    iconUrl: "https://api.iconify.design/logos:microsoft-teams.svg",
+  },
   { name: "GitHub Actions", slug: "githubactions", color: "2088FF" },
   { name: "WordPress", slug: "wordpress", color: "21759B" },
   { name: "Stripe", slug: "stripe", color: "635BFF" },
+  { name: "Revolut", slug: "revolut", color: "FFFFFF" },
   { name: "Brevo", slug: "brevo", color: "0B996E" },
+  {
+    name: "Twilio",
+    iconUrl: "https://api.iconify.design/logos:twilio-icon.svg",
+  },
+  { name: "Deepgram", slug: "deepgram", color: "13EF93" },
   {
     name: "OpenAI",
     color: "FFFFFF",
@@ -351,7 +366,7 @@ const TechCarousel = () => {
       });
 
   return (
-    <section id="tech" className="py-20 overflow-hidden">
+    <section id="tech" className="py-20">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white theme-light:text-slate-900">
         {t("tech.title")}
       </h2>
@@ -359,24 +374,26 @@ const TechCarousel = () => {
         {t("tech.subtitle")}
       </p>
       <div className="relative">
-        <div className="flex gap-16 w-max animate-marquee">
-          {techList.map((tech, i) => (
-            <div
-              key={`${tech.name}-${i}`}
-              className="flex flex-col items-center gap-3 min-w-[80px] group"
-              title={tech.name}
-            >
-              <div className="flex items-center justify-center">
-                <TechIcon tech={tech} size={56} className="w-14 h-14 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
-              </div>
-              <span
-                className="text-xs text-white/70 group-hover:text-white transition-colors whitespace-nowrap
-                               theme-light:text-slate-600 theme-light:group-hover:text-slate-900"
+        <div className="tech-scroll overflow-x-auto overflow-y-hidden">
+          <div className="flex gap-16 w-max animate-marquee py-2 px-8">
+            {techList.map((tech, i) => (
+              <div
+                key={`${tech.name}-${i}`}
+                className="flex flex-col items-center gap-3 min-w-[80px] group"
+                title={tech.name}
               >
-                {tech.name}
-              </span>
-            </div>
-          ))}
+                <div className="flex items-center justify-center">
+                  <TechIcon tech={tech} size={56} className="w-14 h-14 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
+                </div>
+                <span
+                  className="text-xs text-white/70 group-hover:text-white transition-colors whitespace-nowrap
+                                 theme-light:text-slate-600 theme-light:group-hover:text-slate-900"
+                >
+                  {tech.name}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div

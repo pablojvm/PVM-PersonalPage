@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion as Motion } from "framer-motion";
 import { useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import TopBar from "./components/TopBar";
+import CallCenterDemo from "./components/demos/CallCenterDemo";
+import SchedulerDemo from "./components/demos/SchedulerDemo";
+import DocManagerDemo from "./components/demos/DocManagerDemo";
 
 /* ------------------------- Canvas animation hook ------------------------- */
 const useCanvasAnimation = (canvasRef, isDark) => {
@@ -461,9 +465,34 @@ const AutomationSection = () => {
 };
 
 /* --------------------------- Case study card & assets --------------------------- */
-const CaseStudyCard = ({ sector, titulo, problema, solucion, tech, impacto, gradient, icon, labels }) => (
-  <div className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-[1.02] hover:border-white/30 transition-all duration-300 flex flex-col
-                  theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md theme-light:hover:border-slate-300">
+const CaseStudyCard = ({
+  sector,
+  titulo,
+  problema,
+  solucion,
+  tech,
+  impacto,
+  gradient,
+  icon,
+  labels,
+  onOpenDemo,
+}) => (
+  <article
+    className={`group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-[1.02] hover:border-white/30 transition-all duration-300 flex flex-col
+                theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md theme-light:hover:border-slate-300 ${
+                  onOpenDemo ? "cursor-pointer" : ""
+                }`}
+    role={onOpenDemo ? "button" : undefined}
+    tabIndex={onOpenDemo ? 0 : undefined}
+    onClick={onOpenDemo}
+    onKeyDown={(event) => {
+      if (!onOpenDemo) return;
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        onOpenDemo();
+      }
+    }}
+  >
     <div className="flex items-start gap-4 mb-5">
       <div
         className={`w-12 h-12 rounded-lg bg-gradient-to-br ${gradient} flex items-center justify-center flex-shrink-0 shadow-lg`}
@@ -473,6 +502,12 @@ const CaseStudyCard = ({ sector, titulo, problema, solucion, tech, impacto, grad
       <div className="flex-1 min-w-0">
         <span className="text-xs text-purple-300 uppercase tracking-wider font-semibold theme-light:text-purple-700">{sector}</span>
         <h3 className="text-lg font-semibold text-white mt-1 leading-tight theme-light:text-slate-900">{titulo}</h3>
+        {onOpenDemo ? (
+          <span className="inline-flex mt-2 px-2.5 py-1 rounded-full text-[11px] font-medium bg-cyan-500/20 text-cyan-200 border border-cyan-400/30
+                          theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200">
+            {labels.interactiveDemo}
+          </span>
+        ) : null}
       </div>
     </div>
 
@@ -496,6 +531,20 @@ const CaseStudyCard = ({ sector, titulo, problema, solucion, tech, impacto, grad
       ))}
     </div>
 
+    {onOpenDemo ? (
+      <button
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onOpenDemo();
+        }}
+        className="mb-4 inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg border border-cyan-400/35 bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-200 text-sm font-medium hover:scale-[1.02] transition-all
+                   theme-light:text-cyan-700 theme-light:border-cyan-300 theme-light:from-cyan-100 theme-light:to-blue-100"
+      >
+        {labels.viewDemo}
+      </button>
+    ) : null}
+
     <div className="border-t border-white/10 pt-4 space-y-1.5 theme-light:border-slate-200">
       {impacto.map((i) => (
         <div key={i} className="flex items-center gap-2 text-sm text-green-300 theme-light:text-green-700">
@@ -517,7 +566,7 @@ const CaseStudyCard = ({ sector, titulo, problema, solucion, tech, impacto, grad
       </svg>
       <span className="text-xs text-white/40 italic theme-light:text-slate-500">{labels.confidential}</span>
     </div>
-  </div>
+  </article>
 );
 
 const caseStudyAssets = [
@@ -530,6 +579,7 @@ const caseStudyAssets = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
       </svg>
     ),
+    demo: "scheduler",
   },
   {
     // Proyecto 2: Coches + IA Documental
@@ -540,6 +590,7 @@ const caseStudyAssets = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
       </svg>
     ),
+    demo: "docmanager"
   },
   {
     // Proyecto 3: Call Center IA
@@ -550,8 +601,9 @@ const caseStudyAssets = [
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
       </svg>
     ),
+    demo: "callCenter",
   },
-];;
+];
 
 /* --------------------------- Project assets --------------------------- */
 const projectAssets = [
@@ -576,6 +628,7 @@ const projectAssets = [
 const App = () => {
   const canvasRef = useRef(null);
   const [isDownloading, setIsDownloading] = useState(false);
+  const [activeDemo, setActiveDemo] = useState(null);
   const { t } = useLanguage();
   const { isDark } = useTheme();
 
@@ -590,10 +643,13 @@ const App = () => {
 
   const caseStudiesI18n = t("caseStudies.items");
   const caseLabels = t("caseStudies.labels");
+  const caseDemoTitles = t("caseStudies.demoTitles");
   const caseStudies = caseStudyAssets.map((asset, i) => ({
     ...asset,
     ...caseStudiesI18n[i],
   }));
+
+  const activeDemoTitle = activeDemo ? caseDemoTitles?.[activeDemo] ?? "Demo" : "";
 
   const aboutTags = t("about.tags");
   const aboutP1 = t("about.p1");
@@ -832,9 +888,75 @@ const App = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {caseStudies.map((cs, i) => (
-              <CaseStudyCard key={i} {...cs} labels={caseLabels} />
+              <CaseStudyCard
+                key={i}
+                {...cs}
+                labels={caseLabels}
+                isActive={activeDemo === cs.demo}
+                onOpenDemo={
+                  cs.demo
+                    ? () => {
+                        setActiveDemo((prev) => (prev === cs.demo ? null : cs.demo));
+                        // small delay so the panel mounts before scrolling
+                        setTimeout(() => {
+                          const target = document.getElementById("active-demo-panel");
+                          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 80);
+                      }
+                    : undefined
+                }
+              />
             ))}
           </div>
+
+          {/* Inline demo panel — replaces the modal */}
+          <AnimatePresence mode="wait">
+            {activeDemo ? (
+              <Motion.div
+                id="active-demo-panel"
+                key={activeDemo}
+                initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                animate={{ opacity: 1, height: "auto", marginTop: 32 }}
+                exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
+                className="overflow-hidden"
+              >
+                <div
+                  className="relative rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-5 md:p-7
+                             theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-lg"
+                >
+                  <div className="flex items-start justify-between gap-4 mb-5">
+                    <div className="min-w-0">
+                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider
+                                       bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 mb-2
+                                       theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200">
+                        {caseLabels.interactiveDemo}
+                      </span>
+                      <h3 className="text-xl md:text-2xl font-semibold text-white theme-light:text-slate-900">
+                        {activeDemoTitle}
+                      </h3>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => setActiveDemo(null)}
+                      className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10 transition-colors
+                                 theme-light:border-slate-300 theme-light:bg-white theme-light:text-slate-700 theme-light:hover:bg-slate-50"
+                      aria-label={caseLabels.closeDemo}
+                    >
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+                        <path strokeLinecap="round" d="M6 6l12 12M6 18L18 6" />
+                      </svg>
+                      {caseLabels.closeDemo}
+                    </button>
+                  </div>
+
+                  {activeDemo === "scheduler" ? <SchedulerDemo /> : null}
+                  {activeDemo === "docmanager" ? <DocManagerDemo /> : null}
+                  {activeDemo === "callCenter" ? <CallCenterDemo /> : null}
+                </div>
+              </Motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </section>
 

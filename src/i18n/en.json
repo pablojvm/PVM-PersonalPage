@@ -145,7 +145,83 @@
       "labels": {
         "challenge": "Challenge",
         "solution": "Solution",
-        "confidential": "Confidential client · details anonymized"
+        "confidential": "Confidential client · details anonymized",
+        "viewDemo": "See it in action",
+        "hideDemo": "Hide demo",
+        "interactiveDemo": "Interactive demo",
+        "closeDemo": "Close"
+      },
+      "demoTitles": {
+        "scheduler": "Smart Scheduling Pipeline",
+        "docmanager": "AI Document Manager",
+        "callCenter": "AI Voice Call Center"
+      },
+      "demos": {
+        "scheduler": {
+          "heading": "Real-time schedule optimization",
+          "subtitle": "n8n connects PowerBI exports with a custom web app, generating optimized shifts in minutes with full traceability.",
+          "kpis": [
+            { "value": "98%", "label": "Coverage" },
+            { "value": "0", "label": "Conflicts" },
+            { "value": "−22%", "label": "Labor cost" }
+          ],
+          "calendarTitle": "This week's optimized schedule",
+          "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+          "shifts": ["Morning", "Afternoon", "Night"],
+          "pipeline": [
+            { "label": "PowerBI", "detail": "DAX queries" },
+            { "label": "n8n", "detail": "Shift optimization" },
+            { "label": "Web App", "detail": "Live dashboard" }
+          ]
+        },
+        "docmanager": {
+          "heading": "End-to-end document automation",
+          "subtitle": "From upload to filed Modelo 620: a cascade of specialized AI models reads, validates and auto-fills every form.",
+          "inputTitle": "Incoming documents",
+          "inputItems": [
+            { "name": "ID Card", "tag": "OCR" },
+            { "name": "Vehicle docs", "tag": "OCR" },
+            { "name": "Sale contract", "tag": "OCR" }
+          ],
+          "processingTitle": "AI cascade",
+          "processingSteps": [
+            "Field extraction",
+            "Cross-profile validation",
+            "Auto-fill missing data"
+          ],
+          "outputTitle": "Modelo 620 — ready",
+          "outputFields": [
+            { "label": "Buyer", "value": "Juan Pérez" },
+            { "label": "Vehicle", "value": "1234 ABC" },
+            { "label": "Tax", "value": "5.5%" }
+          ]
+        },
+        "callCenter": {
+          "heading": "Live AI voice agent",
+          "subtitle": "Twilio routes the call to a Node.js orchestrator that interprets intent with OpenAI, queries the DB and creates a classified ticket — all in seconds.",
+          "callLabel": "Incoming call",
+          "callerLabel": "Customer",
+          "agentLabel": "AI agent",
+          "transcript": [
+            { "speaker": "customer", "text": "Hi, my badge isn't working this morning." },
+            { "speaker": "agent", "text": "Let me check that for you. Could you confirm your employee ID?" },
+            { "speaker": "customer", "text": "It's 482910." },
+            { "speaker": "agent", "text": "Got it. Raising a ticket with IT support right now." }
+          ],
+          "departmentsTitle": "Smart routing",
+          "departments": [
+            { "name": "HR", "selected": false },
+            { "name": "IT Support", "selected": true },
+            { "name": "Operations", "selected": false }
+          ],
+          "ticketTitle": "Ticket #IT-4829",
+          "ticketFields": [
+            { "label": "Issue", "value": "Badge not working" },
+            { "label": "Employee", "value": "ID 482910" },
+            { "label": "Routed to", "value": "IT Support" },
+            { "label": "Status", "value": "Open" }
+          ]
+        }
       },
       "items": [
         {

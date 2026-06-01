@@ -145,7 +145,83 @@
       "labels": {
         "challenge": "Sfida",
         "solution": "Soluzione",
-        "confidential": "Cliente riservato · dettagli anonimizzati"
+        "confidential": "Cliente riservato · dettagli anonimizzati",
+        "viewDemo": "Vedi in azione",
+        "hideDemo": "Nascondi demo",
+        "interactiveDemo": "Demo interattiva",
+        "closeDemo": "Chiudi"
+      },
+      "demoTitles": {
+        "scheduler": "Pipeline di Pianificazione Smart",
+        "docmanager": "Gestore Documentale con IA",
+        "callCenter": "Call Center con Agente Vocale IA"
+      },
+      "demos": {
+        "scheduler": {
+          "heading": "Ottimizzazione dei turni in tempo reale",
+          "subtitle": "n8n collega gli export di Power BI con una web app custom, generando turni ottimizzati in pochi minuti con tracciabilità totale.",
+          "kpis": [
+            { "value": "98%", "label": "Copertura" },
+            { "value": "0", "label": "Conflitti" },
+            { "value": "−22%", "label": "Costo del lavoro" }
+          ],
+          "calendarTitle": "Turni ottimizzati della settimana",
+          "days": ["Lun", "Mar", "Mer", "Gio", "Ven", "Sab", "Dom"],
+          "shifts": ["Mattina", "Pomeriggio", "Notte"],
+          "pipeline": [
+            { "label": "PowerBI", "detail": "Query DAX" },
+            { "label": "n8n", "detail": "Ottimizzazione turni" },
+            { "label": "Web App", "detail": "Dashboard live" }
+          ]
+        },
+        "docmanager": {
+          "heading": "Automazione documentale end-to-end",
+          "subtitle": "Dal caricamento al Modello 620 archiviato: una cascata di modelli IA specializzati legge, valida e auto-compila ogni modulo.",
+          "inputTitle": "Documenti in entrata",
+          "inputItems": [
+            { "name": "Carta d'identità", "tag": "OCR" },
+            { "name": "Documenti veicolo", "tag": "OCR" },
+            { "name": "Contratto di vendita", "tag": "OCR" }
+          ],
+          "processingTitle": "Cascata IA",
+          "processingSteps": [
+            "Estrazione campi",
+            "Validazione incrociata profili",
+            "Auto-compilazione dati mancanti"
+          ],
+          "outputTitle": "Modello 620 — pronto",
+          "outputFields": [
+            { "label": "Acquirente", "value": "Juan Pérez" },
+            { "label": "Veicolo", "value": "1234 ABC" },
+            { "label": "Imposta", "value": "5,5%" }
+          ]
+        },
+        "callCenter": {
+          "heading": "Agente vocale IA in diretta",
+          "subtitle": "Twilio instrada la chiamata a un orchestratore Node.js che interpreta l'intento con OpenAI, interroga il DB e crea un ticket classificato — tutto in pochi secondi.",
+          "callLabel": "Chiamata in arrivo",
+          "callerLabel": "Cliente",
+          "agentLabel": "Agente IA",
+          "transcript": [
+            { "speaker": "customer", "text": "Salve, il mio badge non funziona stamattina." },
+            { "speaker": "agent", "text": "Lo controllo subito. Mi conferma il suo ID dipendente?" },
+            { "speaker": "customer", "text": "È 482910." },
+            { "speaker": "agent", "text": "Ricevuto. Sto aprendo un ticket per il supporto IT in questo momento." }
+          ],
+          "departmentsTitle": "Instradamento intelligente",
+          "departments": [
+            { "name": "HR", "selected": false },
+            { "name": "Supporto IT", "selected": true },
+            { "name": "Operazioni", "selected": false }
+          ],
+          "ticketTitle": "Ticket #IT-4829",
+          "ticketFields": [
+            { "label": "Problema", "value": "Badge non funziona" },
+            { "label": "Dipendente", "value": "ID 482910" },
+            { "label": "Assegnato a", "value": "Supporto IT" },
+            { "label": "Stato", "value": "Aperto" }
+          ]
+        }
       },
       "items": [
         {

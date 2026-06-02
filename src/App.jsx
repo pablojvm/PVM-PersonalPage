@@ -350,9 +350,22 @@ const TechIcon = ({ tech, size = 56, className = "" }) => {
 };
 
 /* --------------------------- Tech carousel (integrated) --------------------------- */
+/**
+ * Infinite circular carousel.
+ *
+ * The list is duplicated once so the visual layout is [A][A]. We auto-scroll
+ * the container's scrollLeft on every animation frame. When scrollLeft passes
+ * the half-width boundary (i.e. enters the duplicate copy), we instantly snap
+ * back by halfWidth — visually identical content, but the cursor of the
+ * scrollable area is now back near the start. The same wrap logic applies to
+ * manual user scroll, so the user can drag/wheel as far right as they want
+ * and never hit a "real" end.
+ */
 const TechCarousel = () => {
   const { t } = useLanguage();
   const { isDark } = useTheme();
+  const scrollRef = useRef(null);
+  const isPausedRef = useRef(false);
   const lista = [...tecnologias, ...tecnologias];
 
   // Swap the OpenAI / Anthropic / Express colors in light mode for visibility.
@@ -365,6 +378,67 @@ const TechCarousel = () => {
         return tech;
       });
 
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const wrap = () => {
+      const halfWidth = el.scrollWidth / 2;
+      if (halfWidth > 0 && el.scrollLeft >= halfWidth) {
+        el.scrollLeft -= halfWidth;
+      }
+    };
+
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    el.addEventListener("scroll", wrap, { passive: true });
+
+    if (prefersReduced) {
+      // Honor reduced-motion: skip auto-scroll, keep manual scroll wrap.
+      return () => el.removeEventListener("scroll", wrap);
+    }
+
+    let rafId;
+    let lastTime = 0;
+    const speed = 28; // pixels / second — slow ambient drift
+
+    const tick = (now) => {
+      if (lastTime === 0) lastTime = now;
+      const delta = now - lastTime;
+      lastTime = now;
+
+      if (!isPausedRef.current) {
+        el.scrollLeft += (speed * delta) / 1000;
+      }
+      wrap();
+
+      rafId = requestAnimationFrame(tick);
+    };
+
+    rafId = requestAnimationFrame(tick);
+
+    const enter = () => {
+      isPausedRef.current = true;
+    };
+    const leave = () => {
+      isPausedRef.current = false;
+    };
+
+    el.addEventListener("mouseenter", enter);
+    el.addEventListener("mouseleave", leave);
+    el.addEventListener("touchstart", enter, { passive: true });
+    el.addEventListener("touchend", leave);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      el.removeEventListener("scroll", wrap);
+      el.removeEventListener("mouseenter", enter);
+      el.removeEventListener("mouseleave", leave);
+      el.removeEventListener("touchstart", enter);
+      el.removeEventListener("touchend", leave);
+    };
+  }, []);
+
   return (
     <section id="tech" className="py-20">
       <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 text-white theme-light:text-slate-900">
@@ -374,8 +448,8 @@ const TechCarousel = () => {
         {t("tech.subtitle")}
       </p>
       <div className="relative">
-        <div className="tech-scroll overflow-x-auto overflow-y-hidden">
-          <div className="flex gap-16 w-max animate-marquee py-2 px-8">
+        <div ref={scrollRef} className="tech-scroll overflow-x-auto overflow-y-hidden">
+          <div className="flex gap-16 w-max py-2 px-8">
             {techList.map((tech, i) => (
               <div
                 key={`${tech.name}-${i}`}

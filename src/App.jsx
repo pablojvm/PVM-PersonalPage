@@ -3,6 +3,7 @@ import { AnimatePresence, motion as Motion } from "framer-motion";
 import { useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import TopBar from "./components/TopBar";
+import HeroNav from "./components/HeroNav";
 import CallCenterDemo from "./components/demos/CallCenterDemo";
 import SchedulerDemo from "./components/demos/SchedulerDemo";
 import DocManagerDemo from "./components/demos/DocManagerDemo";
@@ -720,10 +721,51 @@ const App = () => {
   const canvasRef = useRef(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [activeDemo, setActiveDemo] = useState(null);
+  const [activeNav, setActiveNav] = useState("about");
   const { t } = useLanguage();
   const { isDark } = useTheme();
 
   useCanvasAnimation(canvasRef, isDark);
+
+  // Track which logical section is in view so the hero pill slides to it.
+  // Several real DOM sections map to the same nav slot (e.g. case-studies
+  // + automation both belong to the "automation" pill).
+  useEffect(() => {
+    const sectionToNav = {
+      about: "about",
+      tech: "about",
+      "case-studies": "automation",
+      automation: "automation",
+      proyectos: "projects",
+      contact: "contact",
+    };
+
+    const ratios = new Map();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          ratios.set(entry.target.id, entry.intersectionRatio);
+        });
+        let maxRatio = 0;
+        let next = null;
+        for (const [sectionId, ratio] of ratios) {
+          if (ratio > maxRatio) {
+            maxRatio = ratio;
+            next = sectionToNav[sectionId];
+          }
+        }
+        if (next && maxRatio > 0.15) setActiveNav(next);
+      },
+      { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
+    );
+
+    Object.keys(sectionToNav).forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
+  }, []);
 
   const proyectosI18n = t("projects.items");
   const proyectos = projectAssets.map((p, i) => ({
@@ -797,44 +839,43 @@ const App = () => {
           {t("hero.role")}
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
-            onClick={() => scrollTo("#about")}
-            className="bg-gradient-to-r from-indigo-500 to-purple-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 font-medium text-white"
-            aria-label={t("hero.ariaAbout")}
-          >
-            {t("hero.ctaAbout")}
-          </button>
-
-          <button
-            onClick={() => scrollTo("#case-studies")}
-            className="bg-gradient-to-r from-pink-500 to-rose-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-pink-500/25 font-medium text-white"
-            aria-label={t("hero.ariaAutomation")}
-          >
-            {t("hero.ctaAutomation")}
-          </button>
-
-          <button
-            onClick={() => scrollTo("#proyectos")}
-            className="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 font-medium text-white"
-            aria-label={t("hero.ariaProjects")}
-          >
-            {t("hero.ctaProjects")}
-          </button>
-
-          <button
-            onClick={() => scrollTo("#contact")}
-            className="bg-gradient-to-r from-green-500 to-teal-500 px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25 font-medium text-white"
-            aria-label={t("hero.ariaContact")}
-          >
-            {t("hero.ctaContact")}
-          </button>
+        <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 justify-center items-center">
+          <HeroNav
+            activeId={activeNav}
+            onSelect={(id) => {
+              setActiveNav(id);
+              const target = {
+                about: "#about",
+                automation: "#case-studies",
+                projects: "#proyectos",
+                contact: "#contact",
+              }[id];
+              if (target) scrollTo(target);
+            }}
+            items={[
+              { id: "about", label: t("hero.ctaAbout"), ariaLabel: t("hero.ariaAbout") },
+              { id: "automation", label: t("hero.ctaAutomation"), ariaLabel: t("hero.ariaAutomation") },
+              { id: "projects", label: t("hero.ctaProjects"), ariaLabel: t("hero.ariaProjects") },
+              { id: "contact", label: t("hero.ctaContact"), ariaLabel: t("hero.ariaContact") },
+            ]}
+          />
 
           <button
             onClick={handleDownloadCV}
             disabled={isDownloading}
-            className="bg-white text-black px-8 py-3 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-white/25 font-medium disabled:opacity-50 disabled:cursor-not-allowed
-                       theme-light:bg-slate-900 theme-light:text-white"
+            className="
+              px-5 py-2.5 rounded-full text-sm font-semibold whitespace-nowrap
+              bg-white text-slate-900
+              shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7),0_8px_24px_-6px_rgba(255,255,255,0.25)]
+              hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7),0_12px_32px_-6px_rgba(255,255,255,0.35)]
+              hover:scale-[1.02] active:scale-[0.98]
+              transition-all duration-200
+              disabled:opacity-50 disabled:cursor-not-allowed
+              focus:outline-none focus-visible:ring-2 focus-visible:ring-white/60
+              theme-light:bg-slate-900 theme-light:text-white
+              theme-light:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_8px_24px_-6px_rgba(15,23,42,0.35)]
+              theme-light:hover:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_12px_32px_-6px_rgba(15,23,42,0.45)]
+            "
             aria-label={t("hero.ariaDownloadCV")}
           >
             {isDownloading ? t("hero.ctaDownloading") : t("hero.ctaDownloadCV")}

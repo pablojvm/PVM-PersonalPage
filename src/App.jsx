@@ -4,9 +4,11 @@ import { useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import TopBar from "./components/TopBar";
 import HeroNav from "./components/HeroNav";
-import CallCenterDemo from "./components/demos/CallCenterDemo";
-import SchedulerDemo from "./components/demos/SchedulerDemo";
-import DocManagerDemo from "./components/demos/DocManagerDemo";
+import {
+  CallCenterDemo,
+  DocManagerDemo,
+  SchedulerDemo,
+} from "./components/demos/CaseStudyDemos";
 
 /* ------------------------- Canvas animation hook ------------------------- */
 const useCanvasAnimation = (canvasRef, isDark) => {
@@ -1025,7 +1027,7 @@ const HomePage = () => {
                   <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                   <div className="relative">
                     <img
-                      src="/download (3).png"
+                      src="/pablo-about.png"
                       alt={t("about.imageAlt")}
                       className="w-80 h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/20"
                       onError={(e) => {
@@ -1138,6 +1140,119 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+
+            {/* ============ JOURNEY (Timeline) ============ */}
+            <div className="mt-20">
+              <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-white theme-light:text-slate-900">
+                {t("about.journeyTitle")}
+              </h3>
+
+              <div className="relative max-w-3xl mx-auto">
+                {/* Línea vertical del timeline */}
+                <div className="absolute left-3 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-purple-400/40 via-pink-400/40 to-transparent md:-translate-x-px" />
+
+                <ol className="space-y-10">
+                  {t("about.journey").map((m, i) => {
+                    const isRight = i % 2 === 0;
+                    return (
+                      <li key={m.year + m.title} className="relative pl-10 md:pl-0">
+                        {/* Punto */}
+                        <span
+                          className="absolute left-3 md:left-1/2 top-2 w-3 h-3 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 ring-4 ring-purple-500/20 md:-translate-x-1/2
+                                     theme-light:from-purple-500 theme-light:to-pink-500 theme-light:ring-purple-200"
+                        />
+                        <div
+                          className={`md:w-1/2 ${isRight ? "md:ml-auto md:pl-10" : "md:pr-10 md:text-right"}`}
+                        >
+                          <div
+                            className="rounded-xl p-5 bg-white/10 backdrop-blur-md border border-white/15
+                                       theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm"
+                          >
+                            <div className="text-[11px] font-semibold uppercase tracking-wider text-purple-300 theme-light:text-purple-700">
+                              {m.year}
+                            </div>
+                            <h4 className="text-base font-semibold text-white mt-1 theme-light:text-slate-900">
+                              {m.title}
+                            </h4>
+                            <div className="text-xs text-white/60 mt-0.5 theme-light:text-slate-500">
+                              {m.place}
+                            </div>
+                            <p className="text-sm text-white/80 mt-3 leading-relaxed theme-light:text-slate-700">
+                              {m.description}
+                            </p>
+                          </div>
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ol>
+              </div>
+            </div>
+
+            {/* ============ LANGUAGES + EDUCATION ============ */}
+            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Languages */}
+              <div
+                className="rounded-2xl p-6 bg-white/10 backdrop-blur-md border border-white/15
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm"
+              >
+                <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2 theme-light:text-slate-900">
+                  <svg className="w-5 h-5 text-purple-300 theme-light:text-purple-600" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                  </svg>
+                  {t("about.languagesTitle")}
+                </h3>
+                <ul className="space-y-4">
+                  {t("about.languages").map((lang) => (
+                    <li key={lang.name}>
+                      <div className="flex items-baseline justify-between mb-1.5">
+                        <span className="text-sm font-medium text-white theme-light:text-slate-800">
+                          {lang.name}
+                        </span>
+                        <span className="text-xs text-white/60 theme-light:text-slate-500">
+                          {lang.level}
+                        </span>
+                      </div>
+                      <div className="h-1.5 rounded-full bg-white/10 overflow-hidden theme-light:bg-slate-200">
+                        <div
+                          className="h-full bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+                          style={{ width: `${lang.percent}%` }}
+                        />
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Education */}
+              <div
+                className="rounded-2xl p-6 bg-white/10 backdrop-blur-md border border-white/15
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm"
+              >
+                <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2 theme-light:text-slate-900">
+                  <svg className="w-5 h-5 text-purple-300 theme-light:text-purple-600" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                  </svg>
+                  {t("about.educationTitle")}
+                </h3>
+                <ul className="space-y-4">
+                  {t("about.education").map((edu) => (
+                    <li key={edu.title} className="border-l-2 border-purple-400/40 pl-4 theme-light:border-purple-300">
+                      <div className="text-[11px] font-semibold uppercase tracking-wider text-purple-300 theme-light:text-purple-700">
+                        {edu.year}
+                      </div>
+                      <h4 className="text-sm font-semibold text-white mt-0.5 theme-light:text-slate-900">
+                        {edu.title}
+                      </h4>
+                      <div className="text-xs text-white/60 mt-0.5 theme-light:text-slate-500">
+                        {edu.place}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1227,9 +1342,7 @@ const HomePage = () => {
             ) : null}
           </AnimatePresence>
         </div>
-      </section>
-
-      <AutomationSection />
+        </section>
 
         {/* ============ AUTOMATION ============ */}
         <AutomationSection />
@@ -1273,20 +1386,74 @@ const HomePage = () => {
                 />
               ))}
             </div>
-          </div>
-          {/* Mensaje: solicitar demo por email (simple) */}
-          {/* Mensaje con botón CTA */}
-          <div className="text-center mb-8 mt-10">
-            <p className="text-lg text-white/80 max-w-3xl mx-auto mb-4 leading-relaxed theme-light:text-slate-700">
-              ¿Quieres una muestra o demo personalizada? Escríbeme y te la
-              preparo.
-            </p>
-            <a
-              href="mailto:pablo.villar.moron@gmail.com"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-105 transition-all duration-200 text-white font-semibold"
-            >
-              Pedir demo
-            </a>
+
+            {/* CTA para pedir demo — tarjeta liquid glass con icono + dos CTAs */}
+            <div className="mt-12 max-w-3xl mx-auto">
+              <div
+                className="relative overflow-hidden rounded-3xl p-7 md:p-9
+                           bg-white/[0.08] backdrop-blur-2xl border border-white/15
+                           shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_20px_60px_-20px_rgba(0,0,0,0.5)]
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-lg"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/15 via-transparent to-pink-500/15 pointer-events-none theme-light:from-purple-100/60 theme-light:to-pink-100/40" />
+
+                <div className="relative flex flex-col md:flex-row items-center md:items-start gap-5 md:gap-6">
+                  <div
+                    className="w-14 h-14 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center flex-shrink-0
+                               shadow-[inset_0_1px_0_0_rgba(255,255,255,0.35),0_8px_20px_-4px_rgba(168,85,247,0.5)]"
+                  >
+                    <svg
+                      className="w-7 h-7 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth={1.7}
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-semibold mb-2 text-white theme-light:text-slate-900">
+                      {t("products.demoCta.title")}
+                    </h3>
+                    <p className="text-white/75 mb-5 leading-relaxed theme-light:text-slate-600">
+                      {t("products.demoCta.subtitle")}
+                    </p>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+                      <a
+                        href="mailto:pablo.villar.moron@gmail.com"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold
+                                   bg-white text-slate-900
+                                   shadow-[inset_0_1px_0_0_rgba(255,255,255,0.7),0_8px_24px_-6px_rgba(255,255,255,0.25)]
+                                   hover:scale-[1.02] active:scale-[0.98] transition-all duration-200
+                                   theme-light:bg-slate-900 theme-light:text-white
+                                   theme-light:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_8px_24px_-6px_rgba(15,23,42,0.35)]"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                        {t("products.demoCta.primaryButton")}
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/pablojvillarm/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium
+                                   bg-white/5 border border-white/20 text-white/90
+                                   hover:bg-white/10 hover:border-white/30 transition-all duration-200
+                                   theme-light:bg-transparent theme-light:border-slate-300 theme-light:text-slate-700 theme-light:hover:bg-slate-50"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                        </svg>
+                        {t("products.demoCta.secondaryButton")}
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -1302,7 +1469,7 @@ const HomePage = () => {
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
               <a
-                href="mailto:pablojvillarm@gmail.com"
+                href="mailto:pablo.villar.moron@gmail.com"
                 className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300
                            theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
               >
@@ -1328,7 +1495,7 @@ const HomePage = () => {
                   {t("contact.email")}
                 </div>
                 <div className="text-xs text-white/60 mt-1 theme-light:text-slate-600">
-                  pablojvillarm@gmail.com
+                  pablo.villar.moron@gmail.com
                 </div>
               </a>
 
@@ -1398,7 +1565,7 @@ const HomePage = () => {
                 {t("contact.ctaSubtitle")}
               </p>
               <a
-                href="mailto:pablojvillarm@gmail.com"
+                href="mailto:pablo.villar.moron@gmail.com"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-105 transition-all duration-200 text-white font-semibold"
               >
                 <svg

@@ -25,11 +25,11 @@
   },
   "about": {
     "title": "Su di me",
-    "imageAlt": "Pablo Villar - Sviluppatore Full Stack",
+    "imageAlt": "Pablo Villar - AI Automation Engineer",
     "placeholder": "La tua foto qui",
     "p1": {
-      "intro": "Sono uno ",
-      "role": "Sviluppatore Full Stack e di Automazioni",
+      "intro": "Sono un ",
+      "role": "AI Automation Engineer",
       "middle": " con solide basi in ",
       "js": "JavaScript",
       "comma1": ", ",
@@ -75,10 +75,24 @@
       "Integrazione di API",
       "Self-hosting"
     ],
-    "extended": {
-      "title": "La mia storia, più in dettaglio",
-      "placeholder": "Presto amplierò qui il mio percorso, le motivazioni e i progetti personali."
-    }
+    "journeyTitle": "Il mio percorso",
+    "journey": [
+      { "year": "2018 – 2022", "title": "Laurea in Scienze Politiche", "place": "Università di Granada", "description": "Base nel pensiero analitico e nella risoluzione strutturata dei problemi." },
+      { "year": "2022 – 2025", "title": "Commesso", "place": "Inditex · Málaga e Granada", "description": "Ruolo a contatto con il pubblico che mi ha formato in comunicazione e adattabilità sotto pressione." },
+      { "year": "2025", "title": "Bootcamp Full Stack", "place": "Ironhack", "description": "Programma intensivo: JavaScript, React, Node.js, MongoDB e API REST." },
+      { "year": "2025 – Oggi", "title": "AI Automation Engineer", "place": "Freelance · prodotti propri", "description": "Automazioni con n8n + IA, app web full-stack e i miei prodotti SaaS." }
+    ],
+    "languagesTitle": "Lingue",
+    "languages": [
+      { "name": "Spagnolo", "level": "Madrelingua", "percent": 100 },
+      { "name": "Inglese", "level": "Intermedio-Avanzato", "percent": 75 },
+      { "name": "Italiano", "level": "Base", "percent": 30 }
+    ],
+    "educationTitle": "Formazione",
+    "education": [
+      { "title": "Bootcamp Full Stack", "place": "Ironhack", "year": "2025" },
+      { "title": "Laurea in Scienze Politiche e Amministrazione Pubblica", "place": "Università di Granada", "year": "2018 – 2022" }
+    ]
   },
   "tech": {
     "title": "Stack Tecnologico",
@@ -151,8 +165,14 @@
   "products": {
     "title": "I miei prodotti",
     "subtitle": "Prodotti miei che sto rifinendo per lanciarli presto sul mercato.",
-    "comingSoonPill": "Coming soon",
+    "comingSoonPill": "In arrivo",
     "learnMore": "Scopri di più",
+    "demoCta": {
+      "title": "Ti interessa uno di loro?",
+      "subtitle": "Chiedimi una demo personalizzata e te la mostro passo a passo.",
+      "primaryButton": "Richiedi una demo",
+      "secondaryButton": "Parla su LinkedIn"
+    },
     "items": [
       {
         "titulo": "Casero",

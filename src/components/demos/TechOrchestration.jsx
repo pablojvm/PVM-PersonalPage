@@ -1,23 +1,6 @@
 import { Fragment } from "react";
 import { motion as Motion } from "framer-motion";
 
-/**
- * TechOrchestration
- *
- * Linear progressive diagram of the tech stack used in a project, showing
- * the orchestration order from left to right. Each node has an icon, a
- * label and a role description. Connected by animated arrows.
- *
- * Props:
- *   - title: string shown above the diagram
- *   - steps: array of { icon, label, role }
- *   - accent: tailwind gradient class fragment (e.g. "from-cyan-400 to-blue-500")
- *
- * Renders all icons inline (no network) for reliability. Brand logos use
- * their CC0 / fair-use SVG paths (Simple Icons). Concept icons use Heroicons
- * stroke style.
- */
-
 const BrandIcon = ({ name }) => {
   const common = "w-7 h-7";
   switch (name) {

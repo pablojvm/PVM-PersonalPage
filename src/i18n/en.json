@@ -25,11 +25,11 @@
   },
   "about": {
     "title": "About me",
-    "imageAlt": "Pablo Villar - Full Stack Developer",
+    "imageAlt": "Pablo Villar - AI Automation Engineer",
     "placeholder": "Your photo here",
     "p1": {
-      "intro": "I'm a ",
-      "role": "Full Stack & Automation Developer",
+      "intro": "I'm an ",
+      "role": "AI Automation Engineer",
       "middle": " with a solid foundation in ",
       "js": "JavaScript",
       "comma1": ", ",
@@ -75,10 +75,24 @@
       "API Integration",
       "Self-hosting"
     ],
-    "extended": {
-      "title": "My story, in more detail",
-      "placeholder": "I'll soon expand here on my background, motivations and personal projects."
-    }
+    "journeyTitle": "My journey",
+    "journey": [
+      { "year": "2018 – 2022", "title": "BA Political Science", "place": "University of Granada", "description": "Foundation in analytical thinking and structured problem-solving." },
+      { "year": "2022 – 2025", "title": "Sales Assistant", "place": "Inditex · Málaga & Granada", "description": "Customer-facing role that sharpened communication and adaptability under pressure." },
+      { "year": "2025", "title": "Full Stack Bootcamp", "place": "Ironhack", "description": "Intensive program in JavaScript, React, Node.js, MongoDB and REST APIs." },
+      { "year": "2025 – Present", "title": "AI Automation Engineer", "place": "Freelance · own products", "description": "Building n8n + AI automations, full-stack web apps and my own SaaS products." }
+    ],
+    "languagesTitle": "Languages",
+    "languages": [
+      { "name": "Spanish", "level": "Native", "percent": 100 },
+      { "name": "English", "level": "Upper-Intermediate", "percent": 75 },
+      { "name": "Italian", "level": "Basic", "percent": 30 }
+    ],
+    "educationTitle": "Education",
+    "education": [
+      { "title": "Full Stack Bootcamp", "place": "Ironhack", "year": "2025" },
+      { "title": "BA Political Science & Public Administration", "place": "University of Granada", "year": "2018 – 2022" }
+    ]
   },
   "tech": {
     "title": "Tech Stack",
@@ -153,6 +167,12 @@
     "subtitle": "My own products, which I'm polishing for an upcoming launch.",
     "comingSoonPill": "Coming soon",
     "learnMore": "Learn more",
+    "demoCta": {
+      "title": "Interested in either of them?",
+      "subtitle": "Ask me for a personalized demo and I'll walk you through it step by step.",
+      "primaryButton": "Request a demo",
+      "secondaryButton": "Talk on LinkedIn"
+    },
     "items": [
       {
         "titulo": "Casero",

@@ -250,6 +250,8 @@ const ProductCard = ({
 /* --------------------------- Tech data --------------------------- */
 const tecnologias = [
   { name: "JavaScript", slug: "javascript", color: "F7DF1E" },
+  { name: "Python", slug: "python", color: "3776AB" },
+  { name: "TypeScript", slug: "typescript", color: "3178C6" },
   { name: "React", slug: "react", color: "61DAFB" },
   { name: "Node.js", slug: "nodedotjs", color: "5FA04E" },
   { name: "Express", slug: "express", color: "FFFFFF" },

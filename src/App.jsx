@@ -35,7 +35,6 @@ const useCanvasAnimation = (canvasRef, isDark) => {
       });
     }
 
-    // Lighter particles read better against the light background.
     const fillStyle = isDark
       ? "rgba(147, 197, 253, 0.4)"
       : "rgba(99, 102, 241, 0.25)";
@@ -102,42 +101,45 @@ const ProjectCard = ({
 
   return (
     <div
-      className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden shadow-lg hover:scale-105 transition-all duration-300 transform
-                    theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
+      className="group relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-all duration-300
+                 theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md h-full flex flex-col"
     >
-      <div className="relative h-48 overflow-hidden">
+      {/* Image / hero area (fixed height) */}
+      <div className="relative h-44 overflow-hidden bg-gradient-to-br from-purple-500/10 to-pink-500/10">
         {!hasError ? (
           <img
             src={foto}
             alt={titulo}
-            className={`w-full h-full object-cover transition-opacity duration-300 ${
+            className={`w-full h-full object-cover object-center transition-opacity duration-300 ${
               imageLoaded ? "opacity-100" : "opacity-0"
             }`}
             onLoad={() => setImageLoaded(true)}
             onError={() => setHasError(true)}
+            loading="lazy"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-            <span className="text-white/60 text-lg theme-light:text-slate-500">
-              📷
-            </span>
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-4xl">📷</span>
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent theme-light:from-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent theme-light:from-black/15" />
       </div>
 
-      <div className="p-6">
-        <h2
+      {/* Content (flex-grow para igualar alturas) */}
+      <div className="p-6 flex flex-col flex-grow">
+        <h3
           className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors
-                       theme-light:text-slate-900 theme-light:group-hover:text-purple-600"
+                     theme-light:text-slate-900 theme-light:group-hover:text-purple-600"
         >
           {titulo}
-        </h2>
+        </h3>
+
         <p className="text-white/80 text-sm leading-relaxed mb-4 theme-light:text-slate-700">
           {descripcion}
         </p>
 
-        <div className="flex gap-3 mt-4">
+        {/* Acciones empujadas al fondo para alinear botones entre cards */}
+        <div className="flex gap-3 mt-auto">
           {liveUrl && (
             <a
               href={liveUrl}
@@ -146,18 +148,8 @@ const ProjectCard = ({
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-green-500/20 to-emerald-500/20 border border-green-400/30 rounded-lg hover:scale-105 transition-all duration-200 text-green-300 hover:text-green-200 text-sm font-medium
                          theme-light:from-green-500/15 theme-light:to-emerald-500/15 theme-light:text-green-700 theme-light:hover:text-green-800"
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
               </svg>
               {liveLabel}
             </a>
@@ -171,16 +163,84 @@ const ProjectCard = ({
               className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-gray-600/20 to-gray-800/20 border border-gray-400/30 rounded-lg hover:scale-105 transition-all duration-200 text-gray-300 hover:text-gray-200 text-sm font-medium
                          theme-light:from-slate-500/10 theme-light:to-slate-700/10 theme-light:text-slate-700 theme-light:hover:text-slate-900"
             >
-              <svg
-                className="w-4 h-4"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
               </svg>
               {githubLabel}
             </a>
           )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+/* --------------------------- Product card --------------------------- */
+const ProductCard = ({
+  titulo,
+  descripcion,
+  foto,
+  accent,
+  tags = [],
+  comingSoonLabel,
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  return (
+    <div
+      className="group relative bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl overflow-hidden shadow-lg hover:scale-[1.02] transition-all duration-300
+                 theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
+    >
+      {/* Pill Coming soon */}
+      <span
+        className="absolute top-3 right-3 z-10 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold uppercase tracking-wider
+                   bg-amber-500/25 text-amber-100 border border-amber-300/40 backdrop-blur-md
+                   theme-light:bg-amber-100 theme-light:text-amber-800 theme-light:border-amber-300"
+      >
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-300 animate-pulse theme-light:bg-amber-500" />
+        {comingSoonLabel}
+      </span>
+
+      <div className={`relative h-44 overflow-hidden bg-gradient-to-br ${accent}`}>
+        {foto && !hasError ? (
+          <img
+            src={foto}
+            alt={titulo}
+            className={`w-full h-full object-cover transition-opacity duration-300 ${
+              imageLoaded ? "opacity-100" : "opacity-0"
+            }`}
+            onLoad={() => setImageLoaded(true)}
+            onError={() => setHasError(true)}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center">
+            <span className="text-5xl">🚀</span>
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent theme-light:from-black/15" />
+      </div>
+
+      <div className="p-6">
+        <h3
+          className="text-xl font-semibold mb-2 text-white group-hover:text-purple-300 transition-colors
+                     theme-light:text-slate-900 theme-light:group-hover:text-purple-600"
+        >
+          {titulo}
+        </h3>
+        <p className="text-white/80 text-sm leading-relaxed mb-4 theme-light:text-slate-700">
+          {descripcion}
+        </p>
+        <div className="flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <span
+              key={tag}
+              className="px-2.5 py-1 rounded-md text-xs bg-white/5 border border-white/15 text-white/80
+                         theme-light:bg-slate-100 theme-light:border-slate-200 theme-light:text-slate-700"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
       </div>
     </div>
@@ -238,7 +298,6 @@ const tecnologias = [
 ];
 
 /* --------------------------- Icon helpers & component --------------------------- */
-
 const normalizeHex = (c) => {
   if (!c) return null;
   return c.startsWith("#") ? c.toUpperCase() : `#${c.toUpperCase()}`;
@@ -246,18 +305,12 @@ const normalizeHex = (c) => {
 
 const hexForUrl = (c) => (c ? c.replace(/^#/, "").toUpperCase() : undefined);
 
-/**
- * TechIcon: muestra iconUrl -> slug(SimpleIcons) -> inline path -> fallback.
- * Usa internal state para gestionar error de carga de imagen.
- */
 const TechIcon = ({ tech, size = 56, className = "" }) => {
   const [imgError, setImgError] = useState(false);
 
-  // Prepare color usage
   const fillColor = normalizeHex(tech.color) || "currentColor";
   const colorForUrl = hexForUrl(tech.color);
 
-  // 1) iconUrl
   if (tech.iconUrl && !imgError) {
     const styleWhiteBg =
       tech.color &&
@@ -291,7 +344,6 @@ const TechIcon = ({ tech, size = 56, className = "" }) => {
     );
   }
 
-  // 2) slug -> Simple Icons CDN
   if (tech.slug && !imgError) {
     const cdnUrl = colorForUrl
       ? `https://cdn.simpleicons.org/${tech.slug}/${colorForUrl}`
@@ -311,7 +363,6 @@ const TechIcon = ({ tech, size = 56, className = "" }) => {
         className={`object-contain ${className}`}
         style={{ width: size, height: size, ...styleWhiteBg }}
         onError={(e) => {
-          // Hide broken img and fall back to inline or placeholder
           e.currentTarget.style.display = "none";
           setImgError(true);
         }}
@@ -320,7 +371,6 @@ const TechIcon = ({ tech, size = 56, className = "" }) => {
     );
   }
 
-  // 3) inline SVG path (OpenAI, Anthropic, etc.)
   if (tech.path) {
     return (
       <svg
@@ -336,7 +386,6 @@ const TechIcon = ({ tech, size = 56, className = "" }) => {
     );
   }
 
-  // 4) fallback: initials circle
   const initial = (tech.name || "?").slice(0, 1).toUpperCase();
   return (
     <div
@@ -351,25 +400,13 @@ const TechIcon = ({ tech, size = 56, className = "" }) => {
 };
 
 /* --------------------------- Tech carousel (integrated) --------------------------- */
-/**
- * Infinite circular carousel.
- *
- * The list is duplicated once so the visual layout is [A][A]. We auto-scroll
- * the container's scrollLeft on every animation frame. When scrollLeft passes
- * the half-width boundary (i.e. enters the duplicate copy), we instantly snap
- * back by halfWidth — visually identical content, but the cursor of the
- * scrollable area is now back near the start. The same wrap logic applies to
- * manual user scroll, so the user can drag/wheel as far right as they want
- * and never hit a "real" end.
- */
-const TechCarousel = () => {
+export const TechCarousel = () => {
   const { t } = useLanguage();
   const { isDark } = useTheme();
   const scrollRef = useRef(null);
   const isPausedRef = useRef(false);
   const lista = [...tecnologias, ...tecnologias];
 
-  // Swap the OpenAI / Anthropic / Express colors in light mode for visibility.
   const techList = isDark
     ? lista
     : lista.map((tech) => {
@@ -395,13 +432,12 @@ const TechCarousel = () => {
     el.addEventListener("scroll", wrap, { passive: true });
 
     if (prefersReduced) {
-      // Honor reduced-motion: skip auto-scroll, keep manual scroll wrap.
       return () => el.removeEventListener("scroll", wrap);
     }
 
     let rafId;
     let lastTime = 0;
-    const speed = 28; // pixels / second — slow ambient drift
+    const speed = 28;
 
     const tick = (now) => {
       if (lastTime === 0) lastTime = now;
@@ -663,7 +699,6 @@ const CaseStudyCard = ({
 
 const caseStudyAssets = [
   {
-    // Proyecto 1: Scheduler + PowerBI
     tech: ["n8n", "PowerBI", "Webhooks", "Custom Web App"],
     gradient: "from-blue-500 to-cyan-500",
     icon: (
@@ -674,7 +709,6 @@ const caseStudyAssets = [
     demo: "scheduler",
   },
   {
-    // Proyecto 2: Coches + IA Documental
     tech: ["OpenAI", "n8n", "AI Document Analysis", "PDF Automation", "PostgreSQL", "Railway"],
     gradient: "from-purple-500 to-pink-500",
     icon: (
@@ -685,7 +719,6 @@ const caseStudyAssets = [
     demo: "docmanager"
   },
   {
-    // Proyecto 3: Call Center IA
     tech: ["AI Voice API", "n8n", "NLP", "CRM Integration", "Smart Routing"],
     gradient: "from-green-500 to-emerald-500",
     icon: (
@@ -697,7 +730,7 @@ const caseStudyAssets = [
   },
 ];
 
-/* --------------------------- Project assets --------------------------- */
+/* --------------------------- Project assets (Casero removed) --------------------------- */
 const projectAssets = [
   {
     foto: "/captura5.png",
@@ -705,19 +738,26 @@ const projectAssets = [
     githubUrl: "https://github.com/pablojvm/GalileoPsicologos-Client",
   },
   {
-    foto: "/captura6.png",
-    liveUrl: "https://casero.pablo-villar-moron.workers.dev/",
-    githubUrl: "https://github.com/pablojvm/Casero",
-  },
-  {
     foto: "/captura4.png",
     liveUrl: "https://airb2b.netlify.app/",
     githubUrl: "https://github.com/pablojvm/AirB2B-Client",
-  }
+  },
 ];
 
-/* --------------------------- Main App --------------------------- */
-const App = () => {
+/* --------------------------- Product assets --------------------------- */
+const productAssets = [
+  {
+    foto: "/captura6.png", // reusa la captura de Casero
+    accent: "from-purple-500/30 to-pink-500/30",
+  },
+  {
+    foto: "/captura7.png", // placeholder con icono hasta tener captura
+    accent: "from-amber-500/30 to-red-500/30",
+  },
+];
+
+/* --------------------------- Home Page --------------------------- */
+const HomePage = () => {
   const canvasRef = useRef(null);
   const [isDownloading, setIsDownloading] = useState(false);
   const [activeDemo, setActiveDemo] = useState(null);
@@ -728,44 +768,47 @@ const App = () => {
   useCanvasAnimation(canvasRef, isDark);
 
   // Track which logical section is in view so the hero pill slides to it.
-  // Several real DOM sections map to the same nav slot (e.g. case-studies
-  // + automation both belong to the "automation" pill).
   useEffect(() => {
-    const sectionToNav = {
-      about: "about",
-      tech: "about",
-      "case-studies": "automation",
-      automation: "automation",
-      proyectos: "projects",
-      contact: "contact",
-    };
+  const sectionToNav = {
+    hero: "about",
+    about: "about",
+    "case-studies": "automation",
+    automation: "automation",
+    proyectos: "projects",
+    productos: "products",
+    contact: "contact",
+  };
 
-    const ratios = new Map();
+  const ratios = new Map();
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          ratios.set(entry.target.id, entry.intersectionRatio);
-        });
-        let maxRatio = 0;
-        let next = null;
-        for (const [sectionId, ratio] of ratios) {
-          if (ratio > maxRatio) {
-            maxRatio = ratio;
-            next = sectionToNav[sectionId];
-          }
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        ratios.set(entry.target.id, entry.intersectionRatio);
+      });
+
+      let maxRatio = 0;
+      let next = null;
+      for (const [sectionId, ratio] of ratios) {
+        if (ratio > maxRatio) {
+          maxRatio = ratio;
+          next = sectionToNav[sectionId];
         }
-        if (next && maxRatio > 0.15) setActiveNav(next);
-      },
-      { threshold: [0, 0.2, 0.4, 0.6, 0.8, 1] }
-    );
+      }
+      // Solo actualizamos si supera un umbral pequeño (evita cambios por micro-intersecciones)
+      if (next && maxRatio > 0.12) setActiveNav(next);
+    },
+    // rootMargin ayuda a detectar mejor cuando volvemos arriba (ajusta si es necesario)
+    { threshold: [0, 0.12, 0.25, 0.5, 0.75, 1], rootMargin: "-10% 0px -40% 0px" }
+  );
 
-    Object.keys(sectionToNav).forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-    return () => observer.disconnect();
-  }, []);
+  Object.keys(sectionToNav).forEach((id) => {
+    const el = document.getElementById(id);
+    if (el) observer.observe(el);
+  });
+
+  return () => observer.disconnect();
+}, []);
 
   const proyectosI18n = t("projects.items");
   const proyectos = projectAssets.map((p, i) => ({
@@ -773,6 +816,19 @@ const App = () => {
     titulo: proyectosI18n[i]?.titulo ?? "",
     descripcion: proyectosI18n[i]?.descripcion ?? "",
   }));
+
+  const productsI18n = t("products.items");
+  const products = productAssets.map((p, i) => ({
+    ...p,
+    titulo: productsI18n[i]?.titulo ?? "",
+    descripcion: productsI18n[i]?.descripcion ?? "",
+    tags: productsI18n[i]?.tags ?? [],
+  }));
+
+  const aboutP1 = t("about.p1");
+  const aboutP2 = t("about.p2");
+  const aboutP3 = t("about.p3");
+  const aboutTags = t("about.tags");
 
   const caseStudiesI18n = t("caseStudies.items");
   const caseLabels = t("caseStudies.labels");
@@ -783,11 +839,6 @@ const App = () => {
   }));
 
   const activeDemoTitle = activeDemo ? caseDemoTitles?.[activeDemo] ?? "Demo" : "";
-
-  const aboutTags = t("about.tags");
-  const aboutP1 = t("about.p1");
-  const aboutP2 = t("about.p2");
-  const aboutP3 = t("about.p3");
 
   const handleDownloadCV = () => {
     setIsDownloading(true);
@@ -817,9 +868,6 @@ const App = () => {
                  theme-light:bg-none theme-light:bg-slate-50 theme-light:text-slate-900"
       style={{ zIndex: 0 }}
     >
-      {/* Canvas particles — fixed at the back (z 0). All foreground content
-          lives inside the wrapper below at z 10 so the bubbles stay in the
-          background. */}
       <canvas
         ref={canvasRef}
         className="fixed inset-0 w-full h-full pointer-events-none"
@@ -828,19 +876,19 @@ const App = () => {
       />
 
       <div className="relative" style={{ zIndex: 10 }}>
-      <TopBar />
+        <TopBar />
 
-      <header className="text-center py-20 px-4">
-        <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent
-                       theme-light:from-purple-600 theme-light:to-pink-600">
-          {t("hero.greeting")}
-        </h1>
-        <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto theme-light:text-slate-700">
-          {t("hero.role")}
-        </p>
+        <header id="hero" className="text-center py-20 px-4">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent
+                         theme-light:from-purple-600 theme-light:to-pink-600">
+            {t("hero.greeting")}
+          </h1>
+          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto theme-light:text-slate-700">
+            {t("hero.role")}
+          </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 justify-center items-center">
-          <HeroNav
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 justify-center items-center flex-wrap">
+            <HeroNav
             activeId={activeNav}
             onSelect={(id) => {
               setActiveNav(id);
@@ -848,6 +896,7 @@ const App = () => {
                 about: "#about",
                 automation: "#case-studies",
                 projects: "#proyectos",
+                products: "#productos",
                 contact: "#contact",
               }[id];
               if (target) scrollTo(target);
@@ -856,11 +905,12 @@ const App = () => {
               { id: "about", label: t("hero.ctaAbout"), ariaLabel: t("hero.ariaAbout") },
               { id: "automation", label: t("hero.ctaAutomation"), ariaLabel: t("hero.ariaAutomation") },
               { id: "projects", label: t("hero.ctaProjects"), ariaLabel: t("hero.ariaProjects") },
+              { id: "products", label: t("hero.ctaProducts"), ariaLabel: t("hero.ariaProducts") },
               { id: "contact", label: t("hero.ctaContact"), ariaLabel: t("hero.ariaContact") },
             ]}
           />
 
-          <button
+            <button
             onClick={handleDownloadCV}
             disabled={isDownloading}
             className="
@@ -880,10 +930,11 @@ const App = () => {
           >
             {isDownloading ? t("hero.ctaDownloading") : t("hero.ctaDownloadCV")}
           </button>
-        </div>
-      </header>
+          </div>
+        </header>
 
-      <section id="about" className="px-4 sm:px-6 lg:px-10 py-20">
+        {/* ============ SOBRE MÍ ============ */}
+       <section id="about" className="px-4 sm:px-6 lg:px-10 py-20">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-16 text-white theme-light:text-slate-900">
             {t("about.title")}
@@ -895,7 +946,7 @@ const App = () => {
                 <div className="absolute -inset-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-300"></div>
                 <div className="relative">
                   <img
-                    src="/pablo.jpeg"
+                    src="/download (3).png"
                     alt={t("about.imageAlt")}
                     className="w-80 h-80 object-cover rounded-2xl shadow-2xl border-4 border-white/20"
                     onError={(e) => {
@@ -1009,203 +1060,221 @@ const App = () => {
         </div>
       </section>
 
-      <TechCarousel />
+        <TechCarousel />
 
-      <section id="case-studies" className="px-4 sm:px-6 lg:px-10 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
+        {/* ============ CASE STUDIES ============ */}
+        <section id="case-studies" className="px-4 sm:px-6 lg:px-10 py-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
+                {t("caseStudies.title")}
+              </h2>
+              <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed theme-light:text-slate-700">
+                {t("caseStudies.subtitle")}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {caseStudies.map((cs, idx) => (
+                <CaseStudyCard
+                  key={idx}
+                  {...cs}
+                  labels={caseLabels}
+                  onOpenDemo={cs.demo ? () => setActiveDemo(cs.demo) : undefined}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ AUTOMATION ============ */}
+        <AutomationSection />
+
+        {/* ============ PROYECTOS ============ */}
+        <section id="proyectos" className="px-4 sm:px-6 lg:px-10 py-20">
+  <div className="max-w-6xl mx-auto">
+    <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-white theme-light:text-slate-900">
+      {t("projects.title")}
+    </h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {proyectos.map((p, idx) => (
+        <ProjectCard
+          key={idx}
+          {...p}
+          liveLabel={t("projects.liveDemo")}
+          githubLabel={t("projects.github")}
+        />
+      ))}
+    </div>
+  </div>
+</section>
+
+        {/* ============ MIS PRODUCTOS ============ */}
+        <section id="productos" className="px-4 sm:px-6 lg:px-10 py-20">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
+                {t("products.title")}
+              </h2>
+              <p className="text-lg text-white/80 max-w-3xl mx-auto leading-relaxed theme-light:text-slate-700">
+                {t("products.subtitle")}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {products.map((p, idx) => (
+                <ProductCard
+                  key={idx}
+                  {...p}
+                  comingSoonLabel={t("products.comingSoonPill")}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ============ CONTACT ============ */}
+        <section id="contact" className="px-4 sm:px-6 lg:px-10 py-20">
+          <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
-              {t("caseStudies.title")}
+              {t("contact.title")}
             </h2>
-            <p className="text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
-              {t("caseStudies.subtitle")}
+            <p className="text-lg text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed theme-light:text-slate-700">
+              {t("contact.subtitle")}
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.map((cs, i) => (
-              <CaseStudyCard
-                key={i}
-                {...cs}
-                labels={caseLabels}
-                isActive={activeDemo === cs.demo}
-                onOpenDemo={
-                  cs.demo
-                    ? () => {
-                        setActiveDemo((prev) => (prev === cs.demo ? null : cs.demo));
-                        // small delay so the panel mounts before scrolling
-                        setTimeout(() => {
-                          const target = document.getElementById("active-demo-panel");
-                          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 80);
-                      }
-                    : undefined
-                }
-              />
-            ))}
-          </div>
-
-          {/* Inline demo panel — replaces the modal */}
-          <AnimatePresence mode="wait">
-            {activeDemo ? (
-              <Motion.div
-                id="active-demo-panel"
-                key={activeDemo}
-                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                animate={{ opacity: 1, height: "auto", marginTop: 32 }}
-                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
-                className="overflow-hidden"
-              >
-                <div
-                  className="relative rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-5 md:p-7
-                             theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-lg"
-                >
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <div className="min-w-0">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider
-                                       bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 mb-2
-                                       theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200">
-                        {caseLabels.interactiveDemo}
-                      </span>
-                      <h3 className="text-xl md:text-2xl font-semibold text-white theme-light:text-slate-900">
-                        {activeDemoTitle}
-                      </h3>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setActiveDemo(null)}
-                      className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10 transition-colors
-                                 theme-light:border-slate-300 theme-light:bg-white theme-light:text-slate-700 theme-light:hover:bg-slate-50"
-                      aria-label={caseLabels.closeDemo}
-                    >
-                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" d="M6 6l12 12M6 18L18 6" />
-                      </svg>
-                      {caseLabels.closeDemo}
-                    </button>
-                  </div>
-
-                  {activeDemo === "scheduler" ? <SchedulerDemo /> : null}
-                  {activeDemo === "docmanager" ? <DocManagerDemo /> : null}
-                  {activeDemo === "callCenter" ? <CallCenterDemo /> : null}
-                </div>
-              </Motion.div>
-            ) : null}
-          </AnimatePresence>
-        </div>
-      </section>
-
-      <AutomationSection />
-
-      <section id="proyectos" className="px-4 sm:px-6 lg:px-10 pb-20">
-        <h2 className="text-3xl font-bold text-center mb-12 text-white theme-light:text-slate-900">
-          {t("projects.title")}
-        </h2>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
-          {proyectos.map((proyecto, index) => (
-            <ProjectCard
-              key={index}
-              titulo={proyecto.titulo}
-              descripcion={proyecto.descripcion}
-              foto={proyecto.foto}
-              liveUrl={proyecto.liveUrl}
-              githubUrl={proyecto.githubUrl}
-              liveLabel={t("projects.liveDemo")}
-              githubLabel={t("projects.github")}
-            />
-          ))}
-        </div>
-      </section>
-
-      <section id="contact" className="px-4 sm:px-6 lg:px-10 py-20">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white theme-light:text-slate-900">
-            {t("contact.title")}
-          </h2>
-          <p className="text-lg text-white/80 mb-12 max-w-2xl mx-auto theme-light:text-slate-700">
-            {t("contact.subtitle")}
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300 group
-                            theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path>
-                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2 theme-light:text-slate-900">{t("contact.email")}</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
               <a
-                href="mailto:pablo.villar.moron@gmail.com"
-                className="text-blue-300 hover:text-blue-200 transition-colors theme-light:text-blue-600 theme-light:hover:text-blue-700"
+                href="mailto:pablojvillarm@gmail.com"
+                className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
               >
-                pablo.villar.moron@gmail.com
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors
+                                theme-light:text-slate-900 theme-light:group-hover:text-purple-600">
+                  {t("contact.email")}
+                </div>
+                <div className="text-xs text-white/60 mt-1 theme-light:text-slate-600">pablojvillarm@gmail.com</div>
+              </a>
+
+              <a
+                href="https://www.linkedin.com/in/pablojvillarm/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
+              >
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-semibold text-white group-hover:text-blue-300 transition-colors
+                                theme-light:text-slate-900 theme-light:group-hover:text-blue-600">
+                  {t("contact.linkedin")}
+                </div>
+                <div className="text-xs text-white/60 mt-1 theme-light:text-slate-600">pablojvillarm</div>
+              </a>
+
+              <a
+                href="https://github.com/pablojvm"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md"
+              >
+                <div className="w-12 h-12 mx-auto mb-3 bg-gradient-to-br from-gray-700 to-gray-900 rounded-lg flex items-center justify-center">
+                  <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </div>
+                <div className="text-sm font-semibold text-white group-hover:text-gray-300 transition-colors
+                                theme-light:text-slate-900 theme-light:group-hover:text-slate-700">
+                  {t("contact.github")}
+                </div>
+                <div className="text-xs text-white/60 mt-1 theme-light:text-slate-600">pablojvm</div>
               </a>
             </div>
 
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300 group
-                            theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2 theme-light:text-slate-900">{t("contact.linkedin")}</h3>
-              <a 
-                href="https://www.linkedin.com/in/pablo-villar-webdeveloper/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-300 hover:text-blue-200 transition-colors theme-light:text-blue-600 theme-light:hover:text-blue-700"
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-md border border-purple-400/30 rounded-2xl p-8 md:p-10
+                            theme-light:from-purple-100 theme-light:to-pink-100 theme-light:border-purple-200">
+              <h3 className="text-2xl md:text-3xl font-bold mb-3 text-white theme-light:text-slate-900">
+                {t("contact.ctaTitle")}
+              </h3>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto theme-light:text-slate-700">
+                {t("contact.ctaSubtitle")}
+              </p>
+              <a
+                href="mailto:pablojvillarm@gmail.com"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-105 transition-all duration-200 text-white font-semibold"
               >
-                /in/pablo-villar-webdeveloper
-              </a>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-6 hover:scale-105 transition-all duration-300 group
-                            theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md">
-              <div className="w-16 h-16 bg-gradient-to-r from-gray-700 to-gray-900 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                 </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white mb-2 theme-light:text-slate-900">{t("contact.github")}</h3>
-              <a 
-                href="https://github.com/pablojvm" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="text-blue-300 hover:text-blue-200 transition-colors theme-light:text-blue-600 theme-light:hover:text-blue-700"
-              >
-                /pablojvm
+                {t("contact.ctaButton")}
               </a>
             </div>
           </div>
+        </section>
 
-          <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8
-                          theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-md">
-            <h3 className="text-2xl font-bold text-white mb-4 theme-light:text-slate-900">{t("contact.ctaTitle")}</h3>
-            <p className="text-white/80 mb-6 theme-light:text-slate-700">
-              {t("contact.ctaSubtitle")}
-            </p>
-            <a
-              href="mailto:pablo.villar.moron@gmail.com"
-              className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-4 rounded-full hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-purple-500/25 font-medium text-white"
-            >
-              {t("contact.ctaButton")}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <footer className="text-center py-8 text-white/60 border-t border-white/10
-                         theme-light:text-slate-500 theme-light:border-slate-200">
-        <p>&copy; {new Date().getFullYear()} {t("footer.rights")}</p>
-      </footer>
+        <footer className="text-center py-8 text-white/60 text-sm theme-light:text-slate-500">
+          © {new Date().getFullYear()} {t("footer.rights")}
+        </footer>
       </div>
+
+      {/* ============ DEMO MODAL ============ */}
+      <AnimatePresence>
+        {activeDemo ? (
+          <Motion.div
+            key="demo-overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 flex items-center justify-center px-4 py-8 bg-slate-950/80 backdrop-blur-md"
+            onClick={() => setActiveDemo(null)}
+          >
+            <Motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ type: "spring", damping: 24, stiffness: 240 }}
+              className="relative w-full max-w-5xl max-h-[85vh] overflow-y-auto bg-slate-900/95 border border-white/15 rounded-2xl shadow-2xl
+                         theme-light:bg-white theme-light:border-slate-200"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="sticky top-0 z-10 flex items-center justify-between gap-4 px-6 py-4 border-b border-white/10 bg-slate-900/90 backdrop-blur-md
+                              theme-light:bg-white/95 theme-light:border-slate-200">
+                <h3 className="text-lg md:text-xl font-semibold text-white theme-light:text-slate-900">
+                  {activeDemoTitle}
+                </h3>
+                <button
+                  type="button"
+                  onClick={() => setActiveDemo(null)}
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg border border-white/15 text-white/80 hover:bg-white/10 transition
+                             theme-light:border-slate-200 theme-light:text-slate-700 theme-light:hover:bg-slate-100"
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                  <span className="text-sm">{caseLabels.closeDemo}</span>
+                </button>
+              </div>
+
+              <div className="p-4 md:p-6">
+                {activeDemo === "scheduler" ? <SchedulerDemo /> : null}
+                {activeDemo === "docmanager" ? <DocManagerDemo /> : null}
+                {activeDemo === "callCenter" ? <CallCenterDemo /> : null}
+              </div>
+            </Motion.div>
+          </Motion.div>
+        ) : null}
+      </AnimatePresence>
     </div>
   );
 };
 
-export default App;
+export default HomePage;

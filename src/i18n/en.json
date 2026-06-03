@@ -3,31 +3,34 @@
     "language": "Language",
     "theme": "Theme",
     "themeLight": "Light mode",
-    "themeDark": "Dark mode"
+    "themeDark": "Dark mode",
+    "backHome": "Back to home"
   },
   "hero": {
     "greeting": "Hi, I'm Pablo",
     "role": "AI Automation Engineer",
-    "ctaAbout": "About Me",
+    "ctaAbout": "About me",
     "ctaAutomation": "Automation",
     "ctaProjects": "Projects",
+    "ctaProducts": "My products",
     "ctaContact": "Contact",
     "ctaDownloadCV": "Download CV",
     "ctaDownloading": "Downloading...",
     "ariaAbout": "Learn more about me",
-    "ariaAutomation": "View automation experience",
-    "ariaProjects": "View projects",
+    "ariaAutomation": "See automation experience",
+    "ariaProjects": "See projects",
+    "ariaProducts": "See my products",
     "ariaContact": "Contact",
     "ariaDownloadCV": "Download CV"
   },
   "about": {
-    "title": "About Me",
+    "title": "About me",
     "imageAlt": "Pablo Villar - Full Stack Developer",
     "placeholder": "Your photo here",
     "p1": {
       "intro": "I'm a ",
       "role": "Full Stack & Automation Developer",
-      "middle": " with a strong foundation in ",
+      "middle": " with a solid foundation in ",
       "js": "JavaScript",
       "comma1": ", ",
       "react": "React",
@@ -35,7 +38,7 @@
       "node": "Node.js",
       "and1": " and ",
       "mongo": "MongoDB",
-      "tail1": ", now focused on building workflows with ",
+      "tail1": ", currently focused on building workflows with ",
       "n8n": "n8n",
       "comma3": ", ",
       "docker": "Docker",
@@ -44,42 +47,52 @@
       "tail2": "."
     },
     "p2": {
-      "intro": "After several years working in the hospitality and retail industries—where I developed key soft skills like ",
+      "intro": "After several years working in hospitality and retail —where I developed key soft skills such as ",
       "communication": "communication",
       "comma1": ", ",
       "adaptability": "adaptability",
       "and": " and ",
       "teamwork": "teamwork",
-      "middle": "—I made a career shift into tech, driven by a passion for problem-solving and turning manual processes into ",
+      "middle": "—, I made a career shift into technology, driven by a passion for solving problems and turning manual processes into ",
       "scalable": "scalable digital solutions",
       "tail": "."
     },
     "p3": {
-      "intro": "Today I split my time between shipping ",
-      "fullstack": "full-stack web apps",
+      "intro": "Today I split my time between deploying ",
+      "fullstack": "full-stack web applications",
       "middle1": " and designing automations that connect ",
       "apis": "APIs",
       "comma1": ", ",
       "crms": "CRMs",
       "and": " and ",
       "llms": "LLMs",
-      "tail": " to save teams hundreds of hours — always eager to keep learning and growing."
+      "tail": " to save teams hundreds of hours, always eager to keep learning and growing."
     },
-    "tags": ["Full Stack", "Automation", "AI Integrations", "API Integrations", "Self-hosting"]
+    "tags": [
+      "Full Stack",
+      "Automation",
+      "AI Integrations",
+      "API Integration",
+      "Self-hosting"
+    ],
+    "extended": {
+      "title": "My story, in more detail",
+      "placeholder": "I'll soon expand here on my background, motivations and personal projects."
+    }
   },
   "tech": {
     "title": "Tech Stack",
-    "subtitle": "Tools and technologies I use to build full-stack apps and automations."
+    "subtitle": "Tools and technologies I use to build full-stack applications and automations."
   },
   "automation": {
-    "badge": "What I'm doing now",
+    "badge": "What I'm into now",
     "title": "Automation Developer",
-    "description": "I design and build automated workflows that eliminate manual work — connecting CRMs, payment systems, AI models and internal tools to keep businesses running 24/7.",
+    "description": "I design and build automated workflows that eliminate manual work, connecting CRMs, payment systems, AI models and internal tools so businesses keep running 24/7.",
     "metrics": [
-      { "valor": "End-to-end", "label": "Production pipelines" },
+      { "valor": "End-to-end", "label": "Pipelines in production" },
       { "valor": "+500 h", "label": "Saved per quarter" },
       { "valor": "+15", "label": "APIs integrated" },
-      { "valor": "24/7", "label": "Running pipelines" }
+      { "valor": "24/7", "label": "Pipelines running" }
     ],
     "capabilities": [
       {
@@ -87,76 +100,90 @@
         "items": [
           "n8n workflows (self-hosted on Docker)",
           "REST API integrations",
-          "Webhooks & event-driven flows",
-          "Web scraping & bots"
+          "Webhooks and event-driven flows",
+          "Web scraping and bots"
         ]
       },
       {
         "titulo": "Business Use Cases",
         "items": [
-          "CRM sync & lead management",
+          "CRM sync and lead management",
           "Email marketing automation",
-          "Automated reporting & dashboards",
-          "AI-powered classification & triage"
+          "Automated reports and dashboards",
+          "AI-based classification and triage"
         ]
       },
       {
-        "titulo": "Work Methodology",
+        "titulo": "Working Method",
         "items": [
-          "Process discovery and assesment",
+          "Discovering automatable processes",
           "Idea prototyping",
-          "implementation",
+          "Implementation",
           "Ongoing support and optimization"
         ]
       },
       {
         "titulo": "Business Impact",
         "items": [
-          "Eliminated manual repetitive tasks",
-          "Reduced response times drastically",
+          "Removal of repetitive manual tasks",
+          "Drastic reduction of response times",
           "Real-time reporting for decisions",
-          "Scalable, monitored pipelines"
+          "Scalable and monitored pipelines"
         ]
       }
     ]
   },
   "projects": {
     "title": "Featured Projects",
-    "liveDemo": "Live Demo",
+    "liveDemo": "Live demo",
     "github": "GitHub",
     "items": [
       {
         "titulo": "Galileo Psicólogos",
-        "descripcion": "Galileo Psicólogos is a full-stack web application designed to provide an accessible and seamless digital experience for patients, focused on mental health services.."
-      },
-      {
-        "titulo": "Casero",
-        "descripcion": "It is an AI-powered property management platform for private landlords that manages and solves different areas of concern for property owners."
+        "descripcion": "Galileo Psicólogos is a full-stack web app designed to give patients an accessible, smooth digital experience focused on mental-health services."
       },
       {
         "titulo": "AirB2B",
-        "descripcion": "AirB2B is a full-stack application inspired by Airbnb, focused on corporate accommodation."
+        "descripcion": "AirB2B is a full-stack app inspired by Airbnb, focused on corporate accommodation."
+      }
+    ]
+  },
+  "products": {
+    "title": "My products",
+    "subtitle": "My own products, which I'm polishing for an upcoming launch.",
+    "comingSoonPill": "Coming soon",
+    "learnMore": "Learn more",
+    "items": [
+      {
+        "titulo": "Casero",
+        "descripcion": "Property manager for private landlords with built-in AI that handles and solves the owner's main concerns: contracts, incidents, payments and tenant communication.",
+        "tags": ["Web App", "Built-in AI", "Full Stack"]
+      },
+      {
+        "titulo": "GmailCleaner",
+        "descripcion": "Web app that combines automation, Python development and built-in AI to perform daily clean-ups of your Gmail inbox. It includes an AI chat where you can ask for specific searches to delete annoying email, plus a 'doubtful' bucket that learns from your decisions to refine future passes.",
+        "tags": ["Python", "Automation", "Built-in AI", "Gmail API"]
       }
     ]
   },
   "caseStudies": {
-      "title": "Professional Projects",
-      "subtitle": "A selection of automation projects delivered under NDA. Client names and screenshots are omitted; technical and business outcomes are real.",
-      "labels": {
-        "challenge": "Challenge",
-        "solution": "Solution",
-        "confidential": "Confidential client · details anonymized",
-        "viewDemo": "See it in action",
-        "hideDemo": "Hide demo",
-        "interactiveDemo": "Interactive demo",
-        "closeDemo": "Close"
-      },
-      "demoTitles": {
-        "scheduler": "Smart Scheduling Pipeline",
-        "docmanager": "AI Document Manager",
-        "callCenter": "AI Voice Call Center"
-      },
-      "demos": {
+    "title": "Work Projects",
+    "subtitle": "A selection of automation projects delivered under NDA. Client names and screenshots are omitted; technical and business outcomes are real.",
+    "labels": {
+      "challenge": "Challenge",
+      "solution": "Solution",
+      "confidential": "Confidential client · anonymized details",
+      "viewDemo": "See demo in action",
+      "hideDemo": "Hide demo",
+      "interactiveDemo": "Interactive demo",
+      "closeDemo": "Close"
+    },
+    "demoTitles": {
+      "scheduler": "Smart Scheduling Pipeline",
+      "docmanager": "AI Document Manager",
+      "callCenter": "Call Center with AI Voice Agent"
+    },
+    "demos": {
         "scheduler": {
           "heading": "Real-time schedule optimization",
           "subtitle": "n8n connects PowerBI exports with a custom web app, generating optimized shifts in minutes with full traceability.",
@@ -280,14 +307,14 @@
       ]
   },
   "contact": {
-    "title": "Let's Connect",
-    "subtitle": "I'm always open to discussing new opportunities, collaborations, or just having a chat about tech. Feel free to reach out!",
+    "title": "Let's talk",
+    "subtitle": "I'm always open to talk about new opportunities, collaborations or just chat about tech. Feel free to reach out!",
     "email": "Email",
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "ctaTitle": "Ready to work together?",
-    "ctaSubtitle": "Let's discuss your next project and see how I can help bring your ideas to life.",
-    "ctaButton": "Get In Touch"
+    "ctaSubtitle": "Let's talk about your next project and see how I can help you bring your ideas to life.",
+    "ctaButton": "Get in touch"
   },
   "footer": {
     "rights": "Pablo Villar. Made with React & ❤️"

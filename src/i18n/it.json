@@ -3,25 +3,28 @@
     "language": "Lingua",
     "theme": "Tema",
     "themeLight": "Modalità chiara",
-    "themeDark": "Modalità scura"
+    "themeDark": "Modalità scura",
+    "backHome": "Torna alla home"
   },
   "hero": {
     "greeting": "Ciao, sono Pablo",
     "role": "AI Automation Engineer",
-    "ctaAbout": "Chi sono",
+    "ctaAbout": "Su di me",
     "ctaAutomation": "Automazione",
     "ctaProjects": "Progetti",
+    "ctaProducts": "I miei prodotti",
     "ctaContact": "Contatti",
-    "ctaDownloadCV": "Scarica il CV",
-    "ctaDownloading": "Download in corso...",
+    "ctaDownloadCV": "Scarica CV",
+    "ctaDownloading": "Scaricamento...",
     "ariaAbout": "Scopri di più su di me",
     "ariaAutomation": "Vedi esperienza in automazione",
     "ariaProjects": "Vedi progetti",
+    "ariaProducts": "Vedi i miei prodotti",
     "ariaContact": "Contatti",
-    "ariaDownloadCV": "Scarica il CV"
+    "ariaDownloadCV": "Scarica CV"
   },
   "about": {
-    "title": "Chi sono",
+    "title": "Su di me",
     "imageAlt": "Pablo Villar - Sviluppatore Full Stack",
     "placeholder": "La tua foto qui",
     "p1": {
@@ -35,7 +38,7 @@
       "node": "Node.js",
       "and1": " e ",
       "mongo": "MongoDB",
-      "tail1": ", ora concentrato sulla costruzione di workflow con ",
+      "tail1": ", attualmente focalizzato sulla creazione di flussi di lavoro con ",
       "n8n": "n8n",
       "comma3": ", ",
       "docker": "Docker",
@@ -44,18 +47,18 @@
       "tail2": "."
     },
     "p2": {
-      "intro": "Dopo diversi anni nei settori dell'ospitalità e della vendita al dettaglio — dove ho sviluppato soft skill fondamentali come ",
+      "intro": "Dopo diversi anni nei settori dell'ospitalità e del retail —dove ho sviluppato soft skill chiave come ",
       "communication": "comunicazione",
       "comma1": ", ",
       "adaptability": "adattabilità",
       "and": " e ",
       "teamwork": "lavoro di squadra",
-      "middle": "—, ho cambiato carriera entrando nel mondo tech, spinto dalla passione per il problem solving e dalla volontà di trasformare i processi manuali in ",
+      "middle": "—, ho fatto un cambio di carriera verso la tecnologia, spinto dalla passione per la risoluzione di problemi e per trasformare processi manuali in ",
       "scalable": "soluzioni digitali scalabili",
       "tail": "."
     },
     "p3": {
-      "intro": "Oggi divido il mio tempo tra il rilascio di ",
+      "intro": "Oggi divido il mio tempo tra il deploy di ",
       "fullstack": "applicazioni web full-stack",
       "middle1": " e la progettazione di automazioni che collegano ",
       "apis": "API",
@@ -63,23 +66,33 @@
       "crms": "CRM",
       "and": " e ",
       "llms": "LLM",
-      "tail": " per far risparmiare ai team centinaia di ore — sempre con voglia di imparare e crescere."
+      "tail": " per far risparmiare ai team centinaia di ore, sempre con voglia di continuare a imparare e crescere."
     },
-    "tags": ["Full Stack", "Automazione", "Integrazioni IA", "Integrazioni API", "Self-hosting"]
+    "tags": [
+      "Full Stack",
+      "Automazione",
+      "Integrazioni di IA",
+      "Integrazione di API",
+      "Self-hosting"
+    ],
+    "extended": {
+      "title": "La mia storia, più in dettaglio",
+      "placeholder": "Presto amplierò qui il mio percorso, le motivazioni e i progetti personali."
+    }
   },
   "tech": {
     "title": "Stack Tecnologico",
-    "subtitle": "Strumenti e tecnologie che uso per costruire app full-stack e automazioni."
+    "subtitle": "Strumenti e tecnologie che utilizzo per costruire applicazioni full-stack e automazioni."
   },
   "automation": {
-    "badge": "Di cosa mi occupo ora",
+    "badge": "Quello che faccio adesso",
     "title": "Sviluppatore di Automazioni",
-    "description": "Progetto e realizzo workflow automatizzati che eliminano il lavoro manuale, collegando CRM, sistemi di pagamento, modelli di IA e strumenti interni per far funzionare i business 24/7.",
+    "description": "Progetto e costruisco flussi di lavoro automatizzati che eliminano il lavoro manuale, collegando CRM, sistemi di pagamento, modelli di IA e strumenti interni per far funzionare i business 24/7.",
     "metrics": [
       { "valor": "End-to-end", "label": "Pipeline in produzione" },
       { "valor": "+500 h", "label": "Risparmiate a trimestre" },
       { "valor": "+15", "label": "API integrate" },
-      { "valor": "24/7", "label": "Pipeline attive" }
+      { "valor": "24/7", "label": "Pipeline in esecuzione" }
     ],
     "capabilities": [
       {
@@ -92,7 +105,7 @@
         ]
       },
       {
-        "titulo": "Casi d'Uso Aziendali",
+        "titulo": "Casi d'Uso di Business",
         "items": [
           "Sincronizzazione CRM e gestione lead",
           "Automazione di email marketing",
@@ -103,7 +116,7 @@
       {
         "titulo": "Metodologia di Lavoro",
         "items": [
-          "Scoperta dei processi suscettibili",
+          "Scoperta di processi automatizzabili",
           "Prototipazione dell'idea",
           "Implementazione",
           "Supporto e ottimizzazione continua"
@@ -112,9 +125,9 @@
       {
         "titulo": "Impatto sul Business",
         "items": [
-          "Eliminate attività manuali ripetitive",
-          "Tempi di risposta drasticamente ridotti",
-          "Reportistica in tempo reale per le decisioni",
+          "Eliminazione di compiti manuali ripetitivi",
+          "Riduzione drastica dei tempi di risposta",
+          "Report in tempo reale per le decisioni",
           "Pipeline scalabili e monitorate"
         ]
       }
@@ -130,33 +143,47 @@
         "descripcion": "Galileo Psicólogos è un'applicazione web full-stack progettata per offrire ai pazienti un'esperienza digitale accessibile e fluida, focalizzata sui servizi di salute mentale."
       },
       {
+        "titulo": "AirB2B",
+        "descripcion": "AirB2B è un'applicazione full-stack ispirata ad Airbnb, focalizzata sull'alloggio aziendale."
+      }
+    ]
+  },
+  "products": {
+    "title": "I miei prodotti",
+    "subtitle": "Prodotti miei che sto rifinendo per lanciarli presto sul mercato.",
+    "comingSoonPill": "Coming soon",
+    "learnMore": "Scopri di più",
+    "items": [
+      {
         "titulo": "Casero",
-        "descripcion": "È una piattaforma di gestione immobiliare con IA integrata per proprietari privati che gestisce e risolve diversi ambiti di preoccupazione del proprietario."
+        "descripcion": "Gestionale di immobili per privati con IA integrata che gestisce e risolve le principali preoccupazioni del proprietario: contratti, incidenze, pagamenti e comunicazione con gli inquilini.",
+        "tags": ["Web App", "IA integrata", "Full Stack"]
       },
       {
-        "titulo": "AirB2B",
-        "descripcion": "AirB2B è un'applicazione full-stack ispirata ad Airbnb, focalizzata sugli alloggi aziendali."
+        "titulo": "GmailCleaner",
+        "descripcion": "Applicazione web che combina automazione, sviluppo in Python e IA integrata per fare pulizie giornaliere della tua casella Gmail. Include una chat con IA a cui puoi chiedere ricerche specifiche per cancellare email fastidiose, e un sistema di 'dubbi' che impara dalle tue decisioni per affinare i passaggi successivi.",
+        "tags": ["Python", "Automazione", "IA integrata", "Gmail API"]
       }
     ]
   },
   "caseStudies": {
-      "title": "Progetti Professionali",
-      "subtitle": "Una selezione di progetti di automazione realizzati sotto NDA. Nomi dei clienti e screenshot sono omessi; i risultati sono reali.",
-      "labels": {
-        "challenge": "Sfida",
-        "solution": "Soluzione",
-        "confidential": "Cliente riservato · dettagli anonimizzati",
-        "viewDemo": "Vedi in azione",
-        "hideDemo": "Nascondi demo",
-        "interactiveDemo": "Demo interattiva",
-        "closeDemo": "Chiudi"
-      },
-      "demoTitles": {
-        "scheduler": "Pipeline di Pianificazione Smart",
-        "docmanager": "Gestore Documentale con IA",
-        "callCenter": "Call Center con Agente Vocale IA"
-      },
-      "demos": {
+    "title": "Progetti Lavorativi",
+    "subtitle": "Una selezione di progetti di automazione consegnati sotto NDA. Nomi dei clienti e screenshot sono omessi; i risultati tecnici e di business sono reali.",
+    "labels": {
+      "challenge": "Sfida",
+      "solution": "Soluzione",
+      "confidential": "Cliente confidenziale · dettagli anonimizzati",
+      "viewDemo": "Guarda la demo in azione",
+      "hideDemo": "Nascondi demo",
+      "interactiveDemo": "Demo interattiva",
+      "closeDemo": "Chiudi"
+    },
+    "demoTitles": {
+      "scheduler": "Pipeline di Turni Intelligente",
+      "docmanager": "Gestore Documentale con IA",
+      "callCenter": "Call Center con Agente Vocale IA"
+    },
+    "demos": {
         "scheduler": {
           "heading": "Ottimizzazione dei turni in tempo reale",
           "subtitle": "n8n collega gli export di Power BI con una web app custom, generando turni ottimizzati in pochi minuti con tracciabilità totale.",
@@ -280,19 +307,19 @@
       ]
   },
   "contact": {
-    "title": "Restiamo in contatto",
-    "subtitle": "Sono sempre disponibile a parlare di nuove opportunità, collaborazioni o semplicemente a fare due chiacchiere di tech. Scrivimi pure!",
+    "title": "Parliamone",
+    "subtitle": "Sono sempre aperto a parlare di nuove opportunità, collaborazioni o semplicemente chiacchierare di tecnologia. Non esitare a scrivermi!",
     "email": "Email",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "ctaTitle": "Pronto a lavorare insieme?",
+    "ctaTitle": "Pronti a lavorare insieme?",
     "ctaSubtitle": "Parliamo del tuo prossimo progetto e vediamo come posso aiutarti a dare vita alle tue idee.",
     "ctaButton": "Mettiti in contatto"
   },
   "footer": {
-    "rights": "Pablo Villar. Realizzato con React & ❤️"
+    "rights": "Pablo Villar. Fatto con React & ❤️"
   },
   "errors": {
-    "cvDownload": "Errore durante il download del file. Riprova."
+    "cvDownload": "Errore nello scaricamento del file. Per favore, riprova."
   }
 }

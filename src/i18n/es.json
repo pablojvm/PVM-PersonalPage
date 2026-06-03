@@ -3,7 +3,8 @@
     "language": "Idioma",
     "theme": "Tema",
     "themeLight": "Modo claro",
-    "themeDark": "Modo oscuro"
+    "themeDark": "Modo oscuro",
+    "backHome": "Volver al inicio"
   },
   "hero": {
     "greeting": "Hola, soy Pablo",
@@ -11,12 +12,14 @@
     "ctaAbout": "Sobre mí",
     "ctaAutomation": "Automatización",
     "ctaProjects": "Proyectos",
+    "ctaProducts": "Mis productos",
     "ctaContact": "Contacto",
     "ctaDownloadCV": "Descargar CV",
     "ctaDownloading": "Descargando...",
     "ariaAbout": "Conoce más sobre mí",
     "ariaAutomation": "Ver experiencia en automatización",
     "ariaProjects": "Ver proyectos",
+    "ariaProducts": "Ver mis productos",
     "ariaContact": "Contacto",
     "ariaDownloadCV": "Descargar CV"
   },
@@ -65,7 +68,17 @@
       "llms": "LLMs",
       "tail": " para ahorrar a los equipos cientos de horas, siempre con ganas de seguir aprendiendo y creciendo."
     },
-    "tags": ["Full Stack", "Automatización", "Integraciones de IA", "Integración de APIs", "Self-hosting"]
+    "tags": [
+      "Full Stack",
+      "Automatización",
+      "Integraciones de IA",
+      "Integración de APIs",
+      "Self-hosting"
+    ],
+    "extended": {
+      "title": "Mi historia, en más detalle",
+      "placeholder": "Aquí ampliaré pronto mi trayectoria, motivaciones y proyectos personales."
+    }
   },
   "tech": {
     "title": "Stack Tecnológico",
@@ -130,33 +143,47 @@
         "descripcion": "Galileo Psicólogos es una aplicación web full-stack diseñada para ofrecer a los pacientes una experiencia digital accesible y fluida, enfocada en servicios de salud mental."
       },
       {
-        "titulo": "Casero",
-        "descripcion": "Es un gestor de viviendas para particulares con IA integrada que gestiona y resuelve diferentes ámbitos de preocupación del propietario"
-      },
-      {
         "titulo": "AirB2B",
         "descripcion": "AirB2B es una aplicación full-stack inspirada en Airbnb, enfocada en alojamiento corporativo."
       }
     ]
   },
+  "products": {
+    "title": "Mis productos",
+    "subtitle": "Productos propios que estoy puliendo para lanzar pronto al mercado.",
+    "comingSoonPill": "Coming soon",
+    "learnMore": "Más información",
+    "items": [
+      {
+        "titulo": "Casero",
+        "descripcion": "Gestor de viviendas para particulares con IA integrada que gestiona y resuelve los principales ámbitos de preocupación del propietario: contratos, incidencias, pagos y comunicación con inquilinos.",
+        "tags": ["Web App", "IA integrada", "Full Stack"]
+      },
+      {
+        "titulo": "GmailCleaner",
+        "descripcion": "Aplicación web que combina automatización, desarrollo en Python e IA integrada para hacer limpiezas diarias de tu bandeja de Gmail. Incluye un chat con IA al que puedes pedirle búsquedas concretas para borrar correo molesto, y un sistema de 'dudosos' que aprende de tus decisiones para afinar futuras pasadas.",
+        "tags": ["Python", "Automatización", "IA integrada", "Gmail API"]
+      }
+    ]
+  },
   "caseStudies": {
-      "title": "Proyectos Laborales",
-      "subtitle": "Una selección de proyectos de automatización entregados bajo NDA. Se omiten nombres de clientes y capturas; los resultados técnicos y de negocio son reales.",
-      "labels": {
-        "challenge": "Desafío",
-        "solution": "Solución",
-        "confidential": "Cliente confidencial · detalles anonimizados",
-        "viewDemo": "Ver demo en acción",
-        "hideDemo": "Ocultar demo",
-        "interactiveDemo": "Demo interactiva",
-        "closeDemo": "Cerrar"
-      },
-      "demoTitles": {
-        "scheduler": "Pipeline de Cuadrantes Inteligente",
-        "docmanager": "Gestor Documental con IA",
-        "callCenter": "Call Center con Agente de Voz IA"
-      },
-      "demos": {
+    "title": "Proyectos Laborales",
+    "subtitle": "Una selección de proyectos de automatización entregados bajo NDA. Se omiten nombres de clientes y capturas; los resultados técnicos y de negocio son reales.",
+    "labels": {
+      "challenge": "Desafío",
+      "solution": "Solución",
+      "confidential": "Cliente confidencial · detalles anonimizados",
+      "viewDemo": "Ver demo en acción",
+      "hideDemo": "Ocultar demo",
+      "interactiveDemo": "Demo interactiva",
+      "closeDemo": "Cerrar"
+    },
+    "demoTitles": {
+      "scheduler": "Pipeline de Cuadrantes Inteligente",
+      "docmanager": "Gestor Documental con IA",
+      "callCenter": "Call Center con Agente de Voz IA"
+    },
+    "demos": {
         "scheduler": {
           "heading": "Optimización de cuadrantes en tiempo real",
           "subtitle": "n8n conecta los exports de Power BI con una web app a medida, generando turnos optimizados en minutos con trazabilidad total.",
@@ -255,7 +282,7 @@
           ]
         }
       },
-      "items": [
+    "items":[
         {
           "sector": "Operaciones",
           "titulo": "Automatización de Horarios y Operaciones",

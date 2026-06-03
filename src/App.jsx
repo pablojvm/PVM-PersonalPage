@@ -1132,6 +1132,19 @@ const HomePage = () => {
               ))}
             </div>
           </div>
+          {/* Mensaje: solicitar demo por email (simple) */}
+{/* Mensaje con botón CTA */}
+<div className="text-center mb-8 mt-10">
+  <p className="text-lg text-white/80 max-w-3xl mx-auto mb-4 leading-relaxed theme-light:text-slate-700">
+    ¿Quieres una muestra o demo personalizada? Escríbeme y te la preparo.
+  </p>
+  <a
+    href="mailto:pablojvillarm@gmail.com"
+    className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full hover:scale-105 transition-all duration-200 text-white font-semibold"
+  >
+    Pedir demo
+  </a>
+</div>
         </section>
 
         {/* ============ CONTACT ============ */}

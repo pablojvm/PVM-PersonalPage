@@ -317,7 +317,7 @@
     "ctaButton": "Ponte en contacto"
   },
   "footer": {
-    "rights": "Pablo Villar. Hecho con React & ❤️"
+    "rights": "Pablo Villar."
   },
   "errors": {
     "cvDownload": "Error al descargar el archivo. Por favor, inténtalo de nuevo."

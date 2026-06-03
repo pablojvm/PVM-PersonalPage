@@ -677,11 +677,17 @@ const CaseStudyCard = ({
         {icon}
       </div>
       <div className="flex-1 min-w-0">
-        <span className="text-xs text-purple-300 uppercase tracking-wider font-semibold theme-light:text-purple-700">{sector}</span>
-        <h3 className="text-lg font-semibold text-white mt-1 leading-tight theme-light:text-slate-900">{titulo}</h3>
+        <span className="text-xs text-purple-300 uppercase tracking-wider font-semibold theme-light:text-purple-700">
+          {sector}
+        </span>
+        <h3 className="text-lg font-semibold text-white mt-1 leading-tight theme-light:text-slate-900">
+          {titulo}
+        </h3>
         {onOpenDemo ? (
-          <span className="inline-flex mt-2 px-2.5 py-1 rounded-full text-[11px] font-medium bg-cyan-500/20 text-cyan-200 border border-cyan-400/30
-                          theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200">
+          <span
+            className="inline-flex mt-2 px-2.5 py-1 rounded-full text-[11px] font-medium bg-cyan-500/20 text-cyan-200 border border-cyan-400/30
+                          theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200"
+          >
             {labels.interactiveDemo}
           </span>
         ) : null}
@@ -690,19 +696,30 @@ const CaseStudyCard = ({
 
     <div className="space-y-4 mb-5 flex-grow">
       <div>
-        <h4 className="text-xs text-white/50 font-semibold uppercase tracking-wider mb-1 theme-light:text-slate-500">{labels.challenge}</h4>
-        <p className="text-sm text-white/80 leading-relaxed theme-light:text-slate-700">{problema}</p>
+        <h4 className="text-xs text-white/50 font-semibold uppercase tracking-wider mb-1 theme-light:text-slate-500">
+          {labels.challenge}
+        </h4>
+        <p className="text-sm text-white/80 leading-relaxed theme-light:text-slate-700">
+          {problema}
+        </p>
       </div>
       <div>
-        <h4 className="text-xs text-white/50 font-semibold uppercase tracking-wider mb-1 theme-light:text-slate-500">{labels.solution}</h4>
-        <p className="text-sm text-white/80 leading-relaxed theme-light:text-slate-700">{solucion}</p>
+        <h4 className="text-xs text-white/50 font-semibold uppercase tracking-wider mb-1 theme-light:text-slate-500">
+          {labels.solution}
+        </h4>
+        <p className="text-sm text-white/80 leading-relaxed theme-light:text-slate-700">
+          {solucion}
+        </p>
       </div>
     </div>
 
     <div className="flex flex-wrap gap-2 mb-4">
       {tech.map((t) => (
-        <span key={t} className="px-2.5 py-1 bg-white/5 border border-white/15 rounded-md text-xs text-white/80
-                                  theme-light:bg-slate-100 theme-light:border-slate-200 theme-light:text-slate-700">
+        <span
+          key={t}
+          className="px-2.5 py-1 bg-white/5 border border-white/15 rounded-md text-xs text-white/80
+                                  theme-light:bg-slate-100 theme-light:border-slate-200 theme-light:text-slate-700"
+        >
           {t}
         </span>
       ))}
@@ -724,8 +741,15 @@ const CaseStudyCard = ({
 
     <div className="border-t border-white/10 pt-4 space-y-1.5 theme-light:border-slate-200">
       {impacto.map((i) => (
-        <div key={i} className="flex items-center gap-2 text-sm text-green-300 theme-light:text-green-700">
-          <svg className="w-4 h-4 text-green-400 flex-shrink-0 theme-light:text-green-600" fill="currentColor" viewBox="0 0 20 20">
+        <div
+          key={i}
+          className="flex items-center gap-2 text-sm text-green-300 theme-light:text-green-700"
+        >
+          <svg
+            className="w-4 h-4 text-green-400 flex-shrink-0 theme-light:text-green-600"
+            fill="currentColor"
+            viewBox="0 0 20 20"
+          >
             <path
               fillRule="evenodd"
               d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
@@ -738,10 +762,22 @@ const CaseStudyCard = ({
     </div>
 
     <div className="mt-4 pt-3 border-t border-white/10 flex items-center gap-2 theme-light:border-slate-200">
-      <svg className="w-3.5 h-3.5 text-white/40 theme-light:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+      <svg
+        className="w-3.5 h-3.5 text-white/40 theme-light:text-slate-400"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+        />
       </svg>
-      <span className="text-xs text-white/40 italic theme-light:text-slate-500">{labels.confidential}</span>
+      <span className="text-xs text-white/40 italic theme-light:text-slate-500">
+        {labels.confidential}
+      </span>
     </div>
   </article>
 );
@@ -752,30 +788,67 @@ const caseStudyAssets = [
     tech: ["n8n", "PowerBI", "Webhooks", "Custom Web App"],
     gradient: "from-blue-500 to-cyan-500",
     icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <svg
+        className="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
       </svg>
     ),
     demo: "scheduler",
   },
   {
     // Proyecto 2: Coches + IA Documental
-    tech: ["OpenAI", "n8n", "AI Document Analysis", "PDF Automation", "PostgreSQL", "Railway"],
+    tech: [
+      "OpenAI",
+      "n8n",
+      "AI Document Analysis",
+      "PDF Automation",
+      "PostgreSQL",
+      "Railway",
+    ],
     gradient: "from-purple-500 to-pink-500",
     icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+      <svg
+        className="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+        />
       </svg>
     ),
-    demo: "docmanager"
+    demo: "docmanager",
   },
   {
     // Proyecto 3: Call Center IA
     tech: ["AI Voice API", "n8n", "NLP", "CRM Integration", "Smart Routing"],
     gradient: "from-green-500 to-emerald-500",
     icon: (
-      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+      <svg
+        className="w-6 h-6 text-white"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+        />
       </svg>
     ),
     demo: "callCenter",
@@ -814,6 +887,7 @@ const HomePage = () => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [activeDemo, setActiveDemo] = useState(null);
   const [activeNav, setActiveNav] = useState("about");
+  const [journeyOpen, setJourneyOpen] = useState(false);
   const { t } = useLanguage();
   const { isDark } = useTheme();
 
@@ -1140,118 +1214,168 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* ============ JOURNEY (Timeline) ============ */}
-            <div className="mt-20">
-              <h3 className="text-2xl md:text-3xl font-bold text-center mb-12 text-white theme-light:text-slate-900">
-                {t("about.journeyTitle")}
-              </h3>
-
-              <div className="relative max-w-3xl mx-auto">
-                {/* Línea vertical del timeline */}
-                <div className="absolute left-3 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-purple-400/40 via-pink-400/40 to-transparent md:-translate-x-px" />
-
-                <ol className="space-y-10">
-                  {t("about.journey").map((m, i) => {
-                    const isRight = i % 2 === 0;
-                    return (
-                      <li key={m.year + m.title} className="relative pl-10 md:pl-0">
-                        {/* Punto */}
-                        <span
-                          className="absolute left-3 md:left-1/2 top-2 w-3 h-3 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 ring-4 ring-purple-500/20 md:-translate-x-1/2
-                                     theme-light:from-purple-500 theme-light:to-pink-500 theme-light:ring-purple-200"
-                        />
-                        <div
-                          className={`md:w-1/2 ${isRight ? "md:ml-auto md:pl-10" : "md:pr-10 md:text-right"}`}
-                        >
-                          <div
-                            className="rounded-xl p-5 bg-white/10 backdrop-blur-md border border-white/15
-                                       theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm"
-                          >
-                            <div className="text-[11px] font-semibold uppercase tracking-wider text-purple-300 theme-light:text-purple-700">
-                              {m.year}
-                            </div>
-                            <h4 className="text-base font-semibold text-white mt-1 theme-light:text-slate-900">
-                              {m.title}
-                            </h4>
-                            <div className="text-xs text-white/60 mt-0.5 theme-light:text-slate-500">
-                              {m.place}
-                            </div>
-                            <p className="text-sm text-white/80 mt-3 leading-relaxed theme-light:text-slate-700">
-                              {m.description}
-                            </p>
-                          </div>
-                        </div>
-                      </li>
-                    );
-                  })}
-                </ol>
-              </div>
+          {/* ============ MORE INFO (Timeline + Languages + Education) ============ */}
+          <div className="mt-20">
+            <div className="flex items-center justify-center max-w-3xl mx-auto mb-6">
+              <button
+                type="button"
+                onClick={() => setJourneyOpen((s) => !s)}
+                aria-expanded={journeyOpen}
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white/90 hover:bg-white/10 transition-all duration-200
+               theme-light:bg-white theme-light:text-slate-800 theme-light:border-slate-200
+               text-base font-medium"
+              >
+                <span className="text-sm font-medium">
+        {journeyOpen
+          ? (t("- INFO") ?? "Ocultar")
+          : (t("+ INFO") ?? "Ver trayectoria")}
+      </span>
+              </button>
             </div>
 
-            {/* ============ LANGUAGES + EDUCATION ============ */}
-            <div className="mt-20 grid grid-cols-1 md:grid-cols-2 gap-6">
-              {/* Languages */}
-              <div
-                className="rounded-2xl p-6 bg-white/10 backdrop-blur-md border border-white/15
-                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm"
-              >
-                <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2 theme-light:text-slate-900">
-                  <svg className="w-5 h-5 text-purple-300 theme-light:text-purple-600" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
-                  </svg>
-                  {t("about.languagesTitle")}
-                </h3>
-                <ul className="space-y-4">
-                  {t("about.languages").map((lang) => (
-                    <li key={lang.name}>
-                      <div className="flex items-baseline justify-between mb-1.5">
-                        <span className="text-sm font-medium text-white theme-light:text-slate-800">
-                          {lang.name}
-                        </span>
-                        <span className="text-xs text-white/60 theme-light:text-slate-500">
-                          {lang.level}
-                        </span>
-                      </div>
-                      <div className="h-1.5 rounded-full bg-white/10 overflow-hidden theme-light:bg-slate-200">
-                        <div
-                          className="h-full bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
-                          style={{ width: `${lang.percent}%` }}
-                        />
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            <div className="relative max-w-3xl mx-auto">
+              <AnimatePresence initial={false}>
+                {journeyOpen ? (
+                  <Motion.div
+                    id="about-more-info-panel"
+                    key="more-info-panel"
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    exit={{ opacity: 0, height: 0 }}
+                    transition={{ duration: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
+                    className="overflow-hidden"
+                  >
+                    {/* TIMELINE: contenedor relativo que incluye la línea vertical */}
+                    <div className="relative mb-8 mt-4">
+                      <div className="absolute left-3 md:left-1/2 top-2 bottom-2 w-px bg-gradient-to-b from-purple-400/40 via-pink-400/40 to-transparent md:-translate-x-px" />
+                      <ol className="space-y-10">
+                        {t("about.journey").map((m, i) => {
+                          const isRight = i % 2 === 0;
+                          return (
+                            <li
+                              key={m.year + m.title}
+                              className="relative pl-10 md:pl-0"
+                            >
+                              <span
+                                className="absolute left-3 md:left-1/2 top-2 w-3 h-3 rounded-full bg-gradient-to-br from-purple-400 to-pink-400 ring-4 ring-purple-500/20 md:-translate-x-1/2
+                                 theme-light:from-purple-500 theme-light:to-pink-500 theme-light:ring-purple-200"
+                              />
+                              <div
+                                className={`md:w-1/2 ${isRight ? "md:ml-auto md:pl-10" : "md:pr-10 md:text-right"}`}
+                              >
+                                <div className="rounded-xl p-5 bg-white/10 backdrop-blur-md border border-white/15 theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm">
+                                  <div className="text-[11px] font-semibold uppercase tracking-wider text-purple-300 theme-light:text-purple-700">
+                                    {m.year}
+                                  </div>
+                                  <h4 className="text-base font-semibold text-white mt-1 theme-light:text-slate-900">
+                                    {m.title}
+                                  </h4>
+                                  <div className="text-xs text-white/60 mt-0.5 theme-light:text-slate-500">
+                                    {m.place}
+                                  </div>
+                                  <p className="text-sm text-white/80 mt-3 leading-relaxed theme-light:text-slate-700">
+                                    {m.description}
+                                  </p>
+                                </div>
+                              </div>
+                            </li>
+                          );
+                        })}
+                      </ol>
+                    </div>
 
-              {/* Education */}
-              <div
-                className="rounded-2xl p-6 bg-white/10 backdrop-blur-md border border-white/15
-                           theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm"
-              >
-                <h3 className="text-lg font-semibold text-white mb-5 flex items-center gap-2 theme-light:text-slate-900">
-                  <svg className="w-5 h-5 text-purple-300 theme-light:text-purple-600" fill="none" stroke="currentColor" strokeWidth={1.8} viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                  </svg>
-                  {t("about.educationTitle")}
-                </h3>
-                <ul className="space-y-4">
-                  {t("about.education").map((edu) => (
-                    <li key={edu.title} className="border-l-2 border-purple-400/40 pl-4 theme-light:border-purple-300">
-                      <div className="text-[11px] font-semibold uppercase tracking-wider text-purple-300 theme-light:text-purple-700">
-                        {edu.year}
+                    {/* SEPARACIÓN VISUAL: Languages y Education dentro del mismo panel, pero fuera del contenedor del timeline */}
+                    <div className="mt-6 pt-6 border-t border-white/5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {/* Languages */}
+                        <div className="rounded-2xl p-6 bg-white/10 backdrop-blur-md border border-white/15 theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm">
+                          <h4 className="text-lg font-semibold text-white mb-5 flex items-center gap-2 theme-light:text-slate-900">
+                            <svg
+                              className="w-5 h-5 text-purple-300 theme-light:text-purple-600"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth={1.8}
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"
+                              />
+                            </svg>
+                            {t("about.languagesTitle")}
+                          </h4>
+                          <ul className="space-y-4">
+                            {t("about.languages").map((lang) => (
+                              <li key={lang.name}>
+                                <div className="flex items-baseline justify-between mb-1.5">
+                                  <span className="text-sm font-medium text-white theme-light:text-slate-800">
+                                    {lang.name}
+                                  </span>
+                                  <span className="text-xs text-white/60 theme-light:text-slate-500">
+                                    {lang.level}
+                                  </span>
+                                </div>
+                                <div className="h-1.5 rounded-full bg-white/10 overflow-hidden theme-light:bg-slate-200">
+                                  <div
+                                    className="h-full bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+                                    style={{ width: `${lang.percent}%` }}
+                                  />
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Education */}
+                        <div className="rounded-2xl p-6 bg-white/10 backdrop-blur-md border border-white/15 theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-sm">
+                          <h4 className="text-lg font-semibold text-white mb-5 flex items-center gap-2 theme-light:text-slate-900">
+                            <svg
+                              className="w-5 h-5 text-purple-300 theme-light:text-purple-600"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth={1.8}
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 14l9-5-9-5-9 5 9 5z"
+                              />
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+                              />
+                            </svg>
+                            {t("about.educationTitle")}
+                          </h4>
+                          <ul className="space-y-4">
+                            {t("about.education").map((edu) => (
+                              <li
+                                key={edu.title}
+                                className="border-l-2 border-purple-400/40 pl-4 theme-light:border-purple-300"
+                              >
+                                <div className="text-[11px] font-semibold uppercase tracking-wider text-purple-300 theme-light:text-purple-700">
+                                  {edu.year}
+                                </div>
+                                <h4 className="text-sm font-semibold text-white mt-0.5 theme-light:text-slate-900">
+                                  {edu.title}
+                                </h4>
+                                <div className="text-xs text-white/60 mt-0.5 theme-light:text-slate-500">
+                                  {edu.place}
+                                </div>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                      <h4 className="text-sm font-semibold text-white mt-0.5 theme-light:text-slate-900">
-                        {edu.title}
-                      </h4>
-                      <div className="text-xs text-white/60 mt-0.5 theme-light:text-slate-500">
-                        {edu.place}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                    </div>
+                  </Motion.div>
+                ) : null}
+              </AnimatePresence>
             </div>
           </div>
         </section>
@@ -1260,88 +1384,105 @@ const HomePage = () => {
 
         {/* ============ CASE STUDIES ============ */}
         <section id="case-studies" className="px-4 sm:px-6 lg:px-10 py-20">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
-              {t("caseStudies.title")}
-            </h2>
-            <p className="text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
-              {t("caseStudies.subtitle")}
-            </p>
-          </div>
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white theme-light:text-slate-900">
+                {t("caseStudies.title")}
+              </h2>
+              <p className="text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
+                {t("caseStudies.subtitle")}
+              </p>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {caseStudies.map((cs, i) => (
-              <CaseStudyCard
-                key={i}
-                {...cs}
-                labels={caseLabels}
-                isActive={activeDemo === cs.demo}
-                onOpenDemo={
-                  cs.demo
-                    ? () => {
-                        setActiveDemo((prev) => (prev === cs.demo ? null : cs.demo));
-                        // small delay so the panel mounts before scrolling
-                        setTimeout(() => {
-                          const target = document.getElementById("active-demo-panel");
-                          if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }, 80);
-                      }
-                    : undefined
-                }
-              />
-            ))}
-          </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {caseStudies.map((cs, i) => (
+                <CaseStudyCard
+                  key={i}
+                  {...cs}
+                  labels={caseLabels}
+                  isActive={activeDemo === cs.demo}
+                  onOpenDemo={
+                    cs.demo
+                      ? () => {
+                          setActiveDemo((prev) =>
+                            prev === cs.demo ? null : cs.demo,
+                          );
+                          // small delay so the panel mounts before scrolling
+                          setTimeout(() => {
+                            const target =
+                              document.getElementById("active-demo-panel");
+                            if (target)
+                              target.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                              });
+                          }, 80);
+                        }
+                      : undefined
+                  }
+                />
+              ))}
+            </div>
 
-          {/* Inline demo panel — replaces the modal */}
-          <AnimatePresence mode="wait">
-            {activeDemo ? (
-              <Motion.div
-                id="active-demo-panel"
-                key={activeDemo}
-                initial={{ opacity: 0, height: 0, marginTop: 0 }}
-                animate={{ opacity: 1, height: "auto", marginTop: 32 }}
-                exit={{ opacity: 0, height: 0, marginTop: 0 }}
-                transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
-                className="overflow-hidden"
-              >
-                <div
-                  className="relative rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-5 md:p-7
-                             theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-lg"
+            <AnimatePresence mode="wait">
+              {activeDemo ? (
+                <Motion.div
+                  id="active-demo-panel"
+                  key={activeDemo}
+                  initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                  animate={{ opacity: 1, height: "auto", marginTop: 32 }}
+                  exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                  transition={{ duration: 0.45, ease: [0.22, 0.61, 0.36, 1] }}
+                  className="overflow-hidden"
                 >
-                  <div className="flex items-start justify-between gap-4 mb-5">
-                    <div className="min-w-0">
-                      <span className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider
+                  <div
+                    className="relative rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-5 md:p-7
+                             theme-light:bg-white theme-light:border-slate-200 theme-light:shadow-lg"
+                  >
+                    <div className="flex items-start justify-between gap-4 mb-5">
+                      <div className="min-w-0">
+                        <span
+                          className="inline-block px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase tracking-wider
                                        bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 mb-2
-                                       theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200">
-                        {caseLabels.interactiveDemo}
-                      </span>
-                      <h3 className="text-xl md:text-2xl font-semibold text-white theme-light:text-slate-900">
-                        {activeDemoTitle}
-                      </h3>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => setActiveDemo(null)}
-                      className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10 transition-colors
+                                       theme-light:bg-cyan-100 theme-light:text-cyan-700 theme-light:border-cyan-200"
+                        >
+                          {caseLabels.interactiveDemo}
+                        </span>
+                        <h3 className="text-xl md:text-2xl font-semibold text-white theme-light:text-slate-900">
+                          {activeDemoTitle}
+                        </h3>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setActiveDemo(null)}
+                        className="flex-shrink-0 inline-flex items-center gap-1.5 rounded-lg border border-white/20 bg-white/5 px-3 py-1.5 text-xs font-medium text-white/80 hover:bg-white/10 transition-colors
                                  theme-light:border-slate-300 theme-light:bg-white theme-light:text-slate-700 theme-light:hover:bg-slate-50"
-                      aria-label={caseLabels.closeDemo}
-                    >
-                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
-                        <path strokeLinecap="round" d="M6 6l12 12M6 18L18 6" />
-                      </svg>
-                      {caseLabels.closeDemo}
-                    </button>
-                  </div>
+                        aria-label={caseLabels.closeDemo}
+                      >
+                        <svg
+                          className="w-3.5 h-3.5"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2.5}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            d="M6 6l12 12M6 18L18 6"
+                          />
+                        </svg>
+                        {caseLabels.closeDemo}
+                      </button>
+                    </div>
 
-                  {activeDemo === "scheduler" ? <SchedulerDemo /> : null}
-                  {activeDemo === "docmanager" ? <DocManagerDemo /> : null}
-                  {activeDemo === "callCenter" ? <CallCenterDemo /> : null}
-                </div>
-              </Motion.div>
-            ) : null}
-          </AnimatePresence>
-        </div>
+                    {activeDemo === "scheduler" ? <SchedulerDemo /> : null}
+                    {activeDemo === "docmanager" ? <DocManagerDemo /> : null}
+                    {activeDemo === "callCenter" ? <CallCenterDemo /> : null}
+                  </div>
+                </Motion.div>
+              ) : null}
+            </AnimatePresence>
+          </div>
         </section>
 
         {/* ============ AUTOMATION ============ */}
@@ -1409,7 +1550,11 @@ const HomePage = () => {
                       strokeWidth={1.7}
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                      />
                     </svg>
                   </div>
 
@@ -1430,8 +1575,18 @@ const HomePage = () => {
                                    theme-light:bg-slate-900 theme-light:text-white
                                    theme-light:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_8px_24px_-6px_rgba(15,23,42,0.35)]"
                       >
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={2}
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
                         </svg>
                         {t("products.demoCta.primaryButton")}
                       </a>
@@ -1444,7 +1599,11 @@ const HomePage = () => {
                                    hover:bg-white/10 hover:border-white/30 transition-all duration-200
                                    theme-light:bg-transparent theme-light:border-slate-300 theme-light:text-slate-700 theme-light:hover:bg-slate-50"
                       >
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                        <svg
+                          className="w-4 h-4"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                         </svg>
                         {t("products.demoCta.secondaryButton")}

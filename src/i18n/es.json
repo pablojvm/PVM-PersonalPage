@@ -80,6 +80,7 @@
       { "year": "2018 – 2022", "title": "Grado en Ciencias Políticas", "place": "Universidad de Granada", "description": "Base en pensamiento analítico y resolución estructurada de problemas." },
       { "year": "2022 – 2025", "title": "Dependiente", "place": "Inditex · Málaga y Granada", "description": "Rol cara al público que afinó mi comunicación y adaptabilidad bajo presión." },
       { "year": "2025", "title": "Bootcamp Full Stack", "place": "Ironhack", "description": "Programa intensivo: JavaScript, React, Node.js, MongoDB y APIs REST." },
+      { "year": "2025-2026", "title": "Desarrollador de Automatizaciones", "place": "Herion", "description": "Diseño de flujos automatizados e integraciones que optimizaron procesos y redujeron tareas manuales." },
       { "year": "2025 – Actualidad", "title": "AI Automation Engineer", "place": "Freelance · productos propios", "description": "Automatizaciones con n8n + IA, apps web full-stack y mis propios productos SaaS." }
     ],
     "languagesTitle": "Idiomas",

@@ -80,6 +80,7 @@
       { "year": "2018 – 2022", "title": "BA Political Science", "place": "University of Granada", "description": "Foundation in analytical thinking and structured problem-solving." },
       { "year": "2022 – 2025", "title": "Sales Assistant", "place": "Inditex · Málaga & Granada", "description": "Customer-facing role that sharpened communication and adaptability under pressure." },
       { "year": "2025", "title": "Full Stack Bootcamp", "place": "Ironhack", "description": "Intensive program in JavaScript, React, Node.js, MongoDB and REST APIs." },
+      { "year": "2025-2026", "title": "Automation Developer", "place": "Herion", "description": "Designed automated workflows and integrations that streamlined processes and reduced manual tasks." },
       { "year": "2025 – Present", "title": "AI Automation Engineer", "place": "Freelance · own products", "description": "Building n8n + AI automations, full-stack web apps and my own SaaS products." }
     ],
     "languagesTitle": "Languages",

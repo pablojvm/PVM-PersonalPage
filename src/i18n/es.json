@@ -75,6 +75,8 @@
       "Integración de APIs",
       "Self-hosting"
     ],
+    "moreInfoOpen": "Ver mi trayectoria completa",
+    "moreInfoClose": "Ver menos",
     "journeyTitle": "Mi trayectoria",
     "journey": [
       { "year": "2018 – 2022", "title": "Grado en Ciencias Políticas", "place": "Universidad de Granada", "description": "Base en pensamiento analítico y resolución estructurada de problemas." },

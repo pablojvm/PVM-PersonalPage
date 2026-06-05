@@ -75,6 +75,8 @@
       "Integrazione di API",
       "Self-hosting"
     ],
+    "moreInfoOpen": "Vedi il mio percorso completo",
+    "moreInfoClose": "Mostra meno",
     "journeyTitle": "Il mio percorso",
     "journey": [
       { "year": "2018 – 2022", "title": "Laurea in Scienze Politiche", "place": "Università di Granada", "description": "Base nel pensiero analitico e nella risoluzione strutturata dei problemi." },

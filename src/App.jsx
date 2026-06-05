@@ -1223,15 +1223,32 @@ const HomePage = () => {
                 type="button"
                 onClick={() => setJourneyOpen((s) => !s)}
                 aria-expanded={journeyOpen}
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-white/5 border border-white/10 text-white/90 hover:bg-white/10 transition-all duration-200
-               theme-light:bg-white theme-light:text-slate-800 theme-light:border-slate-200
-               text-base font-medium"
+                aria-controls="about-more-info-panel"
+                className="group relative inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full text-sm font-medium
+                           bg-white/[0.08] backdrop-blur-2xl border border-white/[0.14] text-white/90
+                           shadow-[inset_0_1px_0_0_rgba(255,255,255,0.18),0_10px_30px_-10px_rgba(0,0,0,0.5)]
+                           hover:bg-white/[0.12] hover:scale-[1.02] active:scale-[0.98]
+                           transition-all duration-200
+                           focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40
+                           theme-light:bg-white theme-light:border-slate-200 theme-light:text-slate-800
+                           theme-light:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.95),0_8px_24px_-8px_rgba(15,23,42,0.18)]
+                           theme-light:hover:bg-slate-50"
               >
-                <span className="text-sm font-medium">
-        {journeyOpen
-          ? (t("- INFO") ?? "Ocultar")
-          : (t("+ INFO") ?? "Ver trayectoria")}
-      </span>
+                <span>
+                  {journeyOpen ? t("about.moreInfoClose") : t("about.moreInfoOpen")}
+                </span>
+                <Motion.svg
+                  className="w-4 h-4 text-purple-300 theme-light:text-purple-600"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={2.5}
+                  viewBox="0 0 24 24"
+                  animate={{ rotate: journeyOpen ? 180 : 0 }}
+                  transition={{ duration: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
+                  aria-hidden="true"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </Motion.svg>
               </button>
             </div>
 

@@ -75,6 +75,8 @@
       "API Integration",
       "Self-hosting"
     ],
+    "moreInfoOpen": "See my full journey",
+    "moreInfoClose": "Show less",
     "journeyTitle": "My journey",
     "journey": [
       { "year": "2018 – 2022", "title": "BA Political Science", "place": "University of Granada", "description": "Foundation in analytical thinking and structured problem-solving." },

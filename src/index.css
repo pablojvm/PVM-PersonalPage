@@ -93,3 +93,18 @@
 [data-theme="light"] .tech-scroll::-webkit-scrollbar-thumb:hover {
   background-color: rgba(15, 23, 42, 0.4);
 }
+
+/* -------------------------------------------------------------------------
+   Hidden scrollbar utility
+   -------------------------------------------------------------------------
+   For containers that need to scroll horizontally on mobile but should
+   stay visually clean (e.g. the hero pill nav on narrow viewports).
+   ------------------------------------------------------------------------- */
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}

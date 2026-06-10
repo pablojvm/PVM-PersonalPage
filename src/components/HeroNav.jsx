@@ -41,7 +41,7 @@ const HeroNav = ({ items, activeId, onSelect }) => (
           aria-selected={isActive}
           aria-label={item.ariaLabel || item.label}
           onClick={() => onSelect?.(item.id)}
-          className="relative px-3.5 sm:px-5 py-2 text-sm font-medium whitespace-nowrap rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+          className="relative px-3 sm:px-5 py-1.5 sm:py-2 text-xs sm:text-sm font-medium whitespace-nowrap rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
         >
           {isActive ? (
             <Motion.span

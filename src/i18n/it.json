@@ -9,6 +9,12 @@
   "hero": {
     "greeting": "Ciao, sono Pablo",
     "role": "AI Automation Engineer",
+    "rotatingPhrases": [
+      "costruendo workflow intelligenti",
+      "portando l'IA in produzione",
+      "facendo risparmiare ore ai team",
+      "dall'idea alla pipeline live"
+    ],
     "ctaAbout": "Su di me",
     "ctaAutomation": "Automazione",
     "ctaProjects": "Progetti",
@@ -30,21 +36,19 @@
     "p1": {
       "intro": "Sono un ",
       "role": "AI Automation Engineer",
-      "middle": " con solide basi in ",
-      "js": "JavaScript",
-      "comma1": ", ",
-      "react": "React",
-      "comma2": ", ",
-      "node": "Node.js",
-      "and1": " e ",
-      "mongo": "MongoDB",
-      "tail1": ", attualmente focalizzato sulla creazione di flussi di lavoro con ",
+      "middle": " e progetto pipeline end-to-end con ",
       "n8n": "n8n",
-      "comma3": ", ",
+      "comma1": ", ",
       "docker": "Docker",
+      "and1": " e ",
+      "postgres": "PostgreSQL",
+      "middle2": ", le collego agli ",
+      "llms": "LLM (OpenAI, Anthropic, Gemini)",
+      "middle3": " e le rilascio con servizi in ",
+      "node": "Node.js",
       "and2": " e ",
-      "ai": "integrazioni di IA",
-      "tail2": "."
+      "python": "Python",
+      "tail": " pronti per la produzione."
     },
     "p2": {
       "intro": "Dopo diversi anni nei settori dell'ospitalità e del retail —dove ho sviluppato soft skill chiave come ",
@@ -58,15 +62,17 @@
       "tail": "."
     },
     "p3": {
-      "intro": "Oggi divido il mio tempo tra il deploy di ",
-      "fullstack": "applicazioni web full-stack",
-      "middle1": " e la progettazione di automazioni che collegano ",
-      "apis": "API",
-      "comma1": ", ",
+      "intro": "Oggi passo la maggior parte del tempo costruendo ",
+      "agents": "agenti IA",
+      "and1": " e ",
+      "workflows": "workflow automatizzati",
+      "middle1": ", collegando ",
+      "channels": "canali voce, email e dati",
+      "middle2": " con ",
       "crms": "CRM",
-      "and": " e ",
+      "comma1": ", ",
       "llms": "LLM",
-      "tail": " per far risparmiare ai team centinaia di ore, sempre con voglia di continuare a imparare e crescere."
+      "tail": " e strumenti interni — facendo risparmiare ore ai team, sempre con voglia di imparare e crescere."
     },
     "tags": [
       "Full Stack",

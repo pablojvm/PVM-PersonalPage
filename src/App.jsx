@@ -4,6 +4,7 @@ import { useLanguage } from "./contexts/LanguageContext";
 import { useTheme } from "./contexts/ThemeContext";
 import TopBar from "./components/TopBar";
 import HeroNav from "./components/HeroNav";
+import AnimatedWords from "./components/AnimatedWords";
 import {
   CallCenterDemo,
   DocManagerDemo,
@@ -301,6 +302,10 @@ const tecnologias = [
     iconUrl: "https://api.iconify.design/logos:twilio-icon.svg",
   },
   { name: "Deepgram", slug: "deepgram", color: "13EF93" },
+  {
+    name: "Gemini",
+    iconUrl: "https://api.iconify.design/logos:google-gemini.svg",
+  },
   {
     name: "OpenAI",
     color: "FFFFFF",
@@ -1016,52 +1021,64 @@ const HomePage = () => {
           >
             {t("hero.greeting")}
           </h1>
-          <p className="text-lg md:text-xl mb-8 text-white/90 max-w-2xl mx-auto theme-light:text-slate-700">
+          <p className="text-lg md:text-xl mb-2 text-white/90 max-w-2xl mx-auto theme-light:text-slate-700">
             {t("hero.role")}
           </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 justify-center items-center flex-wrap">
-            <HeroNav
-              activeId={activeNav}
-              onSelect={(id) => {
-                setActiveNav(id);
-                const target = {
-                  about: "#about",
-                  automation: "#case-studies",
-                  projects: "#proyectos",
-                  products: "#productos",
-                  contact: "#contact",
-                }[id];
-                if (target) scrollTo(target);
-              }}
-              items={[
-                {
-                  id: "about",
-                  label: t("hero.ctaAbout"),
-                  ariaLabel: t("hero.ariaAbout"),
-                },
-                {
-                  id: "automation",
-                  label: t("hero.ctaAutomation"),
-                  ariaLabel: t("hero.ariaAutomation"),
-                },
-                {
-                  id: "projects",
-                  label: t("hero.ctaProjects"),
-                  ariaLabel: t("hero.ariaProjects"),
-                },
-                {
-                  id: "products",
-                  label: t("hero.ctaProducts"),
-                  ariaLabel: t("hero.ariaProducts"),
-                },
-                {
-                  id: "contact",
-                  label: t("hero.ctaContact"),
-                  ariaLabel: t("hero.ariaContact"),
-                },
-              ]}
+          <p className="text-sm md:text-base mb-8 text-white/60 max-w-2xl mx-auto min-h-[1.5em] theme-light:text-slate-500">
+            <AnimatedWords
+              words={t("hero.rotatingPhrases")}
+              className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent
+                         theme-light:from-purple-600 theme-light:to-pink-600"
             />
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-3 justify-center items-center flex-wrap max-w-full">
+            {/* Wrapper para que la pill pueda scrollear horizontalmente en mobile
+                si las 5 etiquetas no entran en el viewport, sin romper el
+                layout del documento. */}
+            <div className="max-w-full overflow-x-auto scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0 sm:overflow-visible">
+              <HeroNav
+                activeId={activeNav}
+                onSelect={(id) => {
+                  setActiveNav(id);
+                  const target = {
+                    about: "#about",
+                    automation: "#case-studies",
+                    projects: "#proyectos",
+                    products: "#productos",
+                    contact: "#contact",
+                  }[id];
+                  if (target) scrollTo(target);
+                }}
+                items={[
+                  {
+                    id: "about",
+                    label: t("hero.ctaAbout"),
+                    ariaLabel: t("hero.ariaAbout"),
+                  },
+                  {
+                    id: "automation",
+                    label: t("hero.ctaAutomation"),
+                    ariaLabel: t("hero.ariaAutomation"),
+                  },
+                  {
+                    id: "projects",
+                    label: t("hero.ctaProjects"),
+                    ariaLabel: t("hero.ariaProjects"),
+                  },
+                  {
+                    id: "products",
+                    label: t("hero.ctaProducts"),
+                    ariaLabel: t("hero.ariaProducts"),
+                  },
+                  {
+                    id: "contact",
+                    label: t("hero.ctaContact"),
+                    ariaLabel: t("hero.ariaContact"),
+                  },
+                ]}
+              />
+            </div>
 
             <button
               onClick={handleDownloadCV}
@@ -1130,34 +1147,30 @@ const HomePage = () => {
                       {aboutP1.role}
                     </span>
                     {aboutP1.middle}
-                    <span className="text-yellow-300 font-medium theme-light:text-yellow-700">
-                      {aboutP1.js}
-                    </span>
-                    {aboutP1.comma1}
-                    <span className="text-blue-300 font-medium theme-light:text-blue-700">
-                      {aboutP1.react}
-                    </span>
-                    {aboutP1.comma2}
-                    <span className="text-green-300 font-medium theme-light:text-green-700">
-                      {aboutP1.node}
-                    </span>
-                    {aboutP1.and1}
-                    <span className="text-green-400 font-medium theme-light:text-green-700">
-                      {aboutP1.mongo}
-                    </span>
-                    {aboutP1.tail1}
                     <span className="text-pink-300 font-medium theme-light:text-pink-700">
                       {aboutP1.n8n}
                     </span>
-                    {aboutP1.comma3}
+                    {aboutP1.comma1}
                     <span className="text-cyan-300 font-medium theme-light:text-cyan-700">
                       {aboutP1.docker}
                     </span>
-                    {aboutP1.and2}
-                    <span className="text-purple-300 font-medium theme-light:text-purple-700">
-                      {aboutP1.ai}
+                    {aboutP1.and1}
+                    <span className="text-blue-300 font-medium theme-light:text-blue-700">
+                      {aboutP1.postgres}
                     </span>
-                    {aboutP1.tail2}
+                    {aboutP1.middle2}
+                    <span className="text-purple-300 font-medium theme-light:text-purple-700">
+                      {aboutP1.llms}
+                    </span>
+                    {aboutP1.middle3}
+                    <span className="text-green-300 font-medium theme-light:text-green-700">
+                      {aboutP1.node}
+                    </span>
+                    {aboutP1.and2}
+                    <span className="text-yellow-300 font-medium theme-light:text-yellow-700">
+                      {aboutP1.python}
+                    </span>
+                    {aboutP1.tail}
                   </p>
 
                   <p className="text-lg leading-relaxed text-white/90 mb-6 theme-light:text-slate-700">
@@ -1183,18 +1196,22 @@ const HomePage = () => {
                   <p className="text-lg leading-relaxed text-white/90 theme-light:text-slate-700">
                     {aboutP3.intro}
                     <span className="text-purple-300 font-medium theme-light:text-purple-700">
-                      {aboutP3.fullstack}
+                      {aboutP3.agents}
+                    </span>
+                    {aboutP3.and1}
+                    <span className="text-pink-300 font-medium theme-light:text-pink-700">
+                      {aboutP3.workflows}
                     </span>
                     {aboutP3.middle1}
-                    <span className="text-blue-300 font-medium theme-light:text-blue-700">
-                      {aboutP3.apis}
+                    <span className="text-cyan-300 font-medium theme-light:text-cyan-700">
+                      {aboutP3.channels}
                     </span>
-                    {aboutP3.comma1}
+                    {aboutP3.middle2}
                     <span className="text-blue-300 font-medium theme-light:text-blue-700">
                       {aboutP3.crms}
                     </span>
-                    {aboutP3.and}
-                    <span className="text-blue-300 font-medium theme-light:text-blue-700">
+                    {aboutP3.comma1}
+                    <span className="text-purple-300 font-medium theme-light:text-purple-700">
                       {aboutP3.llms}
                     </span>
                     {aboutP3.tail}

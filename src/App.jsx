@@ -268,7 +268,6 @@ const ProductCard = ({
 
 /* --------------------------- Tech carousel (integrated) --------------------------- */
 export const TechCarousel = () => {
-  const { t } = useLanguage();
   const { isDark } = useTheme();
   const scrollRef = useRef(null);
   const isPausedRef = useRef(false);
@@ -298,14 +297,21 @@ export const TechCarousel = () => {
       "(prefers-reduced-motion: reduce)",
     ).matches;
 
-    el.addEventListener("scroll", wrap, { passive: true });
+    // Wrap only on manual scroll events when the user isn't actively
+    // touching: writing to scrollLeft mid-swipe on iOS kills the native
+    // momentum scrolling and makes the carousel feel "stuck".
+    const handleScroll = () => {
+      if (!isPausedRef.current) wrap();
+    };
+    el.addEventListener("scroll", handleScroll, { passive: true });
 
     if (prefersReduced) {
-      return () => el.removeEventListener("scroll", wrap);
+      return () => el.removeEventListener("scroll", handleScroll);
     }
 
     let rafId;
     let lastTime = 0;
+    let resumeAt = 0; // wait this many ms after touchend before nudging again
     const speed = 28;
 
     const tick = (now) => {
@@ -313,10 +319,12 @@ export const TechCarousel = () => {
       const delta = now - lastTime;
       lastTime = now;
 
-      if (!isPausedRef.current) {
+      // Auto-scroll only when not paused AND the post-touch grace
+      // period has elapsed (so momentum can play out cleanly).
+      if (!isPausedRef.current && now >= resumeAt) {
         el.scrollLeft += (speed * delta) / 1000;
+        wrap();
       }
-      wrap();
 
       rafId = requestAnimationFrame(tick);
     };
@@ -328,20 +336,23 @@ export const TechCarousel = () => {
     };
     const leave = () => {
       isPausedRef.current = false;
+      resumeAt = performance.now() + 600; // let momentum drift settle
     };
 
     el.addEventListener("mouseenter", enter);
     el.addEventListener("mouseleave", leave);
     el.addEventListener("touchstart", enter, { passive: true });
     el.addEventListener("touchend", leave);
+    el.addEventListener("touchcancel", leave);
 
     return () => {
       cancelAnimationFrame(rafId);
-      el.removeEventListener("scroll", wrap);
+      el.removeEventListener("scroll", handleScroll);
       el.removeEventListener("mouseenter", enter);
       el.removeEventListener("mouseleave", leave);
       el.removeEventListener("touchstart", enter);
       el.removeEventListener("touchend", leave);
+      el.removeEventListener("touchcancel", leave);
     };
   }, []);
 

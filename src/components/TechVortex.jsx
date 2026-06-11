@@ -1,4 +1,4 @@
-import { useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { motion as Motion, useScroll, useTransform } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import { tecnologias } from "../data/tecnologias";
@@ -7,20 +7,15 @@ import TechIcon from "./TechIcon";
 /**
  * TechVortex — scroll-driven 3D sphere of tech logos.
  *
- * The section is exactly one viewport tall (`h-screen`) so it slots
- * cleanly between About Me and the Tech Carousel without leaving
- * visible empty bands above or below.
+ * The section is one viewport tall (`h-[100svh]` so it respects mobile
+ * browser chrome). On mobile the sphere is rebuilt at a smaller radius
+ * so it fits comfortably in the narrower viewport without crowding the
+ * floating title above it.
  *
- * As the user scrolls the section through the viewport, the sphere:
+ * As the user scrolls the section through the viewport the sphere:
  *   1. fades in & scales up while sliding into view
  *   2. rotates around its Y axis for ~2 full turns
  *   3. fades out & shrinks slightly as it exits
- *
- * The spotlight is a separate blurred radial halo, contained in its
- * own circular container so it never produces a visible hard edge at
- * the section boundaries.
- *
- * Respects `prefers-reduced-motion` (sphere becomes static if so).
  */
 
 const computeSpherePositions = (n) => {
@@ -76,11 +71,38 @@ const VortexIcon = ({ tech, position, rotation, radius, size }) => {
   );
 };
 
+/* ------------------------- Viewport sizing ------------------------- */
+/* useState wrapper that mirrors window.matchMedia and updates on resize so
+   the vortex rebuilds at the right radius when the user rotates their
+   phone or resizes their browser. */
+const useIsMobile = (breakpoint = 640) => {
+  const [isMobile, setIsMobile] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(`(max-width: ${breakpoint - 1}px)`).matches;
+  });
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mq = window.matchMedia(`(max-width: ${breakpoint - 1}px)`);
+    const handler = (e) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, [breakpoint]);
+
+  return isMobile;
+};
+
 /* ------------------------- Section ------------------------- */
 
-const TechVortex = ({ radius = 200, iconSize = 48 }) => {
+const TechVortex = () => {
   const sectionRef = useRef(null);
   const { t } = useLanguage();
+  const isMobile = useIsMobile();
+
+  // Mobile gets a noticeably smaller sphere so it doesn't bump into the
+  // floating title and doesn't overflow the viewport width.
+  const radius = isMobile ? 115 : 200;
+  const iconSize = isMobile ? 32 : 48;
 
   const positions = useMemo(
     () => computeSpherePositions(tecnologias.length),
@@ -97,20 +119,17 @@ const TechVortex = ({ radius = 200, iconSize = 48 }) => {
     window.matchMedia &&
     window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // ~2 full rotations across the section's full scroll transit.
   const rotation = useTransform(
     scrollYProgress,
     [0, 1],
     [0, prefersReduced ? 0 : Math.PI * 4],
   );
 
-  // Smooth grow / hold / slight shrink.
   const sphereScale = useTransform(
     scrollYProgress,
     [0, 0.3, 0.7, 1],
     [0.6, 1, 1, 0.7],
   );
-  // Quick fade in, hold, quick fade out — no abrupt edges at section bounds.
   const sphereOpacity = useTransform(
     scrollYProgress,
     [0, 0.18, 0.82, 1],
@@ -128,12 +147,10 @@ const TechVortex = ({ radius = 200, iconSize = 48 }) => {
     <section
       ref={sectionRef}
       id="tech-vortex"
-      className="relative h-screen overflow-hidden flex items-center justify-center"
+      className="relative h-[100svh] overflow-hidden flex items-center justify-center"
       aria-label={t("tech.title")}
     >
-      {/* Soft circular halo — sits behind the sphere, fades with it.
-          Lives inside a sized & blurred circle so it cannot leak hard
-          edges to the surrounding sections. */}
+      {/* Soft circular halo behind the sphere */}
       <Motion.div
         className="absolute inset-0 pointer-events-none flex items-center justify-center"
         style={{ opacity: sphereOpacity }}
@@ -142,8 +159,8 @@ const TechVortex = ({ radius = 200, iconSize = 48 }) => {
         <div
           className="rounded-full"
           style={{
-            width: "min(70vh, 720px)",
-            height: "min(70vh, 720px)",
+            width: isMobile ? "min(56vh, 360px)" : "min(70vh, 720px)",
+            height: isMobile ? "min(56vh, 360px)" : "min(70vh, 720px)",
             background:
               "radial-gradient(circle at center, rgba(168,85,247,0.22) 0%, rgba(236,72,153,0.12) 40%, transparent 75%)",
             filter: "blur(36px)",
@@ -153,13 +170,13 @@ const TechVortex = ({ radius = 200, iconSize = 48 }) => {
 
       {/* Floating title */}
       <Motion.div
-        className="absolute top-[12vh] left-0 right-0 text-center px-4 z-20"
+        className="absolute top-[8vh] sm:top-[12vh] left-0 right-0 text-center px-4 z-20"
         style={{ y: titleY, opacity: titleOpacity }}
       >
-        <h2 className="text-3xl md:text-5xl font-bold text-white theme-light:text-slate-900">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white theme-light:text-slate-900">
           {t("tech.title")}
         </h2>
-        <p className="mt-3 text-sm md:text-base text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
+        <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-white/70 max-w-2xl mx-auto theme-light:text-slate-600">
           {t("tech.subtitle")}
         </p>
       </Motion.div>

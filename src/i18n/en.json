@@ -168,6 +168,10 @@
       {
         "titulo": "AirB2B",
         "descripcion": "AirB2B is a full-stack app inspired by Airbnb, focused on corporate accommodation."
+      },
+      {
+        "titulo": "MiMusico",
+        "descripcion": "An app to search for and post listings for second-hand instruments and music groups."
       }
     ]
   },

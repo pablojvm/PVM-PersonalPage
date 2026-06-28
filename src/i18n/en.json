@@ -8,7 +8,7 @@
   },
   "hero": {
     "greeting": "Hi, I'm Pablo",
-    "role": "AI Automation Engineer",
+    "role": "AI Implementation & Automation Specialist",
     "rotatingPhrases": [
       "building intelligent workflows",
       "shipping AI to production",
@@ -31,11 +31,11 @@
   },
   "about": {
     "title": "About me",
-    "imageAlt": "Pablo Villar - AI Automation Engineer",
+    "imageAlt": "Pablo Villar - AI Implementation & Automation Specialist",
     "placeholder": "Your photo here",
     "p1": {
       "intro": "I'm an ",
-      "role": "AI Automation Engineer",
+      "role": "AI Implementation & Automation Specialist",
       "middle": " who designs end-to-end pipelines with ",
       "n8n": "n8n",
       "comma1": ", ",
@@ -89,7 +89,8 @@
       { "year": "2022 – 2025", "title": "Sales Assistant", "place": "Inditex · Málaga & Granada", "description": "Customer-facing role that sharpened communication and adaptability under pressure." },
       { "year": "2025", "title": "Full Stack Bootcamp", "place": "Ironhack", "description": "Intensive program in JavaScript, React, Node.js, MongoDB and REST APIs." },
       { "year": "2025-2026", "title": "Automation Developer", "place": "Herion", "description": "Designed automated workflows and integrations that streamlined processes and reduced manual tasks." },
-      { "year": "2025 – Present", "title": "AI Automation Engineer", "place": "Freelance · own products", "description": "Building n8n + AI automations, full-stack web apps and my own SaaS products." }
+      { "year": "2025 – 2026", "title": "AI Automation Engineer", "place": "Freelance · own products", "description": "Building n8n + AI automations, full-stack web apps and my own SaaS products." },
+      { "year": "2026 – Present", "title": "AI Implementation & Automation Specialist", "place": "HomeServe Iberia", "description": "Designing and shipping AI-powered automations for a market-leading home assistance company." }
     ],
     "languagesTitle": "Languages",
     "languages": [

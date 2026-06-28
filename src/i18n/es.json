@@ -8,7 +8,7 @@
   },
   "hero": {
     "greeting": "Hola, soy Pablo",
-    "role": "AI Automation Engineer",
+    "role": "AI Implementation & Automation Specialist",
     "rotatingPhrases": [
       "construyendo workflows inteligentes",
       "llevando la IA a producción",
@@ -31,11 +31,11 @@
   },
   "about": {
     "title": "Sobre mí",
-    "imageAlt": "Pablo Villar - AI Automation Engineer",
+    "imageAlt": "Pablo Villar - AI Implementation & Automation Specialist",
     "placeholder": "Tu foto aquí",
     "p1": {
       "intro": "Soy ",
-      "role": "AI Automation Engineer",
+      "role": "AI Implementation & Automation Specialist",
       "middle": " y diseño pipelines end-to-end con ",
       "n8n": "n8n",
       "comma1": ", ",
@@ -89,7 +89,8 @@
       { "year": "2022 – 2025", "title": "Dependiente", "place": "Inditex · Málaga y Granada", "description": "Rol cara al público que afinó mi comunicación y adaptabilidad bajo presión." },
       { "year": "2025", "title": "Bootcamp Full Stack", "place": "Ironhack", "description": "Programa intensivo: JavaScript, React, Node.js, MongoDB y APIs REST." },
       { "year": "2025-2026", "title": "Desarrollador de Automatizaciones", "place": "Herion", "description": "Diseño de flujos automatizados e integraciones que optimizaron procesos y redujeron tareas manuales." },
-      { "year": "2025 – Actualidad", "title": "AI Automation Engineer", "place": "Freelance · productos propios", "description": "Automatizaciones con n8n + IA, apps web full-stack y mis propios productos SaaS." }
+      { "year": "2025 – 2026", "title": "AI Automation Engineer", "place": "Freelance · productos propios", "description": "Automatizaciones con n8n + IA, apps web full-stack y mis propios productos SaaS." },
+      { "year": "2026 – Actualidad", "title": "AI Implementation & Automation Specialist", "place": "HomeServe Iberia", "description": "Diseñando e implementando automatizaciones con IA en una empresa líder de servicios para el hogar." }
     ],
     "languagesTitle": "Idiomas",
     "languages": [

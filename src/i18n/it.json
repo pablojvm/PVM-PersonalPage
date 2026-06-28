@@ -8,7 +8,7 @@
   },
   "hero": {
     "greeting": "Ciao, sono Pablo",
-    "role": "AI Automation Engineer",
+    "role": "AI Implementation & Automation Specialist",
     "rotatingPhrases": [
       "costruendo workflow intelligenti",
       "portando l'IA in produzione",
@@ -31,11 +31,11 @@
   },
   "about": {
     "title": "Su di me",
-    "imageAlt": "Pablo Villar - AI Automation Engineer",
+    "imageAlt": "Pablo Villar - AI Implementation & Automation Specialist",
     "placeholder": "La tua foto qui",
     "p1": {
       "intro": "Sono un ",
-      "role": "AI Automation Engineer",
+      "role": "AI Implementation & Automation Specialist",
       "middle": " e progetto pipeline end-to-end con ",
       "n8n": "n8n",
       "comma1": ", ",
@@ -89,7 +89,8 @@
       { "year": "2022 – 2025", "title": "Commesso", "place": "Inditex · Málaga e Granada", "description": "Ruolo a contatto con il pubblico che mi ha formato in comunicazione e adattabilità sotto pressione." },
       { "year": "2025", "title": "Bootcamp Full Stack", "place": "Ironhack", "description": "Programma intensivo: JavaScript, React, Node.js, MongoDB e API REST." },
       { "year": "2025-2026", "title": "Sviluppatore di Automazioni", "place": "Herion", "description": "Progettazione di flussi automatizzati e integrazioni che hanno ottimizzato i processi e ridotto le attività manuali." },
-      { "year": "2025 – Oggi", "title": "AI Automation Engineer", "place": "Freelance · prodotti propri", "description": "Automazioni con n8n + IA, app web full-stack e i miei prodotti SaaS." }
+      { "year": "2025 – 2026", "title": "AI Automation Engineer", "place": "Freelance · prodotti propri", "description": "Automazioni con n8n + IA, app web full-stack e i miei prodotti SaaS." },
+      { "year": "2026 – Oggi", "title": "AI Implementation & Automation Specialist", "place": "HomeServe Iberia", "description": "Progettando e implementando automazioni con IA per un'azienda leader nei servizi domestici." }
     ],
     "languagesTitle": "Lingue",
     "languages": [
